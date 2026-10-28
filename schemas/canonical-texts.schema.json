@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gxwd.local/schemas/canonical-texts.schema.json",
+  "title": "CanonicalTexts",
+  "description": "观象悟道经文数据契约 — 卦辞、爻辞、彖传、象传的结构化存储",
+  "type": "object",
+  "required": ["version", "entries"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/TextEntry" }
+    }
+  },
+  "$defs": {
+    "VariantReading": {
+      "type": "object",
+      "required": ["text", "source_id"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string", "minLength": 1 },
+        "source_id": { "type": "string", "minLength": 1 },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+    "TextEntry": {
+      "type": "object",
+      "required": [
+        "text_id",
+        "hexagram_id",
+        "text_type",
+        "line_position",
+        "line_name",
+        "original_text",
+        "source_id",
+        "edition",
+        "page",
+        "variant_readings",
+        "verification_status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "text_id": {
+          "type": "string",
+          "description": "格式: H<id:02d>-<text_type>[-L<line_position>]，例如 H37-gua_ci、H37-yao_ci-L3、H01-yong-用九",
+          "pattern": "^H[0-9]{2}-[a-z_]+(-.+)?$"
+        },
+        "hexagram_id": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "text_type": {
+          "type": "string",
+          "enum": ["gua_ci", "yao_ci", "yong", "tuan", "da_xiang", "xiao_xiang"]
+        },
+        "line_position": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "integer", "minimum": 1, "maximum": 6 },
+            { "type": "string", "enum": ["用九", "用六"] }
+          ]
+        },
+        "line_name": {
+          "type": ["string", "null"]
+        },
+        "original_text": {
+          "type": ["string", "null"]
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition": {
+          "type": ["string", "null"]
+        },
+        "page": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string" },
+            { "type": "integer" }
+          ]
+        },
+        "variant_readings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/VariantReading" }
+        },
+        "verification_status": {
+          "type": "string",
+          "enum": ["pending", "verified", "rejected"]
+        }
+      },
+      "if": {
+        "properties": {
+          "original_text": { "type": "string" }
+        },
+        "required": ["original_text"]
+      },
+      "then": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "not": { "const": "SOURCE_PENDING" }
+          },
+          "edition": { "type": "string", "minLength": 1 },
+          "page": {
+            "oneOf": [
+              { "type": "string", "minLength": 1 },
+              { "type": "integer" }
+            ]
+          },
+          "verification_status": { "const": "verified" }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "text_type": { "enum": ["gua_ci", "tuan", "da_xiang"] } },
+            "required": ["text_type"]
+          },
+          "then": {
+            "properties": { "line_position": { "type": "null" } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "text_type": { "const": "yao_ci" } },
+            "required": ["text_type"]
+          },
+          "then": {
+            "properties": {
+              "line_position": { "type": "integer", "minimum": 1, "maximum": 6 }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "text_type": { "const": "yong" } },
+            "required": ["text_type"]
+          },
+          "then": {
+            "properties": {
+              "line_position": { "type": "string", "enum": ["用九", "用六"] }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "text_type": { "const": "xiao_xiang" } },
+            "required": ["text_type"]
+          },
+          "then": {
+            "properties": {
+              "line_position": {
+                "oneOf": [
+                  { "type": "null" },
+                  { "type": "integer", "minimum": 1, "maximum": 6 }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

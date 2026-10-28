@@ -1,0 +1,44 @@
+{
+  "version": "1",
+  "entries": [
+    {
+      "text_id": "H37-gua_ci",
+      "hexagram_id": 37,
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "original_text": null,
+      "source_id": "SOURCE_PENDING",
+      "edition": null,
+      "page": null,
+      "variant_readings": [],
+      "verification_status": "pending"
+    },
+    {
+      "text_id": "H37-yao_ci-L1",
+      "hexagram_id": 37,
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "original_text": null,
+      "source_id": "SOURCE_PENDING",
+      "edition": null,
+      "page": null,
+      "variant_readings": [],
+      "verification_status": "pending"
+    },
+    {
+      "text_id": "H01-yong-用九",
+      "hexagram_id": 1,
+      "text_type": "yong",
+      "line_position": "用九",
+      "line_name": null,
+      "original_text": null,
+      "source_id": "SOURCE_PENDING",
+      "edition": null,
+      "page": null,
+      "variant_readings": [],
+      "verification_status": "pending"
+    }
+  ]
+}
