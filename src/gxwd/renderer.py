@@ -85,10 +85,16 @@ def render_hexagram_svg(
 
 
 def render_hexagram_file(hexagram: dict, out_dir: Path) -> Path:
-    """Write `<id:02d>-<slug>.svg` into out_dir and return its path."""
+    """Write `<id:02d>-<slug>.svg` into out_dir and return its path.
+
+    爻线从 binary_bottom_to_top 推导（审定 R7），不信任入参的 lines_top_to_bottom。
+    """
+    from gxwd.domain import lines_from_binary  # noqa: PLC0415 — avoid cycle at import
+
     hexagram_id = hexagram["hexagram_id"]
     title = f"第{hexagram_id}卦 {hexagram['name']} {hexagram['symbol']}"
-    svg = render_hexagram_svg(hexagram["lines_top_to_bottom"], title=title)
+    lines = lines_from_binary(hexagram["binary_bottom_to_top"])
+    svg = render_hexagram_svg(lines, title=title)
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"{hexagram_id:02d}-{hexagram['slug']}.svg"

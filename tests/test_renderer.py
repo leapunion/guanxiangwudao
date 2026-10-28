@@ -154,6 +154,7 @@ def _jiaren_dict() -> dict:
         "name": "家人",
         "slug": "jiaren",
         "symbol": "䷤",
+        "binary_bottom_to_top": "101011",
         "lines_top_to_bottom": list(JIAREN),
     }
 
@@ -179,7 +180,12 @@ def test_render_file_does_not_mutate_input(tmp_path: Path) -> None:
 
 
 def test_render_file_pads_single_digit_id(tmp_path: Path) -> None:
-    hexagram = {**_jiaren_dict(), "hexagram_id": 1, "slug": "qian"}
+    hexagram = {
+        **_jiaren_dict(),
+        "hexagram_id": 1,
+        "slug": "qian",
+        "binary_bottom_to_top": "111111",
+    }
 
     path = render_hexagram_file(hexagram, tmp_path)
 
