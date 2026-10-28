@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/yao-texts.schema.json",
+  "title": "YaoTexts",
+  "type": "object",
+  "required": ["version", "hexagrams"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {"type": "string", "minLength": 1},
+    "hexagrams": {"type": "array", "items": {"$ref": "#/$defs/hexagramYao"}}
+  },
+  "$defs": {
+    "line": {
+      "type": "object",
+      "required": [
+        "position", "line_type", "line_name", "original_text", "source_id",
+        "edition", "page", "variant_readings", "interpretation",
+        "historical_story_id", "verification_status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "position": {"type": "integer", "minimum": 1, "maximum": 6},
+        "line_type": {"enum": ["yang", "yin"]},
+        "line_name": {"type": "string", "minLength": 1},
+        "original_text": {"type": ["string", "null"]},
+        "source_id": {"type": "string", "minLength": 1},
+        "edition": {"type": ["string", "null"]},
+        "page": {"type": ["string", "integer", "null"]},
+        "variant_readings": {"type": "array"},
+        "interpretation": {"type": ["string", "null"]},
+        "historical_story_id": {"type": ["string", "null"]},
+        "verification_status": {"type": "string", "minLength": 1}
+      }
+    },
+    "extraLine": {
+      "type": "object",
+      "required": ["name", "original_text", "source_id", "verification_status"],
+      "additionalProperties": true,
+      "properties": {
+        "name": {"enum": ["用九", "用六"]},
+        "original_text": {"type": ["string", "null"]},
+        "source_id": {"type": "string", "minLength": 1},
+        "verification_status": {"type": "string", "minLength": 1}
+      }
+    },
+    "hexagramYao": {
+      "type": "object",
+      "required": ["hexagram_id", "lines", "extra_lines"],
+      "additionalProperties": false,
+      "properties": {
+        "hexagram_id": {"type": "integer", "minimum": 1, "maximum": 64},
+        "lines": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {"$ref": "#/$defs/line"}
+        },
+        "extra_lines": {
+          "type": "array",
+          "maxItems": 1,
+          "items": {"$ref": "#/$defs/extraLine"}
+        }
+      }
+    }
+  }
+}

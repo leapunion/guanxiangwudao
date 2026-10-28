@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/asset-catalog.schema.json",
+  "title": "AssetCatalog",
+  "type": "object",
+  "required": ["version", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {"type": "string", "minLength": 1},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hexagram_id", "state", "version", "history"],
+        "additionalProperties": true,
+        "properties": {
+          "hexagram_id": {"type": "integer", "minimum": 1, "maximum": 64},
+          "state": {
+            "enum": [
+              "DRAFT", "RESEARCHED", "TEXT_VERIFIED", "ART_DRAFT",
+              "ART_APPROVED", "LAYOUT_READY", "REVIEW_REQUIRED", "PUBLISHED",
+              "BLOCKED", "REJECTED", "REVISION_REQUIRED"
+            ]
+          },
+          "version": {"type": "string", "minLength": 1},
+          "history": {"type": "array"}
+        },
+        "if": {
+          "properties": {"state": {"const": "PUBLISHED"}},
+          "required": ["state"]
+        },
+        "then": {
+          "required": ["approval"],
+          "properties": {
+            "approval": {
+              "type": "object",
+              "required": ["approved_by", "approved_at", "gates"],
+              "properties": {
+                "approved_by": {"type": "string", "minLength": 1, "pattern": "\\S"},
+                "approved_at": {"type": "string", "minLength": 1},
+                "gates": {
+                  "type": "object",
+                  "required": ["G1", "G2", "G3"],
+                  "properties": {
+                    "G1": {"const": "passed"},
+                    "G2": {"const": "passed"},
+                    "G3": {"const": "passed"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

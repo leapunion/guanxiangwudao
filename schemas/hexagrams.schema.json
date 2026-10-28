@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/hexagrams.schema.json",
+  "title": "Hexagrams",
+  "type": "array",
+  "minItems": 64,
+  "maxItems": 64,
+  "items": {"$ref": "#/$defs/hexagram"},
+  "$defs": {
+    "trigramRef": {
+      "type": "object",
+      "required": ["name", "binary"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "binary": {"type": "string", "pattern": "^[01]{3}$"}
+      }
+    },
+    "hexagram": {
+      "type": "object",
+      "required": [
+        "hexagram_id", "name", "full_name", "slug", "symbol",
+        "lower_trigram", "upper_trigram", "binary_bottom_to_top",
+        "lines_top_to_bottom", "text_verification", "artwork_status"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "hexagram_id": {"type": "integer", "minimum": 1, "maximum": 64},
+        "name": {"type": "string", "minLength": 1},
+        "full_name": {"type": "string", "minLength": 1},
+        "slug": {"type": "string", "pattern": "^[a-z]+$"},
+        "symbol": {"type": "string", "minLength": 1, "maxLength": 1},
+        "lower_trigram": {"$ref": "#/$defs/trigramRef"},
+        "upper_trigram": {"$ref": "#/$defs/trigramRef"},
+        "binary_bottom_to_top": {"type": "string", "pattern": "^[01]{6}$"},
+        "lines_top_to_bottom": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {"enum": ["yang", "yin"]}
+        },
+        "text_verification": {"type": "string", "minLength": 1},
+        "artwork_status": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

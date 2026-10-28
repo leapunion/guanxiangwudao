@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/sources.schema.json",
+  "title": "Sources",
+  "type": "object",
+  "required": ["sources", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id"],
+        "properties": {
+          "source_id": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "status": {"type": "string", "minLength": 1},
+    "candidate_editions_note": {"type": "string"}
+  }
+}

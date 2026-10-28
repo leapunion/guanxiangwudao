@@ -1,0 +1,66 @@
+[
+  {
+    "name": "乾",
+    "symbol": "☰",
+    "binary": "111",
+    "nature": "天",
+    "virtue": "健",
+    "mnemonic": "乾三连"
+  },
+  {
+    "name": "坤",
+    "symbol": "☷",
+    "binary": "000",
+    "nature": "地",
+    "virtue": "顺",
+    "mnemonic": "坤六断"
+  },
+  {
+    "name": "震",
+    "symbol": "☳",
+    "binary": "100",
+    "nature": "雷",
+    "virtue": "动",
+    "mnemonic": "震仰盂"
+  },
+  {
+    "name": "巽",
+    "symbol": "☴",
+    "binary": "011",
+    "nature": "风",
+    "virtue": "入",
+    "mnemonic": "巽下断"
+  },
+  {
+    "name": "坎",
+    "symbol": "☵",
+    "binary": "010",
+    "nature": "水",
+    "virtue": "陷",
+    "mnemonic": "坎中满"
+  },
+  {
+    "name": "离",
+    "symbol": "☲",
+    "binary": "101",
+    "nature": "火",
+    "virtue": "丽",
+    "mnemonic": "离中虚"
+  },
+  {
+    "name": "艮",
+    "symbol": "☶",
+    "binary": "001",
+    "nature": "山",
+    "virtue": "止",
+    "mnemonic": "艮覆碗"
+  },
+  {
+    "name": "兑",
+    "symbol": "☱",
+    "binary": "110",
+    "nature": "泽",
+    "virtue": "悦",
+    "mnemonic": "兑上缺"
+  }
+]

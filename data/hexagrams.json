@@ -1,0 +1,1666 @@
+[
+  {
+    "hexagram_id": 1,
+    "name": "乾",
+    "full_name": "乾为天",
+    "slug": "qian",
+    "symbol": "䷀",
+    "lower_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "upper_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "binary_bottom_to_top": "111111",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yang",
+      "yang",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 2,
+    "name": "坤",
+    "full_name": "坤为地",
+    "slug": "kun",
+    "symbol": "䷁",
+    "lower_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "upper_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "binary_bottom_to_top": "000000",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yin",
+      "yin",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 3,
+    "name": "屯",
+    "full_name": "水雷屯",
+    "slug": "zhun",
+    "symbol": "䷂",
+    "lower_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "upper_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "binary_bottom_to_top": "100010",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yin",
+      "yin",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 4,
+    "name": "蒙",
+    "full_name": "山水蒙",
+    "slug": "meng",
+    "symbol": "䷃",
+    "lower_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "upper_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "binary_bottom_to_top": "010001",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yin",
+      "yin",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 5,
+    "name": "需",
+    "full_name": "水天需",
+    "slug": "xu",
+    "symbol": "䷄",
+    "lower_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "upper_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "binary_bottom_to_top": "111010",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yin",
+      "yang",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 6,
+    "name": "讼",
+    "full_name": "天水讼",
+    "slug": "song",
+    "symbol": "䷅",
+    "lower_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "upper_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "binary_bottom_to_top": "010111",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yang",
+      "yin",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 7,
+    "name": "师",
+    "full_name": "地水师",
+    "slug": "shi",
+    "symbol": "䷆",
+    "lower_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "upper_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "binary_bottom_to_top": "010000",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yin",
+      "yin",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 8,
+    "name": "比",
+    "full_name": "水地比",
+    "slug": "bi",
+    "symbol": "䷇",
+    "lower_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "upper_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "binary_bottom_to_top": "000010",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yin",
+      "yin",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 9,
+    "name": "小畜",
+    "full_name": "风天小畜",
+    "slug": "xiaochu",
+    "symbol": "䷈",
+    "lower_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "upper_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "binary_bottom_to_top": "111011",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yin",
+      "yang",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 10,
+    "name": "履",
+    "full_name": "天泽履",
+    "slug": "lv",
+    "symbol": "䷉",
+    "lower_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "upper_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "binary_bottom_to_top": "110111",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yang",
+      "yin",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 11,
+    "name": "泰",
+    "full_name": "地天泰",
+    "slug": "tai",
+    "symbol": "䷊",
+    "lower_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "upper_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "binary_bottom_to_top": "111000",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yin",
+      "yang",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 12,
+    "name": "否",
+    "full_name": "天地否",
+    "slug": "pi",
+    "symbol": "䷋",
+    "lower_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "upper_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "binary_bottom_to_top": "000111",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yang",
+      "yin",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 13,
+    "name": "同人",
+    "full_name": "天火同人",
+    "slug": "tongren",
+    "symbol": "䷌",
+    "lower_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "upper_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "binary_bottom_to_top": "101111",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yang",
+      "yang",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 14,
+    "name": "大有",
+    "full_name": "火天大有",
+    "slug": "dayou",
+    "symbol": "䷍",
+    "lower_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "upper_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "binary_bottom_to_top": "111101",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yang",
+      "yang",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 15,
+    "name": "谦",
+    "full_name": "地山谦",
+    "slug": "qian",
+    "symbol": "䷎",
+    "lower_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "upper_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "binary_bottom_to_top": "001000",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yin",
+      "yang",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 16,
+    "name": "豫",
+    "full_name": "雷地豫",
+    "slug": "yu",
+    "symbol": "䷏",
+    "lower_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "upper_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "binary_bottom_to_top": "000100",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yang",
+      "yin",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 17,
+    "name": "随",
+    "full_name": "泽雷随",
+    "slug": "sui",
+    "symbol": "䷐",
+    "lower_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "upper_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "binary_bottom_to_top": "100110",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yang",
+      "yin",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 18,
+    "name": "蛊",
+    "full_name": "山风蛊",
+    "slug": "gu",
+    "symbol": "䷑",
+    "lower_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "upper_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "binary_bottom_to_top": "011001",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yin",
+      "yang",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 19,
+    "name": "临",
+    "full_name": "地泽临",
+    "slug": "lin",
+    "symbol": "䷒",
+    "lower_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "upper_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "binary_bottom_to_top": "110000",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yin",
+      "yin",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 20,
+    "name": "观",
+    "full_name": "风地观",
+    "slug": "guan",
+    "symbol": "䷓",
+    "lower_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "upper_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "binary_bottom_to_top": "000011",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yin",
+      "yin",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 21,
+    "name": "噬嗑",
+    "full_name": "火雷噬嗑",
+    "slug": "shihe",
+    "symbol": "䷔",
+    "lower_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "upper_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "binary_bottom_to_top": "100101",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yang",
+      "yin",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 22,
+    "name": "贲",
+    "full_name": "山火贲",
+    "slug": "bi",
+    "symbol": "䷕",
+    "lower_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "upper_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "binary_bottom_to_top": "101001",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yin",
+      "yang",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 23,
+    "name": "剥",
+    "full_name": "山地剥",
+    "slug": "bo",
+    "symbol": "䷖",
+    "lower_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "upper_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "binary_bottom_to_top": "000001",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yin",
+      "yin",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 24,
+    "name": "复",
+    "full_name": "地雷复",
+    "slug": "fu",
+    "symbol": "䷗",
+    "lower_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "upper_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "binary_bottom_to_top": "100000",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yin",
+      "yin",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 25,
+    "name": "无妄",
+    "full_name": "天雷无妄",
+    "slug": "wuwang",
+    "symbol": "䷘",
+    "lower_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "upper_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "binary_bottom_to_top": "100111",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yang",
+      "yin",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 26,
+    "name": "大畜",
+    "full_name": "山天大畜",
+    "slug": "daxu",
+    "symbol": "䷙",
+    "lower_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "upper_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "binary_bottom_to_top": "111001",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yin",
+      "yang",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 27,
+    "name": "颐",
+    "full_name": "山雷颐",
+    "slug": "yi",
+    "symbol": "䷚",
+    "lower_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "upper_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "binary_bottom_to_top": "100001",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yin",
+      "yin",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 28,
+    "name": "大过",
+    "full_name": "泽风大过",
+    "slug": "daguo",
+    "symbol": "䷛",
+    "lower_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "upper_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "binary_bottom_to_top": "011110",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yang",
+      "yang",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 29,
+    "name": "坎",
+    "full_name": "坎为水",
+    "slug": "kan",
+    "symbol": "䷜",
+    "lower_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "upper_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "binary_bottom_to_top": "010010",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yin",
+      "yin",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 30,
+    "name": "离",
+    "full_name": "离为火",
+    "slug": "li",
+    "symbol": "䷝",
+    "lower_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "upper_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "binary_bottom_to_top": "101101",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yang",
+      "yang",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 31,
+    "name": "咸",
+    "full_name": "泽山咸",
+    "slug": "xian",
+    "symbol": "䷞",
+    "lower_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "upper_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "binary_bottom_to_top": "001110",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yang",
+      "yang",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 32,
+    "name": "恒",
+    "full_name": "雷风恒",
+    "slug": "heng",
+    "symbol": "䷟",
+    "lower_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "upper_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "binary_bottom_to_top": "011100",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yang",
+      "yang",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 33,
+    "name": "遁",
+    "full_name": "天山遁",
+    "slug": "dun",
+    "symbol": "䷠",
+    "lower_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "upper_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "binary_bottom_to_top": "001111",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yang",
+      "yang",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 34,
+    "name": "大壮",
+    "full_name": "雷天大壮",
+    "slug": "dazhuang",
+    "symbol": "䷡",
+    "lower_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "upper_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "binary_bottom_to_top": "111100",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yang",
+      "yang",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 35,
+    "name": "晋",
+    "full_name": "火地晋",
+    "slug": "jin",
+    "symbol": "䷢",
+    "lower_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "upper_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "binary_bottom_to_top": "000101",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yang",
+      "yin",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 36,
+    "name": "明夷",
+    "full_name": "地火明夷",
+    "slug": "mingyi",
+    "symbol": "䷣",
+    "lower_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "upper_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "binary_bottom_to_top": "101000",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yin",
+      "yang",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 37,
+    "name": "家人",
+    "full_name": "风火家人",
+    "slug": "jiaren",
+    "symbol": "䷤",
+    "lower_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "upper_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "binary_bottom_to_top": "101011",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yin",
+      "yang",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 38,
+    "name": "睽",
+    "full_name": "火泽睽",
+    "slug": "kui",
+    "symbol": "䷥",
+    "lower_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "upper_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "binary_bottom_to_top": "110101",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yang",
+      "yin",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 39,
+    "name": "蹇",
+    "full_name": "水山蹇",
+    "slug": "jian",
+    "symbol": "䷦",
+    "lower_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "upper_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "binary_bottom_to_top": "001010",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yin",
+      "yang",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 40,
+    "name": "解",
+    "full_name": "雷水解",
+    "slug": "xie",
+    "symbol": "䷧",
+    "lower_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "upper_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "binary_bottom_to_top": "010100",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yang",
+      "yin",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 41,
+    "name": "损",
+    "full_name": "山泽损",
+    "slug": "sun",
+    "symbol": "䷨",
+    "lower_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "upper_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "binary_bottom_to_top": "110001",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yin",
+      "yin",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 42,
+    "name": "益",
+    "full_name": "风雷益",
+    "slug": "yi",
+    "symbol": "䷩",
+    "lower_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "upper_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "binary_bottom_to_top": "100011",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yin",
+      "yin",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 43,
+    "name": "夬",
+    "full_name": "泽天夬",
+    "slug": "guai",
+    "symbol": "䷪",
+    "lower_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "upper_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "binary_bottom_to_top": "111110",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yang",
+      "yang",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 44,
+    "name": "姤",
+    "full_name": "天风姤",
+    "slug": "gou",
+    "symbol": "䷫",
+    "lower_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "upper_trigram": {
+      "name": "乾",
+      "binary": "111"
+    },
+    "binary_bottom_to_top": "011111",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yang",
+      "yang",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 45,
+    "name": "萃",
+    "full_name": "泽地萃",
+    "slug": "cui",
+    "symbol": "䷬",
+    "lower_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "upper_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "binary_bottom_to_top": "000110",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yang",
+      "yin",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 46,
+    "name": "升",
+    "full_name": "地风升",
+    "slug": "sheng",
+    "symbol": "䷭",
+    "lower_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "upper_trigram": {
+      "name": "坤",
+      "binary": "000"
+    },
+    "binary_bottom_to_top": "011000",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yin",
+      "yang",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 47,
+    "name": "困",
+    "full_name": "泽水困",
+    "slug": "kun",
+    "symbol": "䷮",
+    "lower_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "upper_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "binary_bottom_to_top": "010110",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yang",
+      "yin",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 48,
+    "name": "井",
+    "full_name": "水风井",
+    "slug": "jing",
+    "symbol": "䷯",
+    "lower_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "upper_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "binary_bottom_to_top": "011010",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yin",
+      "yang",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 49,
+    "name": "革",
+    "full_name": "泽火革",
+    "slug": "ge",
+    "symbol": "䷰",
+    "lower_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "upper_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "binary_bottom_to_top": "101110",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yang",
+      "yang",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 50,
+    "name": "鼎",
+    "full_name": "火风鼎",
+    "slug": "ding",
+    "symbol": "䷱",
+    "lower_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "upper_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "binary_bottom_to_top": "011101",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yang",
+      "yang",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 51,
+    "name": "震",
+    "full_name": "震为雷",
+    "slug": "zhen",
+    "symbol": "䷲",
+    "lower_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "upper_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "binary_bottom_to_top": "100100",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yang",
+      "yin",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 52,
+    "name": "艮",
+    "full_name": "艮为山",
+    "slug": "gen",
+    "symbol": "䷳",
+    "lower_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "upper_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "binary_bottom_to_top": "001001",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yin",
+      "yang",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 53,
+    "name": "渐",
+    "full_name": "风山渐",
+    "slug": "jian",
+    "symbol": "䷴",
+    "lower_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "upper_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "binary_bottom_to_top": "001011",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yin",
+      "yang",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 54,
+    "name": "归妹",
+    "full_name": "雷泽归妹",
+    "slug": "guimei",
+    "symbol": "䷵",
+    "lower_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "upper_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "binary_bottom_to_top": "110100",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yang",
+      "yin",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 55,
+    "name": "丰",
+    "full_name": "雷火丰",
+    "slug": "feng",
+    "symbol": "䷶",
+    "lower_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "upper_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "binary_bottom_to_top": "101100",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yang",
+      "yang",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 56,
+    "name": "旅",
+    "full_name": "火山旅",
+    "slug": "lv",
+    "symbol": "䷷",
+    "lower_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "upper_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "binary_bottom_to_top": "001101",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yang",
+      "yang",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 57,
+    "name": "巽",
+    "full_name": "巽为风",
+    "slug": "xun",
+    "symbol": "䷸",
+    "lower_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "upper_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "binary_bottom_to_top": "011011",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yin",
+      "yang",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 58,
+    "name": "兑",
+    "full_name": "兑为泽",
+    "slug": "dui",
+    "symbol": "䷹",
+    "lower_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "upper_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "binary_bottom_to_top": "110110",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yang",
+      "yin",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 59,
+    "name": "涣",
+    "full_name": "风水涣",
+    "slug": "huan",
+    "symbol": "䷺",
+    "lower_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "upper_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "binary_bottom_to_top": "010011",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yin",
+      "yin",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 60,
+    "name": "节",
+    "full_name": "水泽节",
+    "slug": "jie",
+    "symbol": "䷻",
+    "lower_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "upper_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "binary_bottom_to_top": "110010",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yin",
+      "yin",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 61,
+    "name": "中孚",
+    "full_name": "风泽中孚",
+    "slug": "zhongfu",
+    "symbol": "䷼",
+    "lower_trigram": {
+      "name": "兑",
+      "binary": "110"
+    },
+    "upper_trigram": {
+      "name": "巽",
+      "binary": "011"
+    },
+    "binary_bottom_to_top": "110011",
+    "lines_top_to_bottom": [
+      "yang",
+      "yang",
+      "yin",
+      "yin",
+      "yang",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 62,
+    "name": "小过",
+    "full_name": "雷山小过",
+    "slug": "xiaoguo",
+    "symbol": "䷽",
+    "lower_trigram": {
+      "name": "艮",
+      "binary": "001"
+    },
+    "upper_trigram": {
+      "name": "震",
+      "binary": "100"
+    },
+    "binary_bottom_to_top": "001100",
+    "lines_top_to_bottom": [
+      "yin",
+      "yin",
+      "yang",
+      "yang",
+      "yin",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 63,
+    "name": "既济",
+    "full_name": "水火既济",
+    "slug": "jiji",
+    "symbol": "䷾",
+    "lower_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "upper_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "binary_bottom_to_top": "101010",
+    "lines_top_to_bottom": [
+      "yin",
+      "yang",
+      "yin",
+      "yang",
+      "yin",
+      "yang"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  },
+  {
+    "hexagram_id": 64,
+    "name": "未济",
+    "full_name": "火水未济",
+    "slug": "weiji",
+    "symbol": "䷿",
+    "lower_trigram": {
+      "name": "坎",
+      "binary": "010"
+    },
+    "upper_trigram": {
+      "name": "离",
+      "binary": "101"
+    },
+    "binary_bottom_to_top": "010101",
+    "lines_top_to_bottom": [
+      "yang",
+      "yin",
+      "yang",
+      "yin",
+      "yang",
+      "yin"
+    ],
+    "text_verification": "pending",
+    "artwork_status": "not_checked"
+  }
+]

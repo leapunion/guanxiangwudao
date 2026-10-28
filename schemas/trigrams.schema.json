@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/trigrams.schema.json",
+  "title": "Trigrams",
+  "type": "array",
+  "minItems": 8,
+  "maxItems": 8,
+  "items": {
+    "type": "object",
+    "required": ["name", "symbol", "binary", "nature", "virtue", "mnemonic"],
+    "additionalProperties": false,
+    "properties": {
+      "name": {"type": "string", "minLength": 1},
+      "symbol": {"type": "string", "minLength": 1},
+      "binary": {"type": "string", "pattern": "^[01]{3}$"},
+      "nature": {"type": "string", "minLength": 1},
+      "virtue": {"type": "string", "minLength": 1},
+      "mnemonic": {"type": "string", "minLength": 1}
+    }
+  }
+}
