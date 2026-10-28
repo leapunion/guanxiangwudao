@@ -23,15 +23,57 @@
             ]
           },
           "version": {"type": "string", "minLength": 1},
-          "history": {"type": "array"}
+          "release_version": {
+            "oneOf": [
+              {"type": "null"},
+              {"type": "string", "minLength": 1}
+            ]
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["from", "to", "actor", "at"],
+              "additionalProperties": true,
+              "properties": {
+                "from": {"type": "string"},
+                "to": {"type": "string"},
+                "actor": {"type": "string"},
+                "note": {"type": "string"},
+                "at": {"type": "string"},
+                "revision_scope": {
+                  "oneOf": [
+                    {"type": "null"},
+                    {"type": "string", "enum": ["text", "art", "layout"]}
+                  ]
+                },
+                "approval": {
+                  "oneOf": [
+                    {"type": "null"},
+                    {"type": "object"}
+                  ]
+                },
+                "release_version": {
+                  "oneOf": [
+                    {"type": "null"},
+                    {"type": "string", "minLength": 1}
+                  ]
+                }
+              }
+            }
+          }
         },
         "if": {
           "properties": {"state": {"const": "PUBLISHED"}},
           "required": ["state"]
         },
         "then": {
-          "required": ["approval"],
+          "required": ["approval", "release_version"],
           "properties": {
+            "release_version": {
+              "type": "string",
+              "minLength": 1
+            },
             "approval": {
               "type": "object",
               "required": ["approved_by", "approved_at", "gates"],
@@ -46,7 +88,22 @@
                     "G2": {"const": "passed"},
                     "G3": {"const": "passed"}
                   }
-                }
+                },
+                "interpretation_review": {"type": "string"},
+                "review_hashes": {
+                  "type": "object",
+                  "properties": {
+                    "g1":             {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                    "g2":             {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                    "g3":             {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                    "interpretation": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+                  }
+                },
+                "canonical_text_version": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "release_version": {"type": "string", "minLength": 1}
               }
             }
           }

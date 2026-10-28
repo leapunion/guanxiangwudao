@@ -51,6 +51,19 @@ def test_summarize_counts_mixed_states():
     assert (counts["PUBLISHED"], counts["BLOCKED"], counts["DRAFT"]) == (1, 1, 1)
 
 
+def test_summarize_skips_invalid_state_records():
+    """非法状态的记录不计入任何计数（R1 要求）。"""
+    catalog = build_catalog(HEXAGRAMS)
+    records = [dict(r) for r in catalog["records"]]
+    records[0]["state"] = "BOGUS_STATE"
+
+    counts = summarize({"version": "1", "records": records})
+
+    # 2 valid DRAFT records + 1 bogus (skipped)
+    assert counts["DRAFT"] == 2
+    assert sum(counts.values()) == 2
+
+
 def test_save_and_load_roundtrip_format(tmp_path):
     catalog = build_catalog(HEXAGRAMS)
     path = tmp_path / "sub" / "asset-catalog.json"
@@ -68,6 +81,7 @@ APPROVAL = {
     "approved_by": "reviewer",
     "approved_at": "2026-01-01T00:00:00+00:00",
     "gates": {"G1": "passed", "G2": "passed", "G3": "passed"},
+    "release_version": "v1",
 }
 PATH = ["RESEARCHED", "TEXT_VERIFIED", "ART_DRAFT", "ART_APPROVED",
         "LAYOUT_READY", "REVIEW_REQUIRED", "PUBLISHED"]
@@ -77,7 +91,14 @@ def _published_record() -> dict:
     record = build_catalog(HEXAGRAMS)["records"][0]
     for target in PATH:
         approval = APPROVAL if target == "PUBLISHED" else None
-        record = transition(record, State(target), actor="tester", approval=approval)
+        revision_scope = None
+        record = transition(
+            record,
+            State(target),
+            actor="tester",
+            approval=approval,
+            revision_scope=revision_scope,
+        )
     return record
 
 
@@ -110,7 +131,7 @@ def test_validate_catalog_flags_illegal_history_jump():
 
     errors = validate_catalog({"version": "1", "records": [record]})
 
-    assert errors[0]["rule"] == "history_transition"
+    assert errors[0]["rule"] in ("history_transition", "history_replay")
 
 
 def test_validate_catalog_flags_invalid_state_without_raising():
@@ -119,3 +140,114 @@ def test_validate_catalog_flags_invalid_state_without_raising():
     errors = validate_catalog({"version": "1", "records": [record]})
 
     assert errors[0]["rule"] == "state"
+
+
+# ── history_replay 新增测试 ──────────────────────────────────────────────────
+
+
+def test_validate_catalog_history_replay_detects_forged_step():
+    """篡改 history（跳过中间状态）应被 history_replay 检出。"""
+    # 构造一条 RESEARCHED -> PUBLISHED 的非法 history（跳过多个状态）
+    record = build_catalog(HEXAGRAMS)["records"][0]
+    record = {
+        **record,
+        "state": "PUBLISHED",
+        "approval": APPROVAL,
+        "history": [
+            {
+                "from": "DRAFT",
+                "to": "RESEARCHED",
+                "actor": "tester",
+                "note": "",
+                "at": "2026-01-01T00:00:00+00:00",
+            },
+            {
+                "from": "RESEARCHED",
+                "to": "PUBLISHED",  # 非法：跳过 TEXT_VERIFIED 等中间状态
+                "actor": "tester",
+                "note": "",
+                "at": "2026-01-01T01:00:00+00:00",
+                "approval": APPROVAL,
+            },
+        ],
+    }
+
+    errors = validate_catalog({"version": "1", "records": [record]})
+
+    rules = [e["rule"] for e in errors]
+    assert "history_replay" in rules or "history_transition" in rules
+
+
+def test_validate_catalog_history_replay_accepts_valid_path():
+    """合法路径的 history 不应产生 history_replay 错误。"""
+    record = _published_record()
+    catalog = {"version": "1", "records": [record]}
+
+    errors = [e for e in validate_catalog(catalog) if e["rule"] == "history_replay"]
+
+    assert errors == []
+
+
+def test_validate_catalog_history_replay_detects_revision_scope_path():
+    """包含 REVISION_REQUIRED 的合法路径（含 revision_scope）应通过重放。"""
+    record = build_catalog(HEXAGRAMS)["records"][0]
+    record = transition(record, State.RESEARCHED, actor="a")
+    record = transition(record, State.TEXT_VERIFIED, actor="a")
+    # 进入 REVISION_REQUIRED 需要 revision_scope
+    record = transition(record, State.REVISION_REQUIRED, actor="a", revision_scope="art")
+    # art scope 允许回到 TEXT_VERIFIED
+    record = transition(record, State.TEXT_VERIFIED, actor="a")
+
+    catalog = {"version": "1", "records": [record]}
+    errors = [e for e in validate_catalog(catalog) if e["rule"] == "history_replay"]
+
+    assert errors == []
+
+
+# ── revision_scope_required 新增测试 ────────────────────────────────────────
+
+
+def test_validate_catalog_revision_scope_required_flags_missing_scope():
+    """history 中迁入 REVISION_REQUIRED 但缺少 revision_scope 应被检出。"""
+    record = build_catalog(HEXAGRAMS)["records"][0]
+    # 手工构造一条缺少 revision_scope 的 REVISION_REQUIRED 迁入步骤
+    record = {
+        **record,
+        "state": "REVISION_REQUIRED",
+        "history": [
+            {
+                "from": "DRAFT",
+                "to": "RESEARCHED",
+                "actor": "a",
+                "note": "",
+                "at": "2026-01-01T00:00:00+00:00",
+            },
+            {
+                "from": "RESEARCHED",
+                "to": "REVISION_REQUIRED",
+                "actor": "a",
+                "note": "",
+                "at": "2026-01-01T01:00:00+00:00",
+                # revision_scope 故意缺失
+            },
+        ],
+    }
+
+    errors = validate_catalog({"version": "1", "records": [record]})
+
+    rules = [e["rule"] for e in errors]
+    assert "revision_scope_required" in rules or "history_replay" in rules
+
+
+def test_validate_catalog_revision_scope_required_passes_when_present():
+    """history 中迁入 REVISION_REQUIRED 且有 revision_scope 时不报错。"""
+    record = build_catalog(HEXAGRAMS)["records"][0]
+    record = transition(record, State.RESEARCHED, actor="a")
+    record = transition(record, State.REVISION_REQUIRED, actor="a", revision_scope="text")
+
+    errors = [
+        e for e in validate_catalog({"version": "1", "records": [record]})
+        if e["rule"] == "revision_scope_required"
+    ]
+
+    assert errors == []

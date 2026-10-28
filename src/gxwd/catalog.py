@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from gxwd.workflow import TRANSITIONS, State, TransitionError, check_approval
+from gxwd.workflow import TRANSITIONS, State, TransitionError, check_approval, transition
 
 
 def build_catalog(hexagrams: list[dict]) -> dict:
@@ -25,13 +25,13 @@ def build_catalog(hexagrams: list[dict]) -> dict:
 
 
 def summarize(catalog: dict) -> dict[str, int]:
-    """按状态计数；11 个状态全部列出。"""
+    """按状态计数；11 个状态全部列出。非法状态的记录不计入任何计数。"""
     counts = {state.value: 0 for state in State}
     for record in catalog["records"]:
         state = record["state"]
-        if state not in counts:
-            raise ValueError(f"未知状态: {state!r}")
-        counts[state] += 1
+        if state in counts:
+            counts[state] += 1
+        # 非法状态静默跳过（不计入，不抛出）
     return counts
 
 
@@ -85,6 +85,59 @@ def _check_published(hid: object, record: dict) -> list[dict]:
     return errors
 
 
+def _check_revision_scope_required(hid: object, history: list) -> list[dict]:
+    """history 中迁入 REVISION_REQUIRED 的每一步必须附 revision_scope。"""
+    errors: list[dict] = []
+    for i, step in enumerate(history):
+        if not isinstance(step, dict):
+            continue
+        if step.get("to") == State.REVISION_REQUIRED.value:
+            if not step.get("revision_scope"):
+                errors.append(
+                    _err(
+                        hid,
+                        "revision_scope_required",
+                        f"第 {i + 1} 步迁入 REVISION_REQUIRED 但缺少 revision_scope: {step!r}",
+                    )
+                )
+    return errors
+
+
+def _check_history_replay(hid: object, history: list) -> list[dict]:
+    """从 DRAFT 起逐步重放 history，任何一步失败记录错误。"""
+    errors: list[dict] = []
+    # 构造一个最小 record 从 DRAFT 开始
+    current_record: dict = {
+        "hexagram_id": hid,
+        "state": State.DRAFT.value,
+        "history": [],
+    }
+    for i, step in enumerate(history):
+        if not isinstance(step, dict):
+            errors.append(_err(hid, "history_replay", f"step {i + 1}: 步骤不是 dict"))
+            break
+        to_val = step.get("to")
+        actor = step.get("actor") or "replay"
+        note = step.get("note", "")
+        approval = step.get("approval")
+        revision_scope = step.get("revision_scope")
+        now = step.get("at")
+        try:
+            current_record = transition(
+                current_record,
+                to_val,  # type: ignore[arg-type]
+                actor=actor,
+                note=note or "",
+                approval=approval,
+                now=now,
+                revision_scope=revision_scope,
+            )
+        except (TransitionError, ValueError) as exc:
+            errors.append(_err(hid, "history_replay", f"step {i + 1}: {exc}"))
+            break
+    return errors
+
+
 def validate_catalog(catalog: dict) -> list[dict]:
     """校验登记册一致性，返回错误列表（不抛异常，不修改入参）。"""
     errors: list[dict] = []
@@ -99,6 +152,8 @@ def validate_catalog(catalog: dict) -> list[dict]:
             errors.append(_err(hid, "history", "history 必须是列表"))
             continue
         errors.extend(_check_history(hid, history))
+        errors.extend(_check_revision_scope_required(hid, history))
+        errors.extend(_check_history_replay(hid, history))
         if state is State.PUBLISHED:
             errors.extend(_check_published(hid, record))
     return errors
