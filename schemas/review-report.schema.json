@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/review-report.schema.json",
+  "title": "ReviewReport",
+  "description": "独立验证 Agent 在 G1 / G2 / G3 / interpretation 关卡产出的审查报告",
+  "type": "object",
+  "required": [
+    "report_id",
+    "gate",
+    "hexagram_id",
+    "verifier",
+    "checked_at",
+    "result",
+    "findings",
+    "attachments",
+    "producer_ids"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "description": "报告唯一 ID，前缀须与 gate 一致，格式 (g1|g2|g3|interpretation)-<卦id:03d>-<序号>"
+    },
+    "gate": {
+      "type": "string",
+      "enum": ["G1", "G2", "G3", "interpretation"],
+      "description": "审查关卡"
+    },
+    "hexagram_id": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 64
+    },
+    "verifier": {
+      "type": "object",
+      "required": ["id", "name", "role"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "role": {
+          "type": "string",
+          "enum": ["independent-verifier", "human"]
+        }
+      }
+    },
+    "checked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "result": {
+      "type": "string",
+      "enum": ["pass", "fail"]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "rule", "detail", "artifact_ref"],
+        "additionalProperties": false,
+        "properties": {
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "high", "medium", "low"]
+          },
+          "rule": {"type": "string", "minLength": 1},
+          "detail": {"type": "string", "minLength": 1},
+          "artifact_ref": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "hash"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "producer_ids": {
+      "type": "array",
+      "description": "生产者 id 列表（publisher 将据此拒绝 approved_by 与之重合）",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"gate": {"const": "G1"}}},
+      "then": {
+        "properties": {
+          "report_id": {"pattern": "^g1-\\d{3}-\\d+$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"gate": {"const": "G2"}}},
+      "then": {
+        "properties": {
+          "report_id": {"pattern": "^g2-\\d{3}-\\d+$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"gate": {"const": "G3"}}},
+      "then": {
+        "properties": {
+          "report_id": {"pattern": "^g3-\\d{3}-\\d+$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"gate": {"const": "interpretation"}}},
+      "then": {
+        "properties": {
+          "report_id": {"pattern": "^interpretation-\\d{3}-\\d+$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"result": {"const": "fail"}}},
+      "then": {
+        "properties": {
+          "findings": {"minItems": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"result": {"const": "pass"}}},
+      "then": {
+        "properties": {
+          "findings": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "severity": {
+                  "enum": ["medium", "low"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

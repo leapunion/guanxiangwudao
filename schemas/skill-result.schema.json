@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/skill-result.schema.json",
+  "title": "SkillResult",
+  "description": "标准 Skill 执行结果（Skill Contract V1.0）",
+  "type": "object",
+  "required": [
+    "task_id",
+    "skill",
+    "status",
+    "hexagram_id",
+    "input_version",
+    "artifacts",
+    "validation",
+    "warnings",
+    "requires_human_review",
+    "provenance"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^GXWD-\\d{3}-[A-Z_]+-\\d{3}$",
+      "description": "任务唯一 ID，格式 GXWD-<id:03d>-<SKILL_UPPER>-<n:03d>"
+    },
+    "skill": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$",
+      "description": "执行该任务的 Skill 名称（小写，连字符分隔）"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "running", "completed", "review_required", "blocked", "failed"],
+      "description": "任务状态"
+    },
+    "hexagram_id": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 64,
+      "description": "卦序 1..64"
+    },
+    "input_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "输入数据或底本版本标识；底本未选定时为 SOURCE_PENDING"
+    },
+    "artifacts": {
+      "type": "array",
+      "description": "产出物列表",
+      "items": {
+        "type": "object",
+        "required": ["type", "path"],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "SHA-256 十六进制摘要（64 位小写）"
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "description": "各维度校验结果",
+      "additionalProperties": {
+        "type": "string",
+        "enum": ["passed", "pending", "failed", "not_applicable"]
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "description": "非阻断性警告",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requires_human_review": {
+      "type": "boolean",
+      "description": "是否需要人工审阅"
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["model", "agent", "started_at", "finished_at", "input_version"],
+      "additionalProperties": true,
+      "description": "溯源信息",
+      "properties": {
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "执行该 Skill 的模型标识"
+        },
+        "agent": {
+          "type": "string",
+          "minLength": 1,
+          "description": "执行该 Skill 的 Agent 名称"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "任务开始时间（ISO 8601）"
+        },
+        "finished_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "任务结束时间（ISO 8601）"
+        },
+        "parent_task_id": {
+          "type": "string",
+          "description": "父任务 ID（可选）"
+        },
+        "input_version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "溯源中记录的输入版本"
+        },
+        "seed": {
+          "description": "随机种子（可选，用于图像生成等非确定性 Skill）"
+        }
+      }
+    }
+  }
+}

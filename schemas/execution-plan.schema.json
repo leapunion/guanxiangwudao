@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/execution-plan.schema.json",
+  "title": "ExecutionPlan",
+  "description": "单卦单任务的执行计划（对应 PRD 第 24 篇 ExecutionPlan 协议）",
+  "type": "object",
+  "required": [
+    "task_id",
+    "hexagram_id",
+    "assigned_agent",
+    "skill",
+    "inputs",
+    "outputs",
+    "permissions",
+    "acceptance",
+    "on_failure"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^GXWD-\\d{3}-[A-Z_]+-\\d{3}$"
+    },
+    "hexagram_id": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 64
+    },
+    "hexagram_name": {
+      "type": "string",
+      "description": "卦名（可选）"
+    },
+    "assigned_agent": {
+      "type": "string",
+      "minLength": 1,
+      "description": "执行本任务的 Agent 名称"
+    },
+    "skill": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$",
+      "description": "执行本任务的 Skill 名称"
+    },
+    "inputs": {
+      "type": "object",
+      "description": "输入文件路径或版本标识",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "description": "输出文件路径（相对于仓库根）",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "required": [
+        "read",
+        "write"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "read": {
+          "type": "array",
+          "description": "可读路径（glob 模式）",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "write": {
+          "type": "array",
+          "description": "可写路径（glob 模式）",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "acceptance": {
+      "type": "object",
+      "description": "验收条件，键为条件名，值为布尔",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "on_failure": {
+      "type": "string",
+      "enum": [
+        "BLOCKED",
+        "REVISION_REQUIRED",
+        "REJECTED"
+      ],
+      "description": "任务失败时进入的状态"
+    },
+    "approval": {
+      "type": "object",
+      "required": [
+        "automatic_validation",
+        "human_review"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "automatic_validation": {
+          "type": "boolean"
+        },
+        "human_review": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
