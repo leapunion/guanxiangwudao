@@ -19,7 +19,7 @@ description: Validate hexagram binary codes, lower/upper trigram consistency and
 
 ## Output
 - `validation_status`、`expected_binary`、`actual_binary`、`line_structure`、`error_details`。
-- 存档：`projects/<id>-<slug>/reviews/binary-validation.json`（全量校验写 `reviews/` 下对应报告）。
+- 存档：`projects/<id>-<slug>/reviews/g1-binary-validation.json`（全量校验写 `reviews/` 下对应报告）。
 - Skill Contract V1.0 JSON，`validation.binary` 为 passed / failed。
 
 ## Failure
@@ -27,6 +27,9 @@ description: Validate hexagram binary codes, lower/upper trigram consistency and
 - 永不静默修复权威数据；差异交人工裁定。
 
 ## Implementation
-- 命令：`gxwd validate binary --all`（失败时退出码非 0）。
-- 或 Python：`gxwd.validator.validate_hexagram(lower, upper, binary)`、`gxwd.validator.validate_all(hexagrams, trigrams)`，数据经 `gxwd.domain` 读取。
+- CLI 增加 `--json` 和单卦模式后可产出结构化报告；在集成前先调用：
+  - `gxwd.validator.validate_all(hexagrams, trigrams)` — 全量校验。
+  - `gxwd.validator.validate_hexagram(lower, upper, binary)` — 单卦校验。
+  直接得到结构化结果，写入 `reviews/g1-binary-validation.json`。
+- 当前命令 `.venv/bin/gxwd validate binary --all` 仅输出到 stdout；`--json` 和 `<id>` 单卦参数待 V5 集成。
 - 不使用 LLM 推理卦象。

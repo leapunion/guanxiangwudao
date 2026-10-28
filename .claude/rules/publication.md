@@ -11,3 +11,4 @@
 - 保留分层源文件、版本与审校记录。
 - 发布动作须有明确授权；密钥与私有资料不得进入提示词或日志。
 - 不得宣称已通过 Rule 01–05 验收：目前仅恢复概括版本，原文待补。
+- 审查报告文件名统一为 `reviews/g1-<slug>.json`、`reviews/g2-<slug>.json`、`reviews/g3-<slug>.json`、`reviews/interpretation-review.json`；approval.gates 的证据必须引用 reviews/ 中的报告文件哈希。

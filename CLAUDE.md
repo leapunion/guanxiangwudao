@@ -32,6 +32,7 @@
 - 领域红线：`.claude/rules/`（classics / art-style / publication）
 - 艺术规范：`docs/art-style-guide.md`　模板：`templates/`
 - 单卦工作区：`projects/<id>-<slug>/`（research / art / reviews）
+- 产出归档：`output/`
 - 验证：`tests/`　实施方案：`docs/IMPLEMENTATION_PLAN.md`　开发日志：`docs/DEVLOG.md`
 
 ## Publication
@@ -40,8 +41,8 @@
 ## 常用命令
 ```
 .venv/bin/python -m pytest
-gxwd validate binary --all
-gxwd render svg --all
-gxwd status
-gxwd hexagram show <id>
+.venv/bin/gxwd validate binary --all
+.venv/bin/gxwd render svg --all
+.venv/bin/gxwd status
+.venv/bin/gxwd hexagram show <id>
 ```

@@ -7,7 +7,7 @@ description: Produce an ink-painting art brief for one hexagram - image extracti
 
 ## Input
 - hexagram_id
-- 已审定卦义摘要（`projects/<id>-<slug>/research/` 中通过 G1 的内容）
+- 通过义理审查的卦义摘要（`projects/<id>-<slug>/research/` 中通过义理审查的内容，见 `reviews/interpretation-review.json`）
 - `docs/art-style-guide.md`、`.claude/rules/art-style.md`
 - `templates/art-brief.md`
 
@@ -18,17 +18,17 @@ description: Produce an ink-painting art brief for one hexagram - image extracti
 - 艺术含蓄，卦符精确：不要求机械画出"上面一团风、下面一团火"。
 - 画面中不含文字、卦符、印章（均为独立图层）。
 - 明确"应避免的错误表达"。
-- 未经 G1 的卦义不得形成正式创作稿。
+- 未经义理审查（`reviews/interpretation-review.json` 为 pass）的卦义不得形成正式创作稿。
 
 ## Output
 - `projects/<id>-<slug>/art/art-brief.md`（按模板填写）。
 - Skill Contract V1.0 JSON。
 
 ## Failure
-- 卦义未通过 G1 → `BLOCKED`。
+- 卦义未通过义理审查 → `BLOCKED`。
 - Brief 与卦象冲突或违反艺术底线 → `REVISION_REQUIRED`。
 - 永不修改经文、卦序、编码。
 
 ## Implementation
-- 用 `gxwd hexagram show <id>` 取上下卦和编码填入 Brief，不用 LLM 推导。
+- 用 `.venv/bin/gxwd hexagram show <id>` 取上下卦和编码填入 Brief，不用 LLM 推导。
 - 完成后交 independent-verifier 审查。

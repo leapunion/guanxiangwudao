@@ -26,18 +26,29 @@ tools: Read, Glob, Grep, Write, Bash
 
 ## 输出契约（Skill Contract V1.0）
 
+示例（第 37 卦家人艺术 Brief）：
+
 ```json
 {
-  "task_id": "GXWD-<id>-<STAGE>-001",
-  "skill": "<skill-name>",
-  "status": "completed | blocked | revision_required",
+  "task_id": "GXWD-037-ART-001",
+  "skill": "ink-art-direction",
+  "status": "review_required",
   "hexagram_id": 37,
-  "input_version": "<数据或底本版本；底本未选定时为 SOURCE_PENDING>",
-  "artifacts": [{"type": "<artifact_type>", "path": "projects/<id>-<slug>/<dir>/<file>"}],
-  "validation": {"binary": "passed | failed | not_run"},
+  "input_version": "projects/37-jiaren/reviews/interpretation-review.json@pass",
+  "artifacts": [
+    {"type": "art_brief", "path": "projects/37-jiaren/art/art-brief.md"},
+    {"type": "composition", "path": "projects/37-jiaren/art/composition.json"}
+  ],
+  "validation": {"hexagram_binary": "passed", "visual_quality": "pending"},
   "warnings": [],
-  "review_status": "pending | pass | fail",
-  "provenance": {"agent": "<agent-name>", "at": "<ISO8601>", "sources": []}
+  "requires_human_review": true,
+  "provenance": {
+    "model": "claude-sonnet-4-6",
+    "agent": "ink-art-director",
+    "started_at": "2026-10-28T13:00:00Z",
+    "finished_at": "2026-10-28T13:12:00Z",
+    "input_version": "0.1.0"
+  }
 }
 ```
 

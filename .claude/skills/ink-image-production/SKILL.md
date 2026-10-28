@@ -31,5 +31,8 @@ description: Produce and record a text-free ink-painting master artwork for a he
 - 永不改动 `data/**`。
 
 ## Implementation
-- 卦符：`gxwd render svg --all`，或 `gxwd.renderer.render_hexagram_svg(...)`。
+- 卦符：只读 `assets/hexagram-svg/<id:02d>-<slug>.svg`；如需复制到 projects，用
+  `.venv/bin/gxwd render svg <id> --out projects/<id:02d>-<slug>/art/layers/`
+  （CLI 单卦子命令待 V5 集成后启用）。
+- 或调用 `gxwd.renderer.render_hexagram_svg(...)` 直接生成到目标路径。
 - 主图生成工具待模型选定后在此补充；生成后交 independent-verifier 做 G2。

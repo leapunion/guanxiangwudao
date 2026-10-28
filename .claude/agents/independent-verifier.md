@@ -26,20 +26,32 @@ tools: Read, Glob, Grep, Bash, Write
 
 ## 输出契约（Skill Contract V1.0）
 
+示例（第 37 卦家人 G1 验收）：
+
 ```json
 {
-  "task_id": "GXWD-<id>-<STAGE>-001",
-  "skill": "<skill-name>",
-  "status": "completed | blocked | revision_required",
+  "task_id": "GXWD-037-GATE_BINARY-001",
+  "skill": "hexagram-binary-validation",
+  "status": "completed",
   "hexagram_id": 37,
-  "input_version": "<数据或底本版本；底本未选定时为 SOURCE_PENDING>",
-  "artifacts": [{"type": "<artifact_type>", "path": "projects/<id>-<slug>/<dir>/<file>"}],
-  "validation": {"binary": "passed | failed | not_run"},
-  "warnings": [],
-  "review_status": "pending | pass | fail",
-  "provenance": {"agent": "<agent-name>", "at": "<ISO8601>", "sources": []}
+  "input_version": "data/hexagrams.json@HEAD",
+  "artifacts": [
+    {"type": "review-report", "path": "projects/37-jiaren/reviews/g1-binary-validation.json"}
+  ],
+  "validation": {"hexagram_binary": "passed", "classical_source": "pending"},
+  "warnings": ["canonical_text SOURCE_PENDING; G1 文本校勘项未覆盖"],
+  "requires_human_review": false,
+  "provenance": {
+    "model": "claude-sonnet-4-6",
+    "agent": "independent-verifier",
+    "started_at": "2026-10-28T14:00:00Z",
+    "finished_at": "2026-10-28T14:02:00Z",
+    "input_version": "0.1.0"
+  }
 }
 ```
+
+审查报告本身写入 `projects/*/reviews/`，字段遵循 `schemas/review-report.schema.json`，`result` 只能是 `pass` 或 `fail`，附问题清单（位置、严重度、说明）。
 
 审查报告的 `review_status` 只能是 `pass` 或 `fail`，并附问题清单（位置、严重度、说明）。
 

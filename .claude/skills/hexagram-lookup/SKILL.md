@@ -25,6 +25,6 @@ description: Look up canonical hexagram master data (name, symbol, trigrams, bin
 - 永不静默修复权威数据。
 
 ## Implementation
-- 调用 `gxwd hexagram show <id>`；
+- 调用 `.venv/bin/gxwd hexagram show <id>`；
 - 或在 Python 中使用 `gxwd.domain.get_hexagram(id)`、`gxwd.domain.lines_from_binary(...)`。
 - 不使用 LLM 推理卦象。

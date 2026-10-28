@@ -27,20 +27,33 @@ tools: Read, Glob, Grep, Write, Bash
 ## 输出契约（Skill Contract V1.0）
 每次任务结束时返回：
 
+示例（第 37 卦家人研究初稿）：
+
 ```json
 {
-  "task_id": "GXWD-<id>-<STAGE>-001",
-  "skill": "<skill-name>",
-  "status": "completed | blocked | revision_required",
+  "task_id": "GXWD-037-RESEARCH-001",
+  "skill": "yao-interpretation",
+  "status": "review_required",
   "hexagram_id": 37,
-  "input_version": "<数据或底本版本；底本未选定时为 SOURCE_PENDING>",
-  "artifacts": [{"type": "<artifact_type>", "path": "projects/<id>-<slug>/<dir>/<file>"}],
-  "validation": {"binary": "passed | failed | not_run"},
+  "input_version": "SOURCE_PENDING",
+  "artifacts": [
+    {"type": "lookup", "path": "projects/37-jiaren/research/lookup.json"},
+    {"type": "collation", "path": "projects/37-jiaren/research/collation.json"}
+  ],
+  "validation": {"hexagram_binary": "passed", "canonical_text": "pending"},
   "warnings": [],
-  "review_status": "pending | pass | fail",
-  "provenance": {"agent": "<agent-name>", "at": "<ISO8601>", "sources": []}
+  "requires_human_review": true,
+  "provenance": {
+    "model": "claude-sonnet-4-6",
+    "agent": "classics-researcher",
+    "started_at": "2026-10-28T12:00:00Z",
+    "finished_at": "2026-10-28T12:08:00Z",
+    "input_version": "data/hexagrams.json@HEAD"
+  }
 }
 ```
+
+字段约束见 `schemas/skill-result.schema.json`：`status` 只能是 `pending|running|completed|review_required|blocked|failed`；`validation` 的值只能是 `passed|pending|failed|not_applicable`。
 
 ## 交接
 - 产出写入 `projects/<id>-<slug>/research/` 后，交给 **independent-verifier** 做 G1。

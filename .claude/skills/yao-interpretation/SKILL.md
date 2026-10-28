@@ -30,5 +30,5 @@ description: Draft a six-line (yao) interpretation for one hexagram, separating 
 - 永不修改 `data/**`。
 
 ## Implementation
-- 以 `gxwd hexagram show <id>` 获取结构；写作遵循 `.claude/rules/classics.md`。
+- 以 `.venv/bin/gxwd hexagram show <id>` 获取结构；写作遵循 `.claude/rules/classics.md`。
 - 交给 independent-verifier 做 G1 复核。
