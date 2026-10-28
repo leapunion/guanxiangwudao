@@ -1,0 +1,17 @@
+{
+  "hexagram_id": 37,
+  "name": "家人",
+  "full_name": "风火家人",
+  "symbol": "䷤",
+  "lower_trigram": {
+    "name": "离",
+    "binary": "101"
+  },
+  "upper_trigram": {
+    "name": "巽",
+    "binary": "011"
+  },
+  "binary_bottom_to_top": "101011",
+  "lines_top_to_bottom": ["yang", "yang", "yin", "yang", "yin", "yang"],
+  "source_tool": "gxwd hexagram show 37"
+}

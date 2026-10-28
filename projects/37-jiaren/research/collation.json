@@ -1,0 +1,167 @@
+[
+  {
+    "text_id": "H37-gua_ci",
+    "text_type": "gua_ci",
+    "line_position": null,
+    "line_name": null,
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-tuan",
+    "text_type": "tuan",
+    "line_position": null,
+    "line_name": null,
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-da_xiang",
+    "text_type": "da_xiang",
+    "line_position": null,
+    "line_name": null,
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-yao_ci-L1",
+    "text_type": "yao_ci",
+    "line_position": 1,
+    "line_name": "初九",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-yao_ci-L2",
+    "text_type": "yao_ci",
+    "line_position": 2,
+    "line_name": "六二",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-yao_ci-L3",
+    "text_type": "yao_ci",
+    "line_position": 3,
+    "line_name": "九三",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-yao_ci-L4",
+    "text_type": "yao_ci",
+    "line_position": 4,
+    "line_name": "六四",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-yao_ci-L5",
+    "text_type": "yao_ci",
+    "line_position": 5,
+    "line_name": "九五",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-yao_ci-L6",
+    "text_type": "yao_ci",
+    "line_position": 6,
+    "line_name": "上九",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-xiao_xiang-L1",
+    "text_type": "xiao_xiang",
+    "line_position": 1,
+    "line_name": "初九",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-xiao_xiang-L2",
+    "text_type": "xiao_xiang",
+    "line_position": 2,
+    "line_name": "六二",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-xiao_xiang-L3",
+    "text_type": "xiao_xiang",
+    "line_position": 3,
+    "line_name": "九三",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-xiao_xiang-L4",
+    "text_type": "xiao_xiang",
+    "line_position": 4,
+    "line_name": "六四",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-xiao_xiang-L5",
+    "text_type": "xiao_xiang",
+    "line_position": 5,
+    "line_name": "九五",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  },
+  {
+    "text_id": "H37-xiao_xiang-L6",
+    "text_type": "xiao_xiang",
+    "line_position": 6,
+    "line_name": "上九",
+    "original_text": null,
+    "source_id": "SOURCE_PENDING",
+    "edition": null,
+    "page": null,
+    "verification_status": "pending"
+  }
+]

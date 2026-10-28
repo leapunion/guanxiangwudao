@@ -1,0 +1,34 @@
+{
+  "task_id": "GXWD-037-RESEARCH-001",
+  "skill": "yao-interpretation",
+  "status": "review_required",
+  "hexagram_id": 37,
+  "input_version": "data/hexagrams.json@HEAD",
+  "artifacts": [
+    {"type": "lookup", "path": "projects/37-jiaren/research/lookup.json"},
+    {"type": "collation", "path": "projects/37-jiaren/research/collation.json"},
+    {"type": "interpretation", "path": "projects/37-jiaren/research/interpretation.md"},
+    {"type": "yao-cases", "path": "projects/37-jiaren/research/yao-cases.json"},
+    {"type": "business-philosophy", "path": "projects/37-jiaren/research/business-philosophy.md"}
+  ],
+  "validation": {
+    "hexagram_binary": "passed",
+    "canonical_text": "pending",
+    "historical_evidence": "pending"
+  },
+  "warnings": [
+    "collation.json 全部 15 条记录均为 SOURCE_PENDING，底本未选定，经文无法录入",
+    "yao-cases.json 六爻均无可靠历史案例（A/B 级），candidates 均为空数组",
+    "interpretation.md 所有经文引用均使用 text_id 占位，未引用任何原文"
+  ],
+  "requires_human_review": true,
+  "review_status": "pending",
+  "provenance": {
+    "agent": "classics-researcher",
+    "model": "claude-sonnet-4-6",
+    "started_at": "2026-10-28T00:00:00Z",
+    "finished_at": "2026-10-28T00:05:00Z",
+    "input_version": "0.1.0",
+    "sources": []
+  }
+}
