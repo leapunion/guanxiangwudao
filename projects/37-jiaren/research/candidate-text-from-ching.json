@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 37,
+  "name": "家人",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 的通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（见 Ching ACCEPTANCE.md L322、L402）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:16:12Z",
+    "source_file": "Ching/doc/commentary/37-家人.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/37-jiaren-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H37-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "家人：利女贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "家人，女正位乎内，男正位乎外。男女正，天地之大义也。家人有严君焉，父母之谓也。父父，子子，兄兄，弟弟，夫夫，妇妇，而家道正；正家而天下定矣。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "风自火出，家人。君子以言有物而行有恒。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "闲有家，悔亡。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "无攸遂，在中馈，贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "家人嗃嗃，悔厉吉。妇子嘻嘻，终吝。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "富家，大吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "王假有家，勿恤，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "有孚威如，终吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "闲有家，志未变也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "六二之吉，顺以巽也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "家人嗃嗃，未失也；妇子嘻嘻，失家节也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "富家大吉，顺在位也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "王假有家，交相爱也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H37-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "威如之吉，反身之谓也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}
