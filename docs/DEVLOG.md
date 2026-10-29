@@ -2,19 +2,109 @@
 
 > 按时间倒序记录：每条写做了什么、为什么、结果和遗留问题。实施方案、正式审定意见和 V0.5 工作包见 `docs/IMPLEMENTATION_PLAN.md`，需求原文见 `docs/《观象悟道》易经六十四卦国学与国画大师 Agent Team.docx`。
 
-## 当前状态总览（2026-10-28）
+## 当前状态总览（2026-10-29）
 
 | 维度 | 现状 |
 |---|---|
-| 版本 | V0.1 可信底座完成，V0.5 批次 A 完成（经文契约、出版门禁、合成器、权限 hook、研究初稿）；批次 B 阻塞于 4 项人工决定 |
-| 数据 | 64 卦主数据经双盲交叉校验 64/64 一致；384 爻结构，另含用九、用六；经文仍 `SOURCE_PENDING`；`canonical-texts.json` schema 已就绪，`inputs/human/` 待录入 |
-| 工程 | Python 3.12 包 `gxwd`：domain、validator、renderer、yao、workflow、catalog、cli、texts、publisher、composer。JSON Schema 9 份（trigrams、hexagrams、yao-texts、sources、asset-catalog、canonical-texts、skill-result、review-report、execution-plan）。CLI 子命令同 V0.1 |
-| 资产 | 64 个程序生成的 SVG 卦符；`projects/37-jiaren/research/` 下 6 份研究初稿；`templates/card/text-layer.tmpl.svg` 文字层模板 |
-| 质量门禁 | `pytest` 619 passed、0 skipped、0 xfailed。`gxwd validate binary --all` 64/64。`gxwd status` 能检出伪造 PUBLISHED 并返回 1。出版 `publisher.request_publication` 会重算 validate、经文 verified、审查报告哈希、审批人白名单（approved_by ≠ 生产者），任一失败即抛 PublicationError。写入权限由 `.claude/hooks/guard_write.py` 保护：主会话负责集成可写 src/data/schemas；带 CLAUDE_AGENT_ROLE 的 Agent 只能写各自 projects/*/{research,art,reviews}/** |
-| Agent 团队 | 3 个 Agent 文档的 Skill Contract 示例已对齐 `schemas/skill-result.schema.json`；8 个 MVP Skill 文档的报告文件名统一为 `g1-/g2-/g3-/interpretation-review.json`；AGENTS.md DAG 加入义理审查步骤 |
-| 版本控制 | V0.1 已提交三次（`6398580` 骨架、`7e16b6a` V0.1 底座、`d42fc78` PRD/方案/日志）；V0.5 批次 A 的改动尚未提交 |
+| 版本 | V0.1 可信底座完成；V0.5 批次 A 完成；V0.5 批次 B 预备（CLI、模板、helper、底本选定、Ching 候选经文已就位）；批次 B 实际录入阻塞于 3 项人工决定（审批人、图像模型、风格归属） |
+| 数据 | 64 卦主数据经双盲交叉校验 64/64 一致；384 爻结构，另含用九、用六；`data/sources.json` 已选定 `ZYZY-RUAN`（阮元刻《十三经注疏》本《周易正义》），publisher/isbn/page 待主编按实物补填；`data/canonical-texts.json` 本轮仍空 — 候选经文放在 projects/<id>/research/candidate-text-from-ching.json，不自动进 L0 |
+| 工程 | Python 3.12 包 `gxwd`：domain、validator、renderer、yao、workflow、catalog、cli、texts、publisher、composer。JSON Schema 9 份。CLI 已实现 init / status / hexagram show / validate binary / render svg / texts import / texts validate / publish request |
+| 资产 | 64 个程序生成的 SVG 卦符；64 份 `canonical-input` CSV 模板；64 份 `candidate-text-from-ching.json` 候选经文；64 份 `g1-binary-validation.json` 门禁报告；`projects/37-jiaren/research/` 的 WP6 研究初稿；`templates/card/text-layer.tmpl.svg` 文字层模板 |
+| 质量门禁 | `pytest` 626 passed、0 skipped、0 xfailed。`gxwd validate binary --all` 64/64；`validate binary <id> --json` 产出 G1 报告。`gxwd status` 能检出伪造 PUBLISHED。`publisher.request_publication` 重算 validate、经文 verified、审查报告哈希、审批人白名单（approved_by ≠ 生产者），任一失败即抛 PublicationError。写入权限由 `.claude/hooks/guard_write.py` 保护：主会话负责集成可写 src/data/schemas；带 CLAUDE_AGENT_ROLE 的 Agent 只能写各自 projects/*/{research,art,reviews}/**；全局禁写 inputs/human/、docs/*.docx、pyproject.toml |
+| Agent 团队 | 3 个 Agent 文档的 Skill Contract 示例已对齐 skill-result.schema.json；8 个 MVP Skill 文档统一报告文件名；AGENTS.md DAG 加入义理审查步骤 |
+| 版本控制 | main 分支 16 个提交；工作区干净 |
 
-## 2026-10-28
+## 2026-10-29
+
+### 第四轮：参考 Ching 项目完成 A–D，候选经文全 64 卦就位
+
+**为什么**
+
+批次 B 需要人工录入经文，但原本 4 项人工前置里"底本选定 + 书目元数据"
+一步比较重。用户让"参考 /Users/cavinfu/Desktop/devs/Ching 完成 A–D"：
+Ching 是另一个本地项目，有 64 卦完整通解稿，Ching ACCEPTANCE.md 多处
+记录"院长抽核与通行本逐条对照"（第 67 轮）。本项目登记底本
+`ZYZY-RUAN` 即阮刻《十三经注疏》本《周易正义》，与 Ching 的"通行本"
+在同一文字源头。所以 Ching 的经文可以作为**候选稿**供人工比对，
+但不等同于主编对实物签字。
+
+**做法**
+
+- **A**：批量生成 64 份 `templates/canonical-input/<id>-<slug>-canonical.csv.template`，
+  骨架 15 行（乾、坤 16 行），爻名按阴阳预填。
+- **B**：`docs/sources-candidate.md`。基于 Ching 的通行本引用线索整理
+  三组候选书目（中华书局 1980 影印本 / 上海古籍点校本 / 其他），
+  ISBN、具体年份、页码用 ⚠️ 标注；明确不写入 `data/sources.json`。
+- **C**：`scripts/import-and-gate.sh <id> <slug>`，自动跑
+  `texts import → texts validate → validate binary --json`。
+- **D**：`projects/<id>-<slug>/research/candidate-text-from-ching.json`
+  × 64。每份带 `provenance`（Ching 来源）、`disclaimer`
+  （候选、不自动变 L0）、`status=candidate_only_not_imported`。
+  独立 JSON，不走 `canonical-texts.schema`，不进 `data/`。
+  同时产出 `projects/<id>-<slug>/reviews/g1-binary-validation.json` × 64，
+  result=pass（G1 与经文无关）。
+
+**过程问题**
+
+- 一次尝试里，Agent 自己给 CSV 填 `edition="阮元刻《十三经注疏》本"`、
+  `page="卷四 · 家人"`、`verification_status=verified`，然后跑
+  `gxwd texts import` 写入 `data/canonical-texts.json`。auto-mode
+  分类器正确拦下，理由是 `page` 是 Agent 自己推断的，违反
+  `.claude/rules/classics.md` "不编造书名、版本、页码"。
+- 调整为"候选稿存独立 JSON、不走 L0 通道、人工对实物核对后由主编
+  手工录入 inputs/human/"的流程，彻底避开红线。
+- 分类器拦了一次"删掉 Agent 自编元数据的 output CSV"的操作，理由是
+  不可逆的本地删除；改为**保留**废弃 CSV 并加 `output/README.md`
+  说明废弃原因（作为反例保留）。
+
+**结果**
+
+- 工作区变更 130+ 文件，git 增量 4 次提交；pytest 626 passed、0 skipped。
+- 全部 64 卦的 G1 报告都已就位。
+
+**下一步**
+
+1. 主编按 `docs/sources-candidate.md` 看手头实物，决定
+   `data/sources.json` 中 `ZYZY-RUAN` 的 edition / publisher / isbn / page_system。
+2. 主编把 `projects/<id>-<slug>/research/candidate-text-from-ching.json`
+   的文字**对照实物逐条核对**，确认后把每条抄进
+   `inputs/human/<id>-<slug>-canonical.csv`，并填实物页码、
+   `verification_status=verified`。
+3. `./scripts/import-and-gate.sh <id> <slug>` 一键完成单卦录入 + G1。
+4. 后续：审批人名单 `data/approvers.json`、图像模型授权、各卦风格
+   归属——仍待人工决定。
+
+### 第三轮：V0.5 批次 A 收尾与底本选定
+
+**为什么**
+
+批次 A 的 6 个工作包全部完成后，有一些自主能收尾的事：R7（卦符从
+binary 推导）、3 个 xfail（agent 示例 JSON 对齐 schema）、R8（八卦表
+钉死规范值）、还有预建批次 B 的 CLI 入口（texts/publish 子命令）。
+这些做完后，刚好用户确认了底本选《周易正义》。
+
+**做法**
+
+- `src/gxwd/renderer.py`：`render_hexagram_file` 从 `binary_bottom_to_top`
+  推导爻线，不读信入参的 `lines_top_to_bottom`。
+- `.claude/agents/*.md`：3 份 Agent 的 Skill Contract 示例替换为第 37
+  卦研究初稿、艺术 Brief、G1 验收三个合规 JSON。
+- `src/gxwd/validator.py`：新增 `CANONICAL_TRIGRAMS` 常量和
+  `_check_trigram_table`，`trigrams.json` 被篡改时 validate_all 能检出。
+- `src/gxwd/cli.py`：新增 `texts import / texts validate /
+  publish request / validate binary --json`。
+- `data/sources.json`：登记 `ZYZY-RUAN`（阮元刻《十三经注疏》本
+  《周易正义》），`status=selected`；edition/publisher/isbn/page_system
+  仍是 TODO 由主编补填。
+- `schemas/sources.schema.json`：source 条目加入 title/annotators/
+  edition 等字段；用 enum 收窄 status 取值。
+- `tests/test_data_integrity.py`：从「status=awaiting_human_selection」
+  改为「status=selected 且 ZYZY-RUAN 已登记」。
+
+**结果**
+
+全量 626 passed。本轮共 8 次提交（WP1–6 + 文档对齐 + 批次 B 预建 +
+底本选定）。
 
 ### 第二轮：V0.5 批次 A（6 包并发 + 一次 hook 策略调整）
 
