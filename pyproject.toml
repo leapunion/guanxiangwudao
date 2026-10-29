@@ -1,14 +1,40 @@
 [project]
 name = "gxwd"
 version = "0.1.0"
-description = "观象悟道 — 易经六十四卦国学与国画 Agentic Studio"
+description = "观象悟道 — 易经六十四卦结构化主数据、SVG 卦符与 CLI 工具"
+readme = "README.md"
 requires-python = ">=3.12"
+license = {file = "LICENSE"}
+authors = [
+    {name = "cavin", email = "cavinfu007@gmail.com"},
+]
+keywords = ["i-ching", "zhouyi", "周易", "六十四卦", "guanxiang-wudao"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Religion",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Chinese (Simplified)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Text Processing :: Linguistic",
+    "Typing :: Typed",
+]
 dependencies = [
     "jsonschema>=4.20",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8"]
+dev = ["pytest>=8", "build>=1.0", "twine>=4.0"]
+
+[project.urls]
+Homepage = "https://github.com/cavinfu/guanxiang-wudao"
+Documentation = "https://github.com/cavinfu/guanxiang-wudao/blob/main/docs/HOW-TO-RUN-AGENTS.md"
+"Source Code" = "https://github.com/cavinfu/guanxiang-wudao"
+"Issue Tracker" = "https://github.com/cavinfu/guanxiang-wudao/issues"
 
 [project.scripts]
 gxwd = "gxwd.cli:main"
@@ -19,6 +45,35 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+gxwd = ["py.typed"]
+
+[tool.setuptools.data-files]
+"share/gxwd/data" = [
+    "data/trigrams.json",
+    "data/hexagrams.json",
+    "data/yao-texts.json",
+    "data/sources.json",
+    "data/asset-catalog.json",
+    "data/approvers.json",
+]
+"share/gxwd/assets/hexagram-svg" = [
+    "assets/hexagram-svg/01-qian.svg",
+    "assets/hexagram-svg/02-kun.svg",
+]
+"share/gxwd/schemas" = [
+    "schemas/trigrams.schema.json",
+    "schemas/hexagrams.schema.json",
+    "schemas/yao-texts.schema.json",
+    "schemas/sources.schema.json",
+    "schemas/asset-catalog.schema.json",
+    "schemas/canonical-texts.schema.json",
+    "schemas/approvers.schema.json",
+    "schemas/skill-result.schema.json",
+    "schemas/review-report.schema.json",
+    "schemas/execution-plan.schema.json",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

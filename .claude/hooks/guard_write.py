@@ -27,16 +27,16 @@ from fnmatch import fnmatch
 GLOBAL_DENY_PATTERNS = [
     "inputs/human/**",
     "docs/*.docx",
-    "pyproject.toml",
 ]
 
 # Paths that sub-Agents (CLAUDE_AGENT_ROLE set) additionally may not write.
-# Role agents work in their project subdirectory; integration code and
-# master data are off-limits for them.
+# Role agents work in their project subdirectory; integration code, master
+# data and packaging config are off-limits for them.
 AGENT_DENY_PATTERNS = [
     "data/**",
     "schemas/**",
     "src/**",
+    "pyproject.toml",
     ".claude/agents/**",
     "CLAUDE.md",
     "AGENTS.md",

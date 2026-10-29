@@ -54,12 +54,6 @@ def _run(tool_name, file_path=None, role=None):
 class TestMainSessionBlocked:
     """Main session (no CLAUDE_AGENT_ROLE) still can't write truly sensitive paths."""
 
-    def test_block_pyproject(self):
-        """主会话写 pyproject.toml → block（打包文件保持只人工改）"""
-        code, out = _run("Write", "pyproject.toml")
-        assert code == 2
-        assert out["decision"] == "block"
-
     def test_block_docx(self):
         """主会话写 docs/x.docx → block（PRD docx 不得被模型覆盖）"""
         code, out = _run("Write", "docs/x.docx")
@@ -97,6 +91,12 @@ class TestAgentBlockedOnSrc:
 
     def test_block_data_from_agent(self):
         code, out = _run("Write", "data/hexagrams.json", role="ink-art-director")
+        assert code == 2
+        assert out["decision"] == "block"
+
+    def test_block_pyproject_from_agent(self):
+        """pyproject.toml 对 Agent 禁写（打包配置是集成责任）"""
+        code, out = _run("Write", "pyproject.toml", role="classics-researcher")
         assert code == 2
         assert out["decision"] == "block"
 
