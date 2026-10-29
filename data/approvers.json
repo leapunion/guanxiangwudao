@@ -1,4 +1,13 @@
 {
-  "approvers": [],
-  "notes": "审批人名单骨架。Agent 不得代填真人身份。由项目负责人维护；每条格式 {\"id\": \"<slug>\", \"name\": \"<真实姓名>\", \"role\": \"国学主编|艺术主编|出版主编|总主编\", \"added_at\": \"YYYY-MM-DD\"}。空列表时任何 approved_by 都会被 publisher.request_publication 拒绝（PublicationError: not in approvers list）。角色定义见 PRD 第 28 篇三层终审。字段约束见 schemas/approvers.schema.json。"
+  "approvers": [
+    {
+      "id": "cavin",
+      "name": "cavin",
+      "role": "总主编",
+      "email": "cavinfu007@gmail.com",
+      "added_at": "2026-10-29",
+      "notes": "项目所有者（git author）。参考 Ching 项目同一维护者。本轮作为 V0.5 单卦试点的终审人；若日后独立设立国学主编/艺术主编，再加角色专属条目。"
+    }
+  ],
+  "notes": "审批人名单。角色定义见 PRD 第 28 篇三层终审（第一层确定性程序、第二层独立 Agent、第三层人工总主编）。publisher.request_publication 要求 approved_by 必须在此列表、且不与任何生产者/验证者 id 重复。字段约束见 schemas/approvers.schema.json。"
 }
