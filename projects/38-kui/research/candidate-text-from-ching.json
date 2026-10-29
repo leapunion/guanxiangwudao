@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 38,
+  "name": "睽",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/38-睽.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/38-kui-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H38-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "睽：小事吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "睽，火动而上，泽动而下。二女同居，其志不同行。说而丽乎明，柔进而上行，得中而应乎刚，是以小事吉。天地睽而其事同也，男女睽而其志通也，万物睽而其事类也。睽之时用大矣哉！",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "上火下泽，睽。君子以同而异。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "悔亡。丧马勿逐，自复。见恶人，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "遇主于巷，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "见舆曳，其牛掣，其人天且劓，无初有终。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "睽孤，遇元夫，交孚，厉无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "悔亡。厥宗噬肤，往何咎？",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "睽孤，见豕负涂，载鬼一车，先张之弧，后说之弧。匪寇婚媾，往遇雨则吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "见恶人，以辟咎也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“遇主于巷”，未失道也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“见舆曳”，位不当也；“无初有终”，遇刚也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "交孚无咎，志行也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“厥宗噬肤”，往有庆也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H38-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“遇雨”之吉，群疑亡也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

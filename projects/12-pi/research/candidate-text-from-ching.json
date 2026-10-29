@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 12,
+  "name": "否",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/12-否.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/12-pi-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H12-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "否：与泰卦相反，否卦乾在上、坤在下，各自依循本性远离对方，二气不交，万物生机因此壅塞。其二，就人事而言，“上下不交而天下无邦也”：在上者与在下者情意不通、政令不达，国家便如同失去凝聚力的散沙，难以成其为邦国。其三，就卦德卦体而言，“内阴而外阳，内柔而外刚，内小人而外君子，小人道长，君子道消也”：下卦坤为阴、为柔、为小人，居内而渐长；上卦乾为阳、为刚、为君子，居外而渐消——这与泰卦“君子道长，小人道消”恰成对照，说明否卦所写的，正是小人得势、君子退处的艰难时局。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "否之匪人，不利君子贞，大往小来，则是天地不交而万物不通也，上下不交而天下无邦也。内阴而外阳，内柔而外刚，内小人而外君子，小人道长，君子道消也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "天地不交，否。君子以俭德辟难，不可荣以禄。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "拔茅茹，以其汇，贞吉亨。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "包承，小人吉，大人否，亨。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "包羞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "有命无咎，畴离祉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "休否，大人吉。其亡其亡，系于苞桑。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "倾否，先否后喜。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“拔茅贞吉”，志在君也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“大人否亨”，不乱群也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“包羞”，位不当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“有命无咎”，志行也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "大人之吉，位正当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H12-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“否终则倾”，何可长也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

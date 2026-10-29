@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 33,
+  "name": "遁",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/33-遁.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/33-dun-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H33-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "遁：亨，小利贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "遁亨，遁而亨也。刚当位而应，与时行也。小利贞，浸而长也。遁之时义大矣哉！",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "天下有山，遁。君子以远小人，不恶而严。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "遁尾，厉，勿用有攸往。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "执之用黄牛之革，莫之胜说。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "系遁，有疾厉，畜臣妾吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "好遁，君子吉，小人否。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "嘉遁，贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "肥遁，无不利。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“遁尾之厉”，不往何灾也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "执用黄牛，固志也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“系遁之厉”，有疾惫也；“畜臣妾吉”，不可大事也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "君子好遁，小人否也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“嘉遁贞吉”，以正志也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H33-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“肥遁无不利”，无所疑也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

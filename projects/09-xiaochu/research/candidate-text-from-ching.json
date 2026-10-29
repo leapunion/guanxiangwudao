@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 9,
+  "name": "小畜",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/09-小畜.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/09-xiaochu-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H09-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "小畜：亨。密云不雨，自我西郊。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "小畜，柔得位而上下应之，曰小畜。健而巽，刚中而志行，乃亨。密云不雨，尚往也；自我西郊，施未行也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "风行天上，小畜。君子以懿文德。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "复自道，何其咎？吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "牵复，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "舆说辐，夫妻反目。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "有孚，血去惕出，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "有孚挛如，富以其邻。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "既雨既处，尚德载，妇贞厉。月几望，君子征凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“复自道”，其义吉也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "牵复在中，亦不自失也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "夫妻反目，不能正室也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "有孚惕出，上合志也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "有孚挛如，不独富也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H09-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "既雨既处，德积载也；君子征凶，有所疑也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 54,
+  "name": "归妹",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/54-归妹.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/54-guimei-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H54-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "归妹：征凶，无攸利。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "归妹，天地之大义也。天地不交，而万物不兴。归妹，人之终始也。说以动，所归妹也。征凶，位不当也。无攸利，柔乘刚也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "泽上有雷，归妹。君子以永终知敝。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "归妹以娣，跛能履，征吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "眇能视，利幽人之贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "归妹以须，反归以娣。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "归妹愆期，迟归有时。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "帝乙归妹，其君之袂不如其娣之袂良。月几望，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "女承筐无实，士刲羊无血，无攸利。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“归妹以娣”，以恒也；“跛能履”吉，相承也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "利幽人之贞，未变常也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“归妹以须”，未当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "愆期之志，有待而行也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“帝乙归妹”，不如其娣之袂良也；其位在中，以贵行也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H54-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "上六无实，承虚筐也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

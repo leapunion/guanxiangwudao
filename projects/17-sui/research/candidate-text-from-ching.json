@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 17,
+  "name": "随",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/17-随.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/17-sui-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H17-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "随：元亨利贞，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "随，刚来而下柔，动而说，随。大亨贞，无咎，而天下随时。随时之义大矣哉！",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "泽中有雷，随。君子以向晦入宴息。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "官有渝，贞吉。出门交有功。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "系小子，失丈夫。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "系丈夫，失小子。随有求得，利居贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "随有获，贞凶。有孚在道，以明，何咎？",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "孚于嘉，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "拘系之，乃从维之。王用亨于西山。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“官有渝”，从正吉也。“出门交有功”，不失也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“系小子”，弗兼与也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“系丈夫”，志舍下也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“随有获”，其义凶也。“有孚在道”，明功也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“孚于嘉”，位正中也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H17-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“拘系之”，上穷也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

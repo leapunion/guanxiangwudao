@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 64,
+  "name": "未济",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/64-未济.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/64-weiji-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H64-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "未济：亨。小狐汔济，濡其尾，无攸利。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "未济，亨，柔得中也。小狐汔济，未出中也。濡其尾，无攸利，不续终也。虽不当位，刚柔应也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "火在水上，未济。君子以慎辨物居方。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "濡其尾，吝。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "曳其轮，贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "未济，征凶，利涉大川。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "贞吉，悔亡。震用伐鬼方，三年有赏于大国。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "贞吉，无悔。君子之光，有孚，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "有孚于饮酒，无咎。濡其首，有孚失是。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“濡其尾”，亦不知极也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "九二贞吉，中以行正也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“未济征凶”，位不当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“贞吉悔亡”，志行也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“君子之光”，其晖吉也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H64-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“饮酒濡首”，亦不知节也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 59,
+  "name": "涣",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/59-涣.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/59-huan-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H59-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "涣：亨。王假有庙，利涉大川，利贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "涣，亨。刚来而不穷，柔得位乎外而上同。王假有庙，王乃在中也。利涉大川，乘木有功也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "风行水上，涣。先王以享于帝立庙。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "用拯马壮，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "涣奔其机，悔亡。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "涣其躬，无悔。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "涣其群，元吉。涣有丘，匪夷所思。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "涣汗其大号，涣王居，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "涣其血，去逖出，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "初六之吉，顺也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“涣奔其机”，得愿也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“涣其躬”，志在外也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“涣其群”元吉，光大也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "王居无咎，正位也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H59-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“涣其血”，远害也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

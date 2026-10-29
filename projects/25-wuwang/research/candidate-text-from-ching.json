@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 25,
+  "name": "无妄",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/25-无妄.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/25-wuwang-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H25-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "无妄：元亨利贞。其匪正有眚，不利有攸往。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "无妄，刚自外来而为主于内。动而健，刚中而应，大亨以正，天之命也。其匪正有眚，不利有攸往，无妄之往，何之矣？天命不祐，行矣哉！",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "天下雷行，物与无妄。先王以茂对时，育万物。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "无妄，往吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "不耕获，不菑畬，则利有攸往。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "无妄之灾，或系之牛，行人之得，邑人之灾。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "可贞，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "无妄之疾，勿药有喜。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "无妄，行有眚，无攸利。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“无妄之往”，得志也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“不耕获”，未富也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "行人得牛，邑人灾也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "可贞无咎，固有之也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "无妄之药，不可试也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H25-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "无妄之行，穷之灾也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

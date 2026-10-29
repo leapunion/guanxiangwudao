@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 27,
+  "name": "颐",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/27-颐.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/27-yi-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H27-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "颐：贞吉。观颐，自求口实。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "颐，贞吉，养正则吉也。观颐，观其所养也；自求口实，观其自养也。天地养万物，圣人养贤以及万民。颐之时大矣哉！",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "山下有雷，颐。君子以慎言语，节饮食。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "舍尔灵龟，观我朵颐，凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "颠颐，拂经，于丘颐，征凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "拂颐，贞凶，十年勿用，无攸利。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "颠颐，吉。虎视眈眈，其欲逐逐，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "拂经，居贞吉，不可涉大川。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "由颐，厉吉，利涉大川。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "观我朵颐，亦不足贵也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "六二征凶，行失类也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "十年勿用，道大悖也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "颠颐之吉，上施光也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "居贞之吉，顺以从上也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H27-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "由颐厉吉，大有庆也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

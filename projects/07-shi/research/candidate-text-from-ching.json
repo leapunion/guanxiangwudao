@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 7,
+  "name": "师",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/07-师.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/07-shi-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H07-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "师：贞，丈人吉，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "师，众也；贞，正也。能以众正，可以王矣。刚中而应，行险而顺，以此毒天下，而民从之，吉又何咎矣。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "地中有水，师。君子以容民畜众。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "师出以律，否臧凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "在师中，吉，无咎，王三锡命。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "师或舆尸，凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "师左次，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "田有禽，利执言，无咎。长子帅师，弟子舆尸，贞凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "大君有命，开国承家，小人勿用。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“师出以律”，失律凶也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“在师中吉”，承天宠也；“王三锡命”，怀万邦也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“师或舆尸”，大无功也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“左次无咎”，未失常也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“长子帅师”，以中行也；“弟子舆尸”，使不当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H07-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“大君有命”，以正功也；“小人勿用”，必乱邦也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

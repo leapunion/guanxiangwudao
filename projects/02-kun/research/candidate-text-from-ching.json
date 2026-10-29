@@ -1,0 +1,141 @@
+{
+  "hexagram_id": 2,
+  "name": "坤",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/02-坤.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/02-kun-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H02-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "坤：元，亨，利牝马之贞。君子有攸往，先迷；后得主，利。西南得朋，东北丧朋。安贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "至哉坤元，万物资生，乃顺承天。坤厚载物，德合无疆。含弘光大，品物咸亨。牝马地类，行地无疆，柔顺利贞。君子攸行，先迷失道，后顺得常。西南得朋，乃与类行。东北丧朋，乃终有庆。安贞之吉，应地无疆。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "地势坤。君子以厚德载物。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "履霜，坚冰至。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "直方大，不习，无不利。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "含章，可贞，或从王事，无成有终。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "括囊，无咎无誉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "黄裳，元吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "龙战于野，其血玄黄。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“履霜坚冰”，阴始凝也，驯致其道，至坚冰也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "六二之动，直以方也。“不习，无不利”，地道光也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“含章可贞”，以时发也。“或从王事”，知光大也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“括囊无咎”，慎不害也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“黄裳元吉”，文在中也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“龙战于野”，其道穷也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H02-yong-用六",
+      "text_type": "yong",
+      "line_position": "用六",
+      "line_name": "用六",
+      "candidate_text": "利永贞。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

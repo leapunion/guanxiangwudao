@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 20,
+  "name": "观",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/20-观.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/20-guan-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H20-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "观：盥而不荐，有孚颙若。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "大观在上，顺而巽，中正以观天下。观，盥而不荐，有孚颙若，下观而化也。观天之神道，而四时不忒；圣人以神道设教，而天下服矣。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "风行地上，观。先王以省方观民设教。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "童观，小人无咎，君子吝。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "窥观，利女贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "观我生，进退。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "观国之光，利用宾于王。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "观我生，君子无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "观其生，君子无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“童观”，小人道也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“窥观女贞”，亦可丑也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“观我生进退”，未失道也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“观国之光”，尚宾也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“观我生”，观民也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H20-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“观其生”，志未平也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

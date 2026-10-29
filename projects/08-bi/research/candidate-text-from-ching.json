@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 8,
+  "name": "比",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/08-比.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/08-bi-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H08-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "比：吉。原筮，元永贞，无咎。不宁方来，后夫凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "比，吉也；比，辅也，下顺从也。原筮元永贞，无咎，以刚中也。不宁方来，上下应也；后夫凶，其道穷也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "地上有水，比。先王以建万国，亲诸侯。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "有孚比之，无咎。有孚盈缶，终来有它吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "比之自内，贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "比之匪人。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "外比之，贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "显比。王用三驱，失前禽，邑人不诫，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "比之无首，凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "比之初六，有它吉也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "比之自内，不自失也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "比之匪人，不亦伤乎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "外比于贤，以从上也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "显比之吉，位正中也；舍逆取顺，失前禽也；邑人不诫，上使中也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H08-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "比之无首，无所终也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

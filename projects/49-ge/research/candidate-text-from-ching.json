@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 49,
+  "name": "革",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/49-革.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/49-ge-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H49-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "革：己日乃孚，元亨利贞，悔亡。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "革，水火相息，二女同居，其志不相得，曰革。己日乃孚，革而信之。文明以说，大亨以正，革而当，其悔乃亡。天地革而四时成。汤武革命，顺乎天而应乎人。革之时大矣哉！",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "泽中有火，革。君子以治历明时。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "巩用黄牛之革。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "己日乃革之，征吉，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "征凶，贞厉。革言三就，有孚。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "悔亡，有孚改命，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "大人虎变，未占有孚。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "君子豹变，小人革面。征凶，居贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“巩用黄牛”，不可以有为也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“己日革之”，行有嘉也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“革言三就”，又何之矣。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“改命之吉”，信志也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“大人虎变”，其文炳也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H49-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“君子豹变”，其文蔚也；“小人革面”，顺以从君也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

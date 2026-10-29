@@ -2,8 +2,8 @@
   "hexagram_id": 37,
   "name": "家人",
   "provenance": {
-    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 的通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（见 Ching ACCEPTANCE.md L322、L402）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
-    "copied_at": "2026-10-29T02:16:12Z",
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
     "source_file": "Ching/doc/commentary/37-家人.md",
     "status": "candidate_only_not_imported"
   },

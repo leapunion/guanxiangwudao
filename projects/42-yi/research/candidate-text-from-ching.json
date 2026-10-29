@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 42,
+  "name": "益",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/42-益.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/42-yi-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H42-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "益：利有攸往，利涉大川。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "益，损上益下，民说无疆。自上下下，其道大光。利有攸往，中正有庆。利涉大川，木道乃行。益动而巽，日进无疆。天施地生，其益无方。凡益之道，与时偕行。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "风雷，益。君子以见善则迁，有过则改。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "利用为大作，元吉，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "或益之十朋之龟，弗克违，永贞吉。王用享于帝，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "益之用凶事，无咎。有孚中行，告公用圭。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "中行，告公从，利用为依迁国。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "有孚惠心，勿问元吉。有孚惠我德。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "莫益之，或击之，立心勿恒，凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“元吉无咎”，下不厚事也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“或益之”，自外来也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "益用凶事，固有之也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“告公从”，以益志也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“有孚惠心”，勿问之矣；惠我德，大得志也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H42-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“莫益之”，偏辞也；“或击之”，自外来也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

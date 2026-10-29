@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 43,
+  "name": "夬",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/43-夬.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/43-guai-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H43-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "夬：扬于王庭，孚号，有厉。告自邑，不利即戎，利有攸往。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "夬，决也，刚决柔也。健而说，决而和。扬于王庭，柔乘五刚也。孚号有厉，其危乃光也。告自邑，不利即戎，所尚乃穷也。利有攸往，刚长乃终也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "泽上于天，夬。君子以施禄及下，居德则忌。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "壮于前趾，往不胜，为咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "惕号，莫夜有戎，勿恤。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "壮于頄，有凶。君子夬夬，独行遇雨，若濡有愠，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "臀无肤，其行次且。牵羊悔亡，闻言不信。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "苋陆夬夬，中行无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "无号，终有凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "不胜而往，咎也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“有戎勿恤”，得中道也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“君子夬夬”，终无咎也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“其行次且”，位不当也；“闻言不信”，聪不明也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“中行无咎”，中未光也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H43-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“无号之凶”，终不可长也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

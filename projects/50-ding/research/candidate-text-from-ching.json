@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 50,
+  "name": "鼎",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/50-鼎.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/50-ding-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H50-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "鼎：元吉，亨。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "鼎，象也。以木巽火，亨饪也。圣人亨以享上帝，而大亨以养圣贤。巽而耳目聪明，柔进而上行，得中而应乎刚，是以元亨。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "木上有火，鼎。君子以正位凝命。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "鼎颠趾，利出否。得妾以其子，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "鼎有实，我仇有疾，不我能即，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "鼎耳革，其行塞，雉膏不食。方雨亏悔，终吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "鼎折足，覆公餗，其形渥，凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "鼎黄耳金铉，利贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "鼎玉铉，大吉，无不利。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“鼎颠趾”，未悖也；“利出否”，以从贵也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“鼎有实”，慎所之也；“我仇有疾”，终无尤也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“鼎耳革”，失其义也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“覆公餗”，信如何也！",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“鼎黄耳”，中以为实也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H50-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "玉铉在上，刚柔节也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

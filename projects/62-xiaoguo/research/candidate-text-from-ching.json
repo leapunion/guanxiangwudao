@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 62,
+  "name": "小过",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/62-小过.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/62-xiaoguo-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H62-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "小过：亨，利贞。可小事，不可大事。飞鸟遗之音，不宜上，宜下，大吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "小过，小者过而亨也。过以利贞，与时行也。柔得中，是以小事吉也。刚失位而不中，是以不可大事也。有飞鸟之象焉。飞鸟遗之音，不宜上，宜下，大吉，上逆而下顺也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "山上有雷，小过。君子以行过乎恭，丧过乎哀，用过乎俭。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "飞鸟以凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "过其祖，遇其妣；不及其君，遇其臣，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "弗过防之，从或戕之，凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "无咎，弗过遇之。往厉必戒，勿用永贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "密云不雨，自我西郊，公弋取彼在穴。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "弗遇过之，飞鸟离之，凶，是谓灾眚。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“飞鸟以凶”，不可如何也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“不及其君”，臣不可过也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“从或戕之”，凶如何也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“弗过遇之”，位不当也；“往厉必戒”，终不可长也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“密云不雨”，已上也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H62-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“弗遇过之”，已亢也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

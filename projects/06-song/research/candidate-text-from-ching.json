@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 6,
+  "name": "讼",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/06-讼.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/06-song-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H06-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "讼：有孚窒惕，中吉，终凶。利见大人，不利涉大川。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "讼，上刚下险，险而健，讼。讼有孚窒惕中吉，刚来而得中也；终凶，讼不可成也。利见大人，尚中正也；不利涉大川，入于渊也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "天与水违行，讼。君子以作事谋始。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "不永所事，小有言，终吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "不克讼，归而逋，其邑人三百户，无眚。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "食旧德，贞厉，终吉。或从王事，无成。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "不克讼，复即命，渝，安贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "讼，元吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "或锡之鞶带，终朝三褫之。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“不永所事”，讼不可长也；虽小有言，其辩明也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“不克讼”，归逋窜也；自下讼上，患至掇也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“食旧德”，从上吉也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“复即命渝”，安贞不失也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "讼元吉，以中正也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H06-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "以讼受服，亦不足敬也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 61,
+  "name": "中孚",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/61-中孚.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/61-zhongfu-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H61-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "中孚：豚鱼吉，利涉大川，利贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "中孚，柔在内而刚得中，说而巽，孚乃化邦也。豚鱼吉，信及豚鱼也。利涉大川，乘木舟虚也。中孚以利贞，乃应乎天也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "泽上有风，中孚。君子以议狱缓死。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "虞吉，有它不燕。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "鸣鹤在阴，其子和之。我有好爵，吾与尔靡之。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "得敌，或鼓或罢，或泣或歌。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "月几望，马匹亡，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "有孚挛如，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "翰音登于天，贞凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "初九虞吉，志未变也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“其子和之”，中心愿也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“或鼓或罢”，位不当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“马匹亡”，绝类上也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“有孚挛如”，位正当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H61-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“翰音登于天”，何可长也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

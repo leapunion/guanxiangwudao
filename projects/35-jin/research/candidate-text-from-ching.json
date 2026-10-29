@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 35,
+  "name": "晋",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/35-晋.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/35-jin-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H35-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "晋：康侯用锡马蕃庶，昼日三接。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "晋，进也。明出地上，顺而丽乎大明，柔进而上行。是以康侯用锡马蕃庶，昼日三接也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "明出地上，晋。君子以自昭明德。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "晋如摧如，贞吉。罔孚，裕无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "晋如愁如，贞吉。受兹介福，于其王母。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "众允，悔亡。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "晋如鼫鼠，贞厉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "悔亡，失得勿恤，往吉，无不利。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "晋其角，维用伐邑，厉吉，无咎，贞吝。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“晋如摧如”，独行正也；“裕无咎”，未受命也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“受兹介福”，以中正也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "众允之志，上行也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“鼫鼠贞厉”，位不当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "失得勿恤，往有庆也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H35-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "维用伐邑，道未光也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

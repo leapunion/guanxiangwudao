@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 21,
+  "name": "噬嗑",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/21-噬嗑.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/21-shihe-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H21-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "噬嗑：亨，利用狱。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "颐中有物，曰噬嗑。噬嗑而亨，刚柔分，动而明，雷电合而章。柔得中而上行，虽不当位，利用狱也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "雷电，噬嗑。先王以明罚敕法。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "屦校灭趾，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "噬肤灭鼻，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "六三",
+      "candidate_text": "噬腊肉，遇毒，小吝，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "噬干胏，得金矢，利艰贞，吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "噬干肉，得黄金，贞厉，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "何校灭耳，凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“屦校灭趾”，不行也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“噬肤灭鼻”，乘刚也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“遇毒”，位不当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“利艰贞吉”，未光也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“贞厉无咎”，得当也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H21-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“何校灭耳”，聪不明也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

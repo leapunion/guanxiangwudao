@@ -1,0 +1,141 @@
+{
+  "hexagram_id": 1,
+  "name": "乾",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/01-乾.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/01-qian-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H01-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "乾：元，亨，利，贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "大哉乾元，万物资始，乃统天。云行雨施，品物流形。大明终始，六位时成。时乘六龙以御天。乾道变化，各正性命。保合大和，乃利贞。首出庶物，万国咸宁。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "天行健，君子以自强不息。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "潜龙，勿用。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "见龙在田，利见大人。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "君子终日乾乾，夕惕若厉，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "或跃在渊，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "飞龙在天，利见大人。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "亢龙，有悔。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“潜龙勿用”，阳在下也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“见龙在田”，德施普也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“终日乾乾”，反覆道也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“或跃在渊”，进无咎也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“飞龙在天”，大人造也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“亢龙有悔”，盈不可久也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H01-yong-用九",
+      "text_type": "yong",
+      "line_position": "用九",
+      "line_name": "用九",
+      "candidate_text": "见群龙无首，吉。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

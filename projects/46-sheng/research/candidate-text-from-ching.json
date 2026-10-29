@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 46,
+  "name": "升",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/46-升.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/46-sheng-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H46-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "升：元亨，用见大人，勿恤，南征吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "柔以时升，巽而顺，刚中而应，是以大亨。用见大人，勿恤，有庆也。南征吉，志行也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "地中生木，升。君子以顺德，积小以高大。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "允升，大吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "孚乃利用禴，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "升虚邑。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "王用亨于岐山，吉，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "贞吉，升阶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "冥升，利于不息之贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“允升大吉”，上合志也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "九二之孚，有喜也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“升虚邑”，无所疑也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“王用亨于岐山”，顺事也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“贞吉升阶”，大得志也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H46-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“冥升在上”，消不富也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

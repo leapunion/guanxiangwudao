@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 56,
+  "name": "旅",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/56-旅.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/56-lv-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H56-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "旅：小亨，旅贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "旅，小亨，柔得中乎外而顺乎刚，止而丽乎明，是以小亨，旅贞吉也。旅之时义大矣哉！",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "山上有火，旅。君子以明慎用刑，而不留狱。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初六",
+      "candidate_text": "旅琐琐，斯其所取灾。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "六二",
+      "candidate_text": "旅即次，怀其资，得童仆贞。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "旅焚其次，丧其童仆，贞厉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "九四",
+      "candidate_text": "旅于处，得其资斧，我心不快。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "六五",
+      "candidate_text": "射雉，一矢亡，终以誉命。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上九",
+      "candidate_text": "鸟焚其巢，旅人先笑后号咷。丧牛于易，凶。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“旅琐琐”，志穷灾也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "得童仆贞，终无尤也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“旅焚其次”，亦以伤矣；以旅与下，其义丧也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“旅于处”，未得位也；“得其资斧”，心未快也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "终以誉命，上逮也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H56-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "以旅在上，其义焚也；“丧牛于易”，终莫之闻也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}

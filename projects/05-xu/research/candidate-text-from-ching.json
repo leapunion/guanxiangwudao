@@ -1,0 +1,133 @@
+{
+  "hexagram_id": 5,
+  "name": "需",
+  "provenance": {
+    "note": "Ching 项目 (/Users/cavinfu/Desktop/devs/Ching) 通解审校稿第 67 轮之后的经文文字；Ching 以『通行本』《周易正义》为底本（Ching ACCEPTANCE.md 多处记载院长抽核与通行本逐条对照结果）。本项目登记底本 source_id=ZYZY-RUAN（阮元刻《十三经注疏》本）在同一文字源头上，但具体 edition/publisher/isbn/page 由本项目国学主编按手头实物核对后再决定是否录入 inputs/human/。",
+    "copied_at": "2026-10-29T02:23:34Z",
+    "source_file": "Ching/doc/commentary/05-需.md",
+    "status": "candidate_only_not_imported"
+  },
+  "disclaimer": "本文件只是候选参考稿，不是本项目的正式 L0 原文。只有主编对照底本实物签字之后，才能把对应条目录入 inputs/human/05-xu-canonical.csv，由 gxwd texts import 写入 data/canonical-texts.json。",
+  "entries": [
+    {
+      "text_id": "H05-gua_ci",
+      "text_type": "gua_ci",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "需：有孚，光亨。贞吉，利涉大川。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-tuan",
+      "text_type": "tuan",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "“需”，须也。险在前也，刚健而不陷，其义不困穷矣。“需，有孚，光亨，贞吉”，位乎天位，以正中也。“利涉大川”，往有功也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-da_xiang",
+      "text_type": "da_xiang",
+      "line_position": null,
+      "line_name": null,
+      "candidate_text": "云上于天，需。君子以饮食宴乐。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-yao_ci-L1",
+      "text_type": "yao_ci",
+      "line_position": 1,
+      "line_name": "初九",
+      "candidate_text": "需于郊，利用恒，无咎。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-yao_ci-L2",
+      "text_type": "yao_ci",
+      "line_position": 2,
+      "line_name": "九二",
+      "candidate_text": "需于沙，小有言，终吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-yao_ci-L3",
+      "text_type": "yao_ci",
+      "line_position": 3,
+      "line_name": "九三",
+      "candidate_text": "需于泥，致寇至。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-yao_ci-L4",
+      "text_type": "yao_ci",
+      "line_position": 4,
+      "line_name": "六四",
+      "candidate_text": "需于血，出自穴。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-yao_ci-L5",
+      "text_type": "yao_ci",
+      "line_position": 5,
+      "line_name": "九五",
+      "candidate_text": "需于酒食，贞吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-yao_ci-L6",
+      "text_type": "yao_ci",
+      "line_position": 6,
+      "line_name": "上六",
+      "candidate_text": "入于穴，有不速之客三人来，敬之终吉。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-xiao_xiang-L1",
+      "text_type": "xiao_xiang",
+      "line_position": 1,
+      "line_name": null,
+      "candidate_text": "“需于郊”，不犯难行也。“利用恒无咎”，未失常也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-xiao_xiang-L2",
+      "text_type": "xiao_xiang",
+      "line_position": 2,
+      "line_name": null,
+      "candidate_text": "“需于沙”，衍在中也。虽小有言，以吉终也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-xiao_xiang-L3",
+      "text_type": "xiao_xiang",
+      "line_position": 3,
+      "line_name": null,
+      "candidate_text": "“需于泥”，灾在外也。自我致寇，敬慎不败也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-xiao_xiang-L4",
+      "text_type": "xiao_xiang",
+      "line_position": 4,
+      "line_name": null,
+      "candidate_text": "“需于血”，顺以听也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-xiao_xiang-L5",
+      "text_type": "xiao_xiang",
+      "line_position": 5,
+      "line_name": null,
+      "candidate_text": "“酒食贞吉”，以中正也。",
+      "status": "candidate_from_ching"
+    },
+    {
+      "text_id": "H05-xiao_xiang-L6",
+      "text_type": "xiao_xiang",
+      "line_position": 6,
+      "line_name": null,
+      "candidate_text": "“不速之客来，敬之终吉”，虽不当位，未大失也。",
+      "status": "candidate_from_ching"
+    }
+  ]
+}
