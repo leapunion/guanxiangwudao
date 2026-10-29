@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/approvers.schema.json",
+  "title": "Approvers",
+  "description": "出版审批人名单。publisher.request_publication 的 approved_by 必须出现在此列表的某条 id。Agent 不得编造真人身份。",
+  "type": "object",
+  "required": ["approvers"],
+  "additionalProperties": false,
+  "properties": {
+    "approvers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "role"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "minLength": 1,
+            "description": "审批人唯一 ID，小写字母开头，可含数字、下划线、连字符"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "真实姓名；禁止写代号或占位"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["国学主编", "艺术主编", "出版主编", "总主编"],
+            "description": "审批角色；对应 PRD 第 28 篇的三层终审"
+          },
+          "email": {
+            "type": "string",
+            "description": "可选"
+          },
+          "added_at": {
+            "type": "string",
+            "format": "date",
+            "description": "加入名单的日期（YYYY-MM-DD）"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

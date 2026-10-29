@@ -54,3 +54,14 @@ def test_asset_catalog_ids_match_master():
     records = _load("asset-catalog.json")["records"]
     assert len(records) == 64
     assert [r["hexagram_id"] for r in records] == [h["hexagram_id"] for h in load_hexagrams()]
+
+
+def test_approvers_skeleton_present_and_valid():
+    """审批人名单文件必须存在；本轮空列表是允许的（publisher 会拒绝任何
+    approved_by，但文件本身必须就位）。"""
+    data = _load("approvers.json")
+    assert "approvers" in data
+    assert isinstance(data["approvers"], list)
+    # 允许空列表（骨架态）；但每条已登记项必须有 id、name、role 三字段。
+    for approver in data["approvers"]:
+        assert set(approver) >= {"id", "name", "role"}, approver

@@ -10,7 +10,7 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_DIR = ROOT / "schemas"
 DATA_DIR = ROOT / "data"
-SCHEMA_NAMES = ["trigrams", "hexagrams", "yao-texts", "sources", "asset-catalog"]
+SCHEMA_NAMES = ["trigrams", "hexagrams", "yao-texts", "sources", "asset-catalog", "approvers"]
 
 
 def _load(path: Path) -> Any:

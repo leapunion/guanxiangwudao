@@ -1,0 +1,4 @@
+{
+  "approvers": [],
+  "notes": "审批人名单骨架。Agent 不得代填真人身份。由项目负责人维护；每条格式 {\"id\": \"<slug>\", \"name\": \"<真实姓名>\", \"role\": \"国学主编|艺术主编|出版主编|总主编\", \"added_at\": \"YYYY-MM-DD\"}。空列表时任何 approved_by 都会被 publisher.request_publication 拒绝（PublicationError: not in approvers list）。角色定义见 PRD 第 28 篇三层终审。字段约束见 schemas/approvers.schema.json。"
+}
