@@ -16,8 +16,6 @@ REPO_DATA = Path(__file__).resolve().parents[1] / "data"
         ["art", "brief", "37"],
         ["art", "create", "37"],
         ["verify", "37"],
-        ["publish", "card", "37"],
-        ["publish", "book"],
         ["review", "queue"],
     ],
 )
@@ -95,6 +93,66 @@ def test_validate_binary_all_passes(data_dir, capsys):
 
     assert code == 0
     assert "64/64 通过" in capsys.readouterr().out
+
+
+def test_validate_binary_single_hexagram(data_dir, capsys):
+    code = main(["validate", "binary", "37"])
+
+    assert code == 0
+    assert "卦 37 通过" in capsys.readouterr().out
+
+
+def test_validate_binary_json_output(data_dir, tmp_path):
+    out_path = tmp_path / "g1-binary-validation.json"
+
+    code = main(["validate", "binary", "37", "--json", "--out", str(out_path)])
+
+    assert code == 0
+    payload = json.loads(out_path.read_text(encoding="utf-8"))
+    assert payload["gate"] == "G1"
+    assert payload["hexagram_id"] == 37
+    assert payload["result"] == "pass"
+
+
+def test_validate_binary_requires_id_or_all(capsys):
+    code = main(["validate", "binary"])
+
+    assert code == 1
+    assert "二选一" in capsys.readouterr().err
+
+
+def test_texts_import_rejects_pending_sources(data_dir, tmp_path, capsys):
+    (data_dir / "sources.json").write_text(
+        json.dumps({"sources": [], "status": "awaiting_human_selection"}, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    csv_path = tmp_path / "x.csv"
+    csv_path.write_text("text_type\n", encoding="utf-8")
+
+    code = main(["texts", "import", str(csv_path), "--hexagram-id", "37"])
+
+    assert code == 1
+    assert "尚未选定" in capsys.readouterr().err
+
+
+def test_texts_validate_empty_when_no_file(data_dir, capsys):
+    code = main(["texts", "validate"])
+
+    assert code == 0
+    assert "经文为空" in capsys.readouterr().out
+
+
+def test_publish_request_blocked_without_approvers(data_dir, capsys):
+    main(["init"])
+
+    code = main([
+        "publish", "request", "37",
+        "--approved-by", "ghost",
+        "--approved-at", "2026-10-28T12:00:00Z",
+    ])
+
+    assert code == 1
+    assert "出版拒绝" in capsys.readouterr().err
 
 
 def test_render_svg_all_writes_64_files(data_dir, tmp_path, capsys):

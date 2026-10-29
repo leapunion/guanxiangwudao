@@ -17,10 +17,9 @@ STUB_COMMANDS = (
     (("art", "brief"), "艺术 Brief（占位）"),
     (("art", "create"), "作画（占位）"),
     (("verify",), "核验（占位）"),
-    (("publish", "card"), "发布卡片（占位）"),
-    (("publish", "book"), "发布成书（占位）"),
     (("review", "queue"), "审校队列（占位）"),
 )
+CANONICAL_TEXTS_FILE = "canonical-texts.json"
 
 
 def _data_dir() -> Path:
@@ -131,15 +130,49 @@ def _cmd_hexagram_show(args: argparse.Namespace) -> int:
     return 0
 
 
-def _cmd_validate_binary(_: argparse.Namespace) -> int:
+def _validate_single_hexagram(hexagram: dict, trigrams: list[dict]) -> dict:
+    """只做单卦结构校验：trigram_table + 当前卦的 _check_hexagram。"""
+    from gxwd import validator
+
+    errors = validator._check_trigram_table(trigrams)  # noqa: SLF001 — intentional reuse
+    table = validator._trigram_map(trigrams)
+    errors += validator._check_hexagram(hexagram, table)
+    return {"valid": not errors, "checked": 1, "errors": errors}
+
+
+def _cmd_validate_binary(args: argparse.Namespace) -> int:
     from gxwd import domain, validator
 
+    if args.all == (args.id is not None):
+        _err("请指定 <id> 或 --all（二选一）")
+        return 1
     data_dir = _data_dir()
-    result = validator.validate_all(
-        domain.load_hexagrams(data_dir), domain.load_trigrams(data_dir)
-    )
+    trigrams = domain.load_trigrams(data_dir)
+    if args.id is not None:
+        try:
+            hexagram = domain.get_hexagram(args.id, data_dir)
+        except KeyError:
+            _err(f"卦不存在: {args.id}")
+            return 1
+        result = _validate_single_hexagram(hexagram, trigrams)
+    else:
+        result = validator.validate_all(domain.load_hexagrams(data_dir), trigrams)
+    if args.json:
+        payload = {
+            "gate": "G1",
+            "hexagram_id": args.id,
+            "result": "pass" if result["valid"] else "fail",
+            **result,
+        }
+        if args.out:
+            _write_json(Path(args.out), payload)
+            print(f"已写入: {args.out}")
+        else:
+            print(json.dumps(payload, ensure_ascii=False, indent=2))
+        return 0 if result["valid"] else 1
     if result["valid"]:
-        print(f"{result['checked']}/64 通过")
+        label = f"卦 {args.id}" if args.id is not None else f"{result['checked']}/64"
+        print(f"{label} 通过")
         return 0
     for error in result["errors"]:
         _err(f"卦 {error['hexagram_id']} [{error['rule']}] {error['detail']}")
@@ -165,6 +198,81 @@ def _cmd_render_svg(args: argparse.Namespace) -> int:
         return 1
     for hexagram in targets:
         print(renderer.render_hexagram_file(hexagram, out_dir))
+    return 0
+
+
+def _cmd_texts_import(args: argparse.Namespace) -> int:
+    from gxwd import domain, texts
+
+    data_dir = _data_dir()
+    sources_path = data_dir / "sources.json"
+    out_path = data_dir / CANONICAL_TEXTS_FILE
+    try:
+        sources_doc = json.loads(sources_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        _err(f"底本登记册不存在: {sources_path}")
+        return 1
+    if sources_doc.get("status") != "selected":
+        _err(f"底本尚未选定（status={sources_doc.get('status')!r}）；无法录入经文")
+        return 1
+    try:
+        domain.get_hexagram(args.hexagram_id, data_dir)
+    except KeyError:
+        _err(f"卦不存在: {args.hexagram_id}")
+        return 1
+    try:
+        new_entries = texts.import_canonical_from_csv(
+            Path(args.csv), sources_doc.get("sources", []), args.hexagram_id
+        )
+    except (texts.CanonicalTextError, FileNotFoundError) as exc:
+        _err(f"导入失败: {exc}")
+        return 1
+    existing = texts.load_canonical_texts(data_dir)
+    kept = [e for e in existing if e.get("hexagram_id") != args.hexagram_id]
+    merged = kept + new_entries
+    _write_json(out_path, {"version": "1", "entries": merged})
+    print(f"已写入 {len(new_entries)} 条到: {out_path}")
+    return 0
+
+
+def _cmd_texts_validate(_: argparse.Namespace) -> int:
+    from gxwd import domain, texts
+
+    data_dir = _data_dir()
+    entries = texts.load_canonical_texts(data_dir)
+    if not entries:
+        print(f"经文为空（{data_dir / CANONICAL_TEXTS_FILE} 不存在或无条目）")
+        return 0
+    errors = texts.validate_canonical_texts(entries, domain.load_hexagrams(data_dir))
+    if not errors:
+        print(f"{len(entries)} 条经文通过")
+        return 0
+    for error in errors:
+        _err(f"{error.get('text_id', '?')} [{error['rule']}] {error['detail']}")
+    return 1
+
+
+def _cmd_publish_request(args: argparse.Namespace) -> int:
+    from gxwd import domain, publisher
+
+    try:
+        domain.get_hexagram(args.id, _data_dir())
+    except KeyError:
+        _err(f"卦不存在: {args.id}")
+        return 1
+    reviews_dir = Path(args.reviews_dir) if args.reviews_dir else None
+    try:
+        record = publisher.request_publication(
+            args.id,
+            approved_by=args.approved_by,
+            approved_at=args.approved_at,
+            data_dir=_data_dir(),
+            reviews_dir=reviews_dir,
+        )
+    except publisher.PublicationError as exc:
+        _err(f"出版拒绝: {exc}")
+        return 1
+    print(json.dumps(record, ensure_ascii=False, indent=2))
     return 0
 
 
@@ -208,7 +316,10 @@ def build_parser() -> argparse.ArgumentParser:
     binary = validate.add_subparsers(dest="validate_cmd", required=True).add_parser(
         "binary", help="二进制验证"
     )
-    binary.add_argument("--all", action="store_true", required=True)
+    binary.add_argument("id", type=int, nargs="?")
+    binary.add_argument("--all", action="store_true")
+    binary.add_argument("--json", action="store_true", help="输出结构化 JSON（G1 报告格式）")
+    binary.add_argument("--out", default=None, help="写入到指定路径而不是 stdout")
     binary.set_defaults(func=_cmd_validate_binary)
 
     render = sub.add_parser("render", help="渲染")
@@ -219,6 +330,24 @@ def build_parser() -> argparse.ArgumentParser:
     svg.add_argument("--all", action="store_true")
     svg.add_argument("--out", default=None)
     svg.set_defaults(func=_cmd_render_svg)
+
+    texts_parser = sub.add_parser("texts", help="经文录入与校验")
+    texts_sub = texts_parser.add_subparsers(dest="texts_cmd", required=True)
+    tx_import = texts_sub.add_parser("import", help="从 CSV 录入某一卦的经文")
+    tx_import.add_argument("csv", help="inputs/human/*.csv")
+    tx_import.add_argument("--hexagram-id", type=int, required=True)
+    tx_import.set_defaults(func=_cmd_texts_import)
+    tx_validate = texts_sub.add_parser("validate", help="校验 data/canonical-texts.json")
+    tx_validate.set_defaults(func=_cmd_texts_validate)
+
+    publish = sub.add_parser("publish", help="出版")
+    publish_sub = publish.add_subparsers(dest="publish_cmd", required=True)
+    request = publish_sub.add_parser("request", help="请求出版（重算门禁）")
+    request.add_argument("id", type=int)
+    request.add_argument("--approved-by", required=True, help="data/approvers.json 中的 id")
+    request.add_argument("--approved-at", required=True, help="ISO8601 时间")
+    request.add_argument("--reviews-dir", default=None, help="默认 projects/<id:02d>-<slug>/reviews")
+    request.set_defaults(func=_cmd_publish_request)
 
     _add_stubs(sub)
     return parser

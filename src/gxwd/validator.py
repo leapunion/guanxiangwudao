@@ -10,6 +10,19 @@ _HEXAGRAM_COUNT = 64
 _SYMBOL_BASE = 0x4DC0
 _PAIR_RULE = "kingwen_pair"
 
+# 八卦规范编码（PRD 第 31 篇，自下而上）。
+# validate_all 用它钉死 trigrams.json：即便 trigrams 自己被篡改，门禁仍能拒绝。
+CANONICAL_TRIGRAMS: dict[str, str] = {
+    "乾": "111",
+    "坤": "000",
+    "震": "100",
+    "巽": "011",
+    "坎": "010",
+    "离": "101",
+    "艮": "001",
+    "兑": "110",
+}
+
 Error = dict[str, Any]
 
 
@@ -129,9 +142,27 @@ def _check_pairs(hexagrams: list[dict[str, Any]]) -> list[Error]:
     return errors
 
 
-def validate_all(hexagrams: list[dict[str, Any]], trigrams: list[dict[str, Any]]) -> dict[str, Any]:
+def _check_trigram_table(trigrams: list[dict[str, Any]]) -> list[Error]:
+    """审定 R8：把八卦表钉死在规范值上，trigrams.json 自身被篡改时也能被识别。"""
     table = _trigram_map(trigrams)
     errors: list[Error] = []
+    for name, canonical in CANONICAL_TRIGRAMS.items():
+        actual = table.get(name)
+        if actual is None:
+            errors.append(_err(None, "trigram_table", f"trigram {name!r} missing from trigrams.json"))
+        elif actual != canonical:
+            errors.append(
+                _err(None, "trigram_table", f"trigram {name!r} binary {actual!r} != canonical {canonical!r}")
+            )
+    unknown = sorted(set(table) - set(CANONICAL_TRIGRAMS))
+    if unknown:
+        errors.append(_err(None, "trigram_table", f"unknown trigrams in trigrams.json: {unknown}"))
+    return errors
+
+
+def validate_all(hexagrams: list[dict[str, Any]], trigrams: list[dict[str, Any]]) -> dict[str, Any]:
+    errors: list[Error] = _check_trigram_table(trigrams)
+    table = _trigram_map(trigrams)
     errors += _check_ids(hexagrams)
     errors += _check_binary_coverage(hexagrams)
     for h in hexagrams:

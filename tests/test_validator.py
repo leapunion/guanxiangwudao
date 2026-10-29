@@ -3,7 +3,7 @@ import copy
 import pytest
 
 from gxwd.domain import load_hexagrams, load_trigrams
-from gxwd.validator import HexagramValidationError, validate_all, validate_hexagram
+from gxwd.validator import CANONICAL_TRIGRAMS, HexagramValidationError, validate_all, validate_hexagram
 
 
 @pytest.fixture()
@@ -111,3 +111,27 @@ def test_validate_all_does_not_mutate_inputs(data):
     h_before, t_before = copy.deepcopy(hexagrams), copy.deepcopy(trigrams)
     validate_all(hexagrams, trigrams)
     assert hexagrams == h_before and trigrams == t_before
+
+
+def test_canonical_trigrams_pinned_against_tampering(data):
+    """审定 R8：validator 内置的 CANONICAL_TRIGRAMS 必须钉死规范值。"""
+    hexagrams, trigrams = data
+    tampered = copy.deepcopy(trigrams)
+    tampered[0]["binary"] = "000"  # 乾 ← 本应 111
+    result = validate_all(hexagrams, tampered)
+    assert result["valid"] is False
+    assert "trigram_table" in rules(result)
+
+
+def test_canonical_trigrams_detects_missing_trigram(data):
+    hexagrams, trigrams = data
+    tampered = [t for t in copy.deepcopy(trigrams) if t["name"] != "乾"]
+    result = validate_all(hexagrams, tampered)
+    assert "trigram_table" in rules(result)
+
+
+def test_canonical_trigrams_matches_prd():
+    assert CANONICAL_TRIGRAMS == {
+        "乾": "111", "坤": "000", "震": "100", "巽": "011",
+        "坎": "010", "离": "101", "艮": "001", "兑": "110",
+    }
