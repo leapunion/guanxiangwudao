@@ -1,5 +1,21 @@
 {
-  "sources": [],
-  "status": "awaiting_human_selection",
-  "candidate_editions_note": "候选底本（如通行本《周易正义》等）由国学主编确认后登记"
+  "sources": [
+    {
+      "source_id": "ZYZY-RUAN",
+      "title": "周易正义",
+      "annotators": [
+        "王弼 注",
+        "韩康伯 注",
+        "孔颖达 疏"
+      ],
+      "edition": "阮元刻《十三经注疏》本",
+      "publisher": "TODO: 由国学主编补填具体影印本（如中华书局 1980 年影印本）",
+      "isbn": "TODO",
+      "page_system": "TODO: 阮刻影印本页码（上下栏）",
+      "notes": "V0.5 L0 唯一底本：阮元刻十三经注疏本《周易正义》，含王弼、韩康伯注与孔颖达疏。publisher / isbn / page_system 由国学主编按手头实物补填后再录入经文。",
+      "status": "selected"
+    }
+  ],
+  "status": "selected",
+  "candidate_editions_note": "本轮只选 1 份 L0 底本：阮元刻十三经注疏本《周易正义》（source_id=ZYZY-RUAN）。后续如引入《周易本义》《周易集解》等，另加条目，status 为 candidate 或 deprecated。"
 }

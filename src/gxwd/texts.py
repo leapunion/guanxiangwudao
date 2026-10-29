@@ -234,7 +234,7 @@ def import_canonical_from_csv(
 
     # 建立 source_id → status 的映射
     source_map: dict[str, str] = {
-        s["id"]: s.get("status", "") for s in sources_copy
+        s["source_id"]: s.get("status", "") for s in sources_copy
     }
 
     if hexagram_id < 1 or hexagram_id > 64:

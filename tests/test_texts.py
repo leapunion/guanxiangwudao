@@ -45,7 +45,7 @@ def _load_schema() -> dict:
 
 def _make_sources(source_id: str = "SRC-TEST-001", status: str = "selected") -> list[dict]:
     """构造合成 sources 列表，不读取仓库 data/sources.json。"""
-    return [{"id": source_id, "status": status}]
+    return [{"source_id": source_id, "status": status}]
 
 
 def _write_csv(tmp_path: Path, name: str, rows: list[dict]) -> Path:
@@ -702,7 +702,7 @@ class TestImportFromFixtures:
     def test_invalid_csv_raises_on_missing_edition(self):
         """fixtures/texts/h37_invalid_missing_edition.csv 应抛出 CanonicalTextError。"""
         csv_path = FIXTURES_DIR / "h37_invalid_missing_edition.csv"
-        sources = [{"id": "SRC-TEST-001", "status": "selected"}]
+        sources = [{"source_id": "SRC-TEST-001", "status": "selected"}]
         with pytest.raises(CanonicalTextError, match="edition"):
             import_canonical_from_csv(csv_path, sources, 37)
 

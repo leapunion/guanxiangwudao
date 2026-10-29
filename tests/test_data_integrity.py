@@ -39,10 +39,15 @@ def test_no_original_text_and_source_pending():
     assert all(line["source_id"] == "SOURCE_PENDING" for line in lines)
 
 
-def test_sources_awaiting_human_selection():
+def test_sources_selected_zyzy_ruan():
+    """V0.5 选定底本为阮元刻十三经注疏本《周易正义》（source_id=ZYZY-RUAN）。"""
     data = _load("sources.json")
-    assert data["status"] == "awaiting_human_selection"
-    assert data["sources"] == []
+    assert data["status"] == "selected"
+    source_ids = {s["source_id"] for s in data["sources"]}
+    assert "ZYZY-RUAN" in source_ids
+    zyzy = next(s for s in data["sources"] if s["source_id"] == "ZYZY-RUAN")
+    assert zyzy["status"] == "selected"
+    assert zyzy["title"] == "周易正义"
 
 
 def test_asset_catalog_ids_match_master():

@@ -10,13 +10,28 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["source_id"],
+        "required": ["source_id", "status"],
+        "additionalProperties": true,
         "properties": {
-          "source_id": {"type": "string", "minLength": 1}
+          "source_id": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "annotators": {"type": "array", "items": {"type": "string"}},
+          "edition": {"type": "string", "minLength": 1},
+          "publisher": {"type": "string"},
+          "isbn": {"type": "string"},
+          "page_system": {"type": "string"},
+          "notes": {"type": "string"},
+          "status": {
+            "type": "string",
+            "enum": ["selected", "candidate", "deprecated"]
+          }
         }
       }
     },
-    "status": {"type": "string", "minLength": 1},
+    "status": {
+      "type": "string",
+      "enum": ["awaiting_human_selection", "selected"]
+    },
     "candidate_editions_note": {"type": "string"}
   }
 }
