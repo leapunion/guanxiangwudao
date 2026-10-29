@@ -23,8 +23,10 @@ CANONICAL_TEXTS_FILE = "canonical-texts.json"
 
 
 def _data_dir() -> Path:
-    env = os.environ.get("GXWD_DATA_DIR")
-    return Path(env) if env else REPO_ROOT / "data"
+    """复用 domain.get_data_dir() 的单一真相源（审定 R9）。"""
+    from gxwd.domain import get_data_dir
+
+    return get_data_dir()
 
 
 def _err(message: str) -> None:
@@ -263,6 +265,14 @@ def _cmd_web_build(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_web_serve(args: argparse.Namespace) -> int:
+    from gxwd import web
+
+    repo = Path(args.repo_root) if args.repo_root else None
+    web.serve(repo_root=repo, port=args.port, host=args.host, build_first=not args.no_build)
+    return 0
+
+
 def _cmd_publish_request(args: argparse.Namespace) -> int:
     from gxwd import domain, publisher
 
@@ -357,6 +367,13 @@ def build_parser() -> argparse.ArgumentParser:
     web_build.add_argument("--out", default=None, help="输出路径，默认 <repo>/web/index.html")
     web_build.add_argument("--repo-root", default=None, help="仓库根路径，默认由模块位置推断")
     web_build.set_defaults(func=_cmd_web_build)
+
+    web_serve = web_sub.add_parser("serve", help="在本地启静态服务（默认 127.0.0.1:8000）")
+    web_serve.add_argument("--port", type=int, default=8000)
+    web_serve.add_argument("--host", default="127.0.0.1")
+    web_serve.add_argument("--repo-root", default=None)
+    web_serve.add_argument("--no-build", action="store_true", help="跳过 serve 前的自动 build")
+    web_serve.set_defaults(func=_cmd_web_serve)
 
     publish = sub.add_parser("publish", help="出版")
     publish_sub = publish.add_subparsers(dest="publish_cmd", required=True)

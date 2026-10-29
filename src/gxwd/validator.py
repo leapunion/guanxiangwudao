@@ -38,8 +38,10 @@ def _trigram_map(trigrams: list[dict[str, Any]]) -> dict[str, str]:
     return {t["name"]: t["binary"] for t in trigrams}
 
 
-def validate_hexagram(lower: str, upper: str, binary: str) -> dict[str, Any]:
-    table = _trigram_map(load_trigrams())
+def validate_hexagram(
+    lower: str, upper: str, binary: str, data_dir: Any = None
+) -> dict[str, Any]:
+    table = _trigram_map(load_trigrams(data_dir))
     for label, name in (("lower", lower), ("upper", upper)):
         if name not in table:
             raise HexagramValidationError(f"unknown {label} trigram: {name!r}")

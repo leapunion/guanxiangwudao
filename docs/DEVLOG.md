@@ -8,13 +8,65 @@
 |---|---|
 | 版本 | V0.1 可信底座完成；V0.5 批次 A 完成；V0.5 批次 B 预备全部就位（底本登记、审批人骨架、64 份候选经文、CSV 模板、helper、风格候选表、图像模型冻结记录）；真正的 L0 原文录入必须由主编按实物签字走 inputs/human/ |
 | 数据 | 64 卦主数据经双盲交叉校验 64/64 一致；384 爻结构，另含用九、用六；`data/sources.json` 选定 `ZYZY-RUAN`（阮元刻《十三经注疏》本《周易正义》），publisher/isbn/page_system 字段**故意缺省**（schema 允许；Agent 不编），由主编对实物补填；`data/canonical-texts.json` 本轮仍空；候选经文放在 projects/<id>/research/candidate-text-from-ching.json；`data/approvers.json` 加入 cavin（git author，总主编） |
-| 工程 | Python 3.12 包 `gxwd`：domain、validator、renderer、yao、workflow、catalog、cli、texts、publisher、composer。JSON Schema 10 份（含 approvers）。CLI 已实现 init / status / hexagram show / validate binary / render svg / texts import / texts validate / publish request |
+| 工程 | Python 3.12 包 `gxwd`：domain、validator、renderer、yao、workflow、catalog、cli、texts、publisher、composer、web。JSON Schema 10 份（含 approvers）。CLI 已实现 init / status / hexagram show / validate binary / render svg / texts import / texts validate / publish request / web build / web serve |
 | 资产 | 64 个程序生成的 SVG 卦符；64 份 `canonical-input` CSV 模板；64 份 `candidate-text-from-ching.json` 候选经文；64 份 `g1-binary-validation.json` 门禁报告；`projects/37-jiaren/research/` 的 WP6 研究初稿；`templates/card/text-layer.tmpl.svg` 文字层模板；`scripts/import-and-gate.sh` 单卦录入+G1 一键脚本；`docs/sources-candidate.md` 书目候选草稿；`docs/image-and-licensing-decisions.md` 图像/书法/印章冻结记录；`docs/art-style-assignment-candidate.md` 64 卦国画风格候选归属（G12/M18/S11/P23） |
 | 质量门禁 | `pytest` 628 passed、0 skipped、0 xfailed。`gxwd validate binary --all` 64/64；`validate binary <id> --json` 产出 G1 报告。`gxwd status` 能检出伪造 PUBLISHED。`publisher.request_publication` 重算 validate、经文 verified、审查报告哈希、审批人白名单（approved_by ≠ 生产者），任一失败即抛 PublicationError。写入权限由 `.claude/hooks/guard_write.py` 保护：主会话负责集成可写 src/data/schemas；带 CLAUDE_AGENT_ROLE 的 Agent 只能写各自 projects/*/{research,art,reviews}/**；全局禁写 inputs/human/、docs/*.docx、pyproject.toml |
 | Agent 团队 | 3 个 Agent 文档的 Skill Contract 示例已对齐 skill-result.schema.json；8 个 MVP Skill 文档统一报告文件名；AGENTS.md DAG 加入义理审查步骤 |
-| 版本控制 | main 分支 19 个提交；工作区干净（本次 DEVLOG 更新待提交） |
+| 版本控制 | main 分支 22+ 个提交；工作区干净 |
 
 ## 2026-10-29
+
+### 第六轮：前端查看器 + CLI 融合 + R9 收尾 + 批量脚本
+
+**为什么**
+
+人工录入前，需要一个只读入口让主编/艺术主编/其他看官能一次性
+把 64 卦主数据、SVG 卦符、G1 状态、Ching 候选经文、WP6 研究初稿、
+国画风格规范看完。顺手把审定 R9（data_dir 逻辑统一）和批量导入
+helper 一起收口。
+
+**做了什么**
+
+- **前端查看器**：`scripts/build-web.py` 一次性脚本，升级为
+  `src/gxwd/web.py` 模块（`build()` / `collect_bundle()` / `serve()`）
+  + `gxwd web build` / `gxwd web serve` 两个 CLI 子命令；
+  `scripts/build-web.py` 保留为 12 行 shim 兼容历史命令。
+  查看器单文件 self-contained HTML（约 300 KB），内嵌所有数据。
+- **查看器扩展**：详情抽屉加「研究初稿（WP6）」区，内联渲染
+  interpretation.md、六爻历史故事候选（带 A/B/C/D 徽章）、
+  business-philosophy.md；底部 About 区折叠展示 art-style-guide.md
+  全文。实现了极简 markdown→HTML 子集（标题/列表/粗体/行内 code/
+  `[[text-id]]` 交叉引用高亮）。
+- **R9 data_dir 统一**：`domain._default_data_dir()` 公开为
+  `domain.get_data_dir()`；`cli._data_dir()` 改为调它；
+  `validator.validate_hexagram` 接受可选 `data_dir` 参数不再隐式
+  依赖模块级 DATA_DIR。单一真相源。
+- **批量导入脚本**：`scripts/import-and-gate-all.sh` 扫
+  `inputs/human/*.csv`，按 `<id:02d>-<slug>-canonical.csv` 文件名
+  解析，依次跑 import-and-gate.sh。统计 ok/skip/fail，失败时返回 1
+  并列出失败清单。CSV 命名不匹配时跳过（不是失败）。
+
+**验证**
+
+- `gxwd web build --out /tmp/x.html --repo-root <repo>` 产出 ~300 KB
+  HTML，含关键字串（研究初稿 / 企业哲学映射 / mdToHtml / art-style-md）。
+- `gxwd web serve --port 18764 --no-build` 启后 `curl` 返回 200，页面
+  含「六十四卦查看器」。
+- 全量 `pytest` 629 passed、0 skipped。
+
+**下一步可自主做的（已几近穷尽）**
+
+- 审定 A6（文档措辞"Unicode 锚定" → "卦符码位一致性"）。
+- 把 `scripts/build-web.py` 的 shim 删掉，只留 `gxwd web build`
+  作为唯一入口（破坏向后兼容；暂不做）。
+- 风格归属 `data/art-style.json` schema + 把 `STYLE` 从 Python 代码
+  迁出去（待主编签字后再做更合适）。
+
+**真正阻塞的下一步**
+
+与第五轮相同：主编对 ZYZY-RUAN 实物核对 → 补 sources.json 的
+publisher/isbn/page_system → 把候选经文抄进 inputs/human/ →
+跑 `scripts/import-and-gate-all.sh`（或 `-and-gate.sh` 单卦版）。
 
 ### 第五轮：approvers 骨架 + 参考 Ching 推进 1/2/4，第 3 项红线保留
 

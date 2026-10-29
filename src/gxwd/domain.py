@@ -12,19 +12,21 @@ YIN = "yin"
 _ENV_DATA_DIR = "GXWD_DATA_DIR"
 
 
-def _default_data_dir() -> Path:
+def get_data_dir() -> Path:
+    """返回当前环境下的 data 目录。GXWD_DATA_DIR 环境变量优先。"""
     override = os.environ.get(_ENV_DATA_DIR)
     if override:
         return Path(override)
     return Path(__file__).resolve().parents[2] / "data"
 
 
-DATA_DIR: Path = _default_data_dir()
+# 向后兼容：首次导入时的默认 data 目录。应使用 get_data_dir() 获取最新值。
+DATA_DIR: Path = get_data_dir()
 
 
 def _load_json_list(filename: str, data_dir: Path | None) -> list[dict[str, Any]]:
-    base = data_dir if data_dir is not None else DATA_DIR
-    with (Path(base) / filename).open(encoding="utf-8") as handle:
+    base = Path(data_dir) if data_dir is not None else get_data_dir()
+    with (base / filename).open(encoding="utf-8") as handle:
         return json.load(handle)
 
 

@@ -65,8 +65,10 @@ def collect_bundle(repo_root: Path | None = None) -> dict:
     for h in hexagrams:
         hid, slug = h["hexagram_id"], h["slug"]
         style_code = STYLE.get(hid, "M")
-        g1 = _read_optional_json(repo / "projects" / f"{hid:02d}-{slug}" / "reviews" / "g1-binary-validation.json")
-        cand = _read_optional_json(repo / "projects" / f"{hid:02d}-{slug}" / "research" / "candidate-text-from-ching.json")
+        proj = repo / "projects" / f"{hid:02d}-{slug}"
+        g1 = _read_optional_json(proj / "reviews" / "g1-binary-validation.json")
+        cand = _read_optional_json(proj / "research" / "candidate-text-from-ching.json")
+        research_dir = proj / "research"
         items.append({
             **h,
             "style_code": style_code,
@@ -75,12 +77,18 @@ def collect_bundle(repo_root: Path | None = None) -> dict:
             "g1_result": (g1 or {}).get("result"),
             "candidate_entries": (cand or {}).get("entries", []),
             "candidate_source": ((cand or {}).get("provenance") or {}).get("source_file"),
+            # WP6 研究初稿（本轮只有第 37 卦有）
+            "interpretation_md": _read_optional_text(research_dir / "interpretation.md"),
+            "yao_cases": (_read_optional_json(research_dir / "yao-cases.json") or []),
+            "business_philosophy_md": _read_optional_text(research_dir / "business-philosophy.md"),
+            "skill_result": _read_optional_json(research_dir / "skill-result.json"),
         })
     return {
         "hexagrams": items,
         "palette": PALETTE,
         "style_labels": STYLE_LABEL,
         "style_colors": STYLE_COLOR,
+        "art_style_guide_md": _read_optional_text(repo / "docs" / "art-style-guide.md"),
     }
 
 
@@ -284,6 +292,30 @@ aside {
   border-left: 2px solid var(--ochre);
   margin: 10px 0;
 }
+.md { font-size: 13px; line-height: 1.75; color: var(--ink); }
+.md h3, .md h4, .md h5 { color: var(--ink); margin: 14px 0 6px; font-weight: 500; }
+.md h3 { font-size: 15px; letter-spacing: 1px; border-bottom: 1px solid var(--divider); padding-bottom: 3px; }
+.md h4 { font-size: 14px; color: var(--stone-blue); }
+.md p { margin: 6px 0; }
+.md ul { margin: 6px 0; padding-left: 20px; }
+.md li { margin: 2px 0; }
+.md code { background: var(--paper); padding: 1px 5px; font-size: 12px; font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+.md code.xref { color: var(--cinnabar); background: transparent; }
+.about {
+  padding: 24px 32px;
+  border-top: 1px solid var(--divider);
+  background: var(--paper-shade);
+}
+.about details { margin-top: 8px; }
+.about summary {
+  cursor: pointer;
+  padding: 8px 0;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--stone-blue);
+}
+.about summary:hover { color: var(--ink); }
+.about .md { max-width: 820px; }
 footer {
   text-align: center;
   padding: 12px;
@@ -313,6 +345,12 @@ footer {
     <div class="detail-empty">← 点击任一卦查看详情</div>
   </aside>
 </main>
+<section class="about">
+  <details>
+    <summary>国画风格规范（docs/art-style-guide.md）</summary>
+    <div class="md" id="art-style-md"></div>
+  </details>
+</section>
 <footer id="footer"></footer>
 <script id="data" type="application/json">__DATA_PLACEHOLDER__</script>
 <script>
@@ -327,6 +365,52 @@ let activeId = null;
 
 function escapeHtml(s) {
   return (s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+/** 极简 markdown → HTML（支持 # 标题、- 列表、空行分段、`inline code`、**粗体**、
+ *  [[text]] 显示为 <code>text</code>）。够看结构，不是完整 CommonMark。 */
+function mdToHtml(md) {
+  if (!md) return "";
+  const lines = md.replace(/\r\n/g, "\n").split("\n");
+  const html = [];
+  let inList = false, inPara = [];
+  const flushPara = () => {
+    if (inPara.length) {
+      let text = escapeHtml(inPara.join(" "));
+      text = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+      text = text.replace(/`([^`]+)`/g, "<code>$1</code>");
+      text = text.replace(/\[\[([^\]]+)\]\]/g, '<code class="xref">$1</code>');
+      html.push(`<p>${text}</p>`);
+      inPara = [];
+    }
+  };
+  const closeList = () => { if (inList) { html.push("</ul>"); inList = false; } };
+  for (const raw of lines) {
+    const line = raw.trimEnd();
+    if (!line.trim()) { flushPara(); closeList(); continue; }
+    const h = line.match(/^(#{1,6})\s+(.+)/);
+    if (h) {
+      flushPara(); closeList();
+      const level = Math.min(h[1].length + 2, 6);  // 文档 # 对应 h3
+      html.push(`<h${level}>${escapeHtml(h[2])}</h${level}>`);
+      continue;
+    }
+    const li = line.match(/^[-*]\s+(.+)/);
+    if (li) {
+      flushPara();
+      if (!inList) { html.push("<ul>"); inList = true; }
+      let text = escapeHtml(li[1]);
+      text = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+      text = text.replace(/`([^`]+)`/g, "<code>$1</code>");
+      text = text.replace(/\[\[([^\]]+)\]\]/g, '<code class="xref">$1</code>');
+      html.push(`<li>${text}</li>`);
+      continue;
+    }
+    closeList();
+    inPara.push(line);
+  }
+  flushPara(); closeList();
+  return html.join("\n");
 }
 
 function renderFilters() {
@@ -416,7 +500,40 @@ function renderDetail(h) {
           <span class="text">${escapeHtml(e.candidate_text)}</span>
         </div>
       `).join("")}
+      ${renderResearch(h)}
     </div>
+  `;
+}
+
+function renderResearch(h) {
+  const hasAny = h.interpretation_md || (h.yao_cases && h.yao_cases.length) || h.business_philosophy_md;
+  if (!hasAny) return "";
+  const yaoCasesBlock = (h.yao_cases && h.yao_cases.length) ? `
+    <div class="section-title">六爻历史故事（WP6 研究稿，候选等级 A/B/C/D）</div>
+    ${h.yao_cases.map(yc => `
+      <div class="entry">
+        <span class="label">${yc.line_position}爻</span>
+        ${(yc.candidates && yc.candidates.length) ? yc.candidates.map(c => `
+          <div style="margin-left: 10px; margin-top: 4px;">
+            <span class="badge ochre">${escapeHtml(c.evidence_grade)}</span>
+            <strong>${escapeHtml(c.title || "")}</strong> · ${escapeHtml(c.summary || "")}
+          </div>
+        `).join("") : `<span class="detail-empty"> ${escapeHtml(yc.note || "尚无案例")}</span>`}
+      </div>
+    `).join("")}
+  ` : "";
+  return `
+    <div class="section-title">研究初稿（WP6 · classics-researcher）</div>
+    <div class="candidate-note">
+      本节内容是 Agent 产出的研究草稿。涉及经文均以 <code class="xref">[[H.. ..]]</code> 的
+      text_id 引用，不摘抄原文。
+    </div>
+    ${h.interpretation_md ? `<div class="md">${mdToHtml(h.interpretation_md)}</div>` : ""}
+    ${yaoCasesBlock}
+    ${h.business_philosophy_md ? `
+      <div class="section-title">企业哲学映射</div>
+      <div class="md">${mdToHtml(h.business_philosophy_md)}</div>
+    ` : ""}
   `;
 }
 
@@ -430,6 +547,7 @@ function renderFooter() {
 renderFilters();
 renderGrid();
 renderFooter();
+document.getElementById("art-style-md").innerHTML = mdToHtml(DATA.art_style_guide_md || "");
 </script>
 </body>
 </html>
@@ -444,6 +562,30 @@ def build(repo_root: Path | None = None, out_path: Path | None = None) -> Path:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(HTML_TEMPLATE.replace("__DATA_PLACEHOLDER__", data_json), encoding="utf-8")
     return out
+
+
+def serve(
+    repo_root: Path | None = None,
+    port: int = 8000,
+    host: str = "127.0.0.1",
+    build_first: bool = True,
+) -> None:
+    """启本地静态服务；阻塞运行到 Ctrl-C。"""
+    from functools import partial
+    from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+
+    repo = Path(repo_root) if repo_root is not None else _DEFAULT_REPO
+    web_dir = repo / "web"
+    if build_first:
+        build(repo_root=repo)
+    handler = partial(SimpleHTTPRequestHandler, directory=str(web_dir))
+    with ThreadingHTTPServer((host, port), handler) as srv:
+        url = f"http://{host}:{port}/index.html"
+        print(f"serving {web_dir} at {url}（Ctrl-C 停止）", flush=True)
+        try:
+            srv.serve_forever()
+        except KeyboardInterrupt:
+            print("stopped")
 
 
 def main(argv: list[str] | None = None) -> int:
