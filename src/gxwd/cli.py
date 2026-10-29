@@ -273,6 +273,65 @@ def _cmd_web_serve(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_compose(args: argparse.Namespace) -> int:
+    """三层合成器 CLI 入口。本轮 WP9 冻结（图像模型未选型），
+    主图用占位 PNG 时合成产出可预览但不能作正式出版。"""
+    from gxwd import composer, domain
+
+    data_dir = _data_dir()
+    try:
+        hexagram = domain.get_hexagram(args.id, data_dir)
+    except KeyError:
+        _err(f"卦不存在: {args.id}")
+        return 1
+
+    master_png = Path(args.master) if args.master else None
+    if master_png is None:
+        _err("--master 必须提供（本轮 WP9 冻结，可先用占位 PNG）")
+        return 1
+    if not master_png.exists():
+        _err(f"master 图片不存在: {master_png}")
+        return 1
+
+    canonical_texts: list[dict] | None = None
+    canonical_path = data_dir / "canonical-texts.json"
+    if canonical_path.exists():
+        from gxwd import texts
+
+        entries = texts.load_canonical_texts(data_dir)
+        canonical_texts = [e for e in entries if e.get("hexagram_id") == args.id] or None
+
+    slug = hexagram["slug"]
+    out_dir = Path(args.out) if args.out else (
+        REPO_ROOT / "projects" / f"{args.id:02d}-{slug}" / "layout"
+    )
+
+    try:
+        artifact = composer.compose_card(
+            hexagram=hexagram,
+            master_png=master_png,
+            canonical_texts=canonical_texts,
+            art_style={},
+            out_dir=out_dir,
+            final=args.final,
+            now=args.now,
+        )
+    except composer.CompositionError as exc:
+        _err(f"合成失败: {exc}")
+        return 1
+
+    print(json.dumps({
+        "hexagram_id": artifact.hexagram_id,
+        "layers": {k: str(v) for k, v in artifact.layers.items()},
+        "hashes": artifact.hashes,
+        "pending_slots": list(artifact.pending_slots),
+        "final": artifact.final,
+        "version": artifact.version,
+        "created_at": artifact.created_at,
+    }, ensure_ascii=False, indent=2))
+    return 0
+
+
 def _cmd_publish_request(args: argparse.Namespace) -> int:
     from gxwd import domain, publisher
 
@@ -374,6 +433,14 @@ def build_parser() -> argparse.ArgumentParser:
     web_serve.add_argument("--repo-root", default=None)
     web_serve.add_argument("--no-build", action="store_true", help="跳过 serve 前的自动 build")
     web_serve.set_defaults(func=_cmd_web_serve)
+
+    compose = sub.add_parser("compose", help="三层合成器（主图 + 卦符 + 文字）")
+    compose.add_argument("id", type=int)
+    compose.add_argument("--master", required=True, help="无字国画主图路径（占位 PNG 可）")
+    compose.add_argument("--out", default=None, help="输出目录，默认 projects/<id:02d>-<slug>/layout")
+    compose.add_argument("--final", action="store_true", help="final=True 时若经文未全 verified 则抛错")
+    compose.add_argument("--now", default=None, help="固定 ISO8601 时间戳（便于确定性复现）")
+    compose.set_defaults(func=_cmd_compose)
 
     publish = sub.add_parser("publish", help="出版")
     publish_sub = publish.add_subparsers(dest="publish_cmd", required=True)
