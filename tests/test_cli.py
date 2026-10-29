@@ -114,6 +114,22 @@ def test_validate_binary_json_output(data_dir, tmp_path):
     assert payload["result"] == "pass"
 
 
+def test_web_build_writes_html(tmp_path):
+    """用真实仓库作为 repo_root（build 需要 projects/、assets/ 等），
+    只把输出重定向到 tmp_path，不写回真实 web/ 目录。"""
+    out = tmp_path / "index.html"
+
+    code = main(["web", "build", "--out", str(out), "--repo-root", str(REPO_DATA.parent)])
+
+    assert code == 0
+    assert out.exists()
+    content = out.read_text(encoding="utf-8")
+    assert "六十四卦查看器" in content
+    assert "__DATA_PLACEHOLDER__" not in content  # 占位符被替换
+    assert "data-position" in content  # 内嵌的卦符 SVG
+    assert "G1 通过" in content
+
+
 def test_validate_binary_requires_id_or_all(capsys):
     code = main(["validate", "binary"])
 

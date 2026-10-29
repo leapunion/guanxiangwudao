@@ -252,6 +252,17 @@ def _cmd_texts_validate(_: argparse.Namespace) -> int:
     return 1
 
 
+def _cmd_web_build(args: argparse.Namespace) -> int:
+    from gxwd import web
+
+    out = Path(args.out) if args.out else None
+    repo = Path(args.repo_root) if args.repo_root else None
+    path = web.build(repo_root=repo, out_path=out)
+    size_kb = path.stat().st_size / 1024
+    print(f"已写入: {path} ({size_kb:.1f} KB)")
+    return 0
+
+
 def _cmd_publish_request(args: argparse.Namespace) -> int:
     from gxwd import domain, publisher
 
@@ -339,6 +350,13 @@ def build_parser() -> argparse.ArgumentParser:
     tx_import.set_defaults(func=_cmd_texts_import)
     tx_validate = texts_sub.add_parser("validate", help="校验 data/canonical-texts.json")
     tx_validate.set_defaults(func=_cmd_texts_validate)
+
+    web_parser = sub.add_parser("web", help="构建只读 64 卦查看器")
+    web_sub = web_parser.add_subparsers(dest="web_cmd", required=True)
+    web_build = web_sub.add_parser("build", help="重建 web/index.html")
+    web_build.add_argument("--out", default=None, help="输出路径，默认 <repo>/web/index.html")
+    web_build.add_argument("--repo-root", default=None, help="仓库根路径，默认由模块位置推断")
+    web_build.set_defaults(func=_cmd_web_build)
 
     publish = sub.add_parser("publish", help="出版")
     publish_sub = publish.add_subparsers(dest="publish_cmd", required=True)
