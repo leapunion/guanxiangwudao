@@ -18,7 +18,20 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-_DEFAULT_REPO = Path(__file__).resolve().parents[2]
+def _resolve_default_repo() -> Path:
+    """开发环境返回仓库根；装到 site-packages 时返回 bundled 根（_bundled 的父级 src/gxwd/）。
+    主要给 collect_bundle 做默认 repo_root；具体子目录（data/、assets/、
+    projects/）由 _resolve_asset_root 决定。"""
+    repo = Path(__file__).resolve().parents[2]
+    if (repo / "data" / "hexagrams.json").exists():
+        return repo
+    bundled = Path(__file__).resolve().parent / "_bundled"
+    if (bundled / "data" / "hexagrams.json").exists():
+        return bundled
+    return repo
+
+
+_DEFAULT_REPO = _resolve_default_repo()
 
 # 后备常量（当 data/art-style.json 不存在或损坏时）。
 # 正式真相源是 data/art-style.json；见 _load_style()。

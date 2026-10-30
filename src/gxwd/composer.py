@@ -23,7 +23,18 @@ PENDING_TEXT = "（待底本校勘）"
 PENDING_SOURCE_ID = "SOURCE_PENDING"
 VERSION = "0.1.0"
 
-_TEMPLATE_PATH = Path(__file__).resolve().parents[2] / "templates" / "card" / "text-layer.tmpl.svg"
+def _resolve_template_path() -> Path:
+    """开发环境返回 repo templates/；装到 site-packages 时 fallback 到 _bundled。"""
+    repo = Path(__file__).resolve().parents[2] / "templates" / "card" / "text-layer.tmpl.svg"
+    if repo.exists():
+        return repo
+    bundled = Path(__file__).resolve().parent / "_bundled" / "templates" / "card" / "text-layer.tmpl.svg"
+    if bundled.exists():
+        return bundled
+    return repo  # 原路径，让 _load_template 的 FileNotFoundError 把真实路径打印出来
+
+
+_TEMPLATE_PATH = _resolve_template_path()
 _MASTER_SLOT = "master.png"
 _HEX_SLOT = "hexagram.svg"
 _TEXT_SLOT = "text.svg"
