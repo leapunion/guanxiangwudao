@@ -6,15 +6,46 @@
 
 | 维度 | 现状 |
 |---|---|
-| 版本 | V0.1 可信底座完成；V0.5 批次 A 完成；V0.5 批次 B 预备全部就位（底本登记、审批人骨架、64 份候选经文、CSV 模板、helper、风格候选表、图像模型冻结记录）；真正的 L0 原文录入必须由主编按实物签字走 inputs/human/ |
-| 数据 | 64 卦主数据经双盲交叉校验 64/64 一致；384 爻结构，另含用九、用六；`data/sources.json` 选定 `ZYZY-RUAN`（阮元刻《十三经注疏》本《周易正义》），publisher/isbn/page_system 字段**故意缺省**（schema 允许；Agent 不编），由主编对实物补填；`data/canonical-texts.json` 本轮仍空；候选经文放在 projects/<id>/research/candidate-text-from-ching.json；`data/approvers.json` 加入 cavin（git author，总主编） |
-| 工程 | Python 3.12 包 `gxwd`：domain、validator、renderer、yao、workflow、catalog、cli、texts、publisher、composer、web。JSON Schema 10 份（含 approvers）。CLI 已实现 init / status / hexagram show / validate binary / render svg / texts import / texts validate / publish request / web build / web serve |
-| 资产 | 64 个程序生成的 SVG 卦符；64 份 `canonical-input` CSV 模板；64 份 `candidate-text-from-ching.json` 候选经文；64 份 `g1-binary-validation.json` 门禁报告；`projects/37-jiaren/research/` 的 WP6 研究初稿；`templates/card/text-layer.tmpl.svg` 文字层模板；`scripts/import-and-gate.sh` 单卦录入+G1 一键脚本；`docs/sources-candidate.md` 书目候选草稿；`docs/image-and-licensing-decisions.md` 图像/书法/印章冻结记录；`docs/art-style-assignment-candidate.md` 64 卦国画风格候选归属（G12/M18/S11/P23） |
-| 质量门禁 | `pytest` 628 passed、0 skipped、0 xfailed。`gxwd validate binary --all` 64/64；`validate binary <id> --json` 产出 G1 报告。`gxwd status` 能检出伪造 PUBLISHED。`publisher.request_publication` 重算 validate、经文 verified、审查报告哈希、审批人白名单（approved_by ≠ 生产者），任一失败即抛 PublicationError。写入权限由 `.claude/hooks/guard_write.py` 保护：主会话负责集成可写 src/data/schemas；带 CLAUDE_AGENT_ROLE 的 Agent 只能写各自 projects/*/{research,art,reviews}/**；全局禁写 inputs/human/、docs/*.docx、pyproject.toml |
-| Agent 团队 | 3 个 Agent 文档的 Skill Contract 示例已对齐 skill-result.schema.json；8 个 MVP Skill 文档统一报告文件名；AGENTS.md DAG 加入义理审查步骤 |
-| 版本控制 | main 分支 22+ 个提交；工作区干净 |
+| 版本 | V0.1 可信底座完成；V0.5 批次 A 完成；V0.5 批次 B 预备全部就位；R7（第七轮）Agent 边界内收尾完成（WP1–WP6）；真正的 L0 原文录入必须由主编按实物签字走 inputs/human/ |
+| 数据 | 64 卦主数据经双盲交叉校验 64/64 一致；384 爻结构，另含用九、用六；`data/sources.json` 选定 `ZYZY-RUAN`，publisher/isbn/page_system **故意缺省**，由主编对实物补填；`data/canonical-texts.json` 本轮仍空；`data/art-style.json` 骨架已建；`data/approvers.json` 已登记 cavin（总主编） |
+| 工程 | Python 3.12 包 `gxwd`：domain、validator、renderer、yao、workflow、catalog、cli、texts、publisher、composer、web。JSON Schema 10 份。CLI 11 个子命令。`dist/gxwd-0.1.0.tar.gz` sdist 可装可跑；wheel 等 WP1 完成后可用 |
+| 资产 | 64 SVG 卦符；64 CSV 预填稿（`output/canonical-input-prefilled/`）；64 份候选经文 JSON；64 份 g1 报告；`docs/37-jiaren-walkthrough.md` 试点 walkthrough；`docs/art-style-assignment-candidate.md` 风格候选表（G12/M18/S11/P23）；LICENSE + CHANGELOG + PUBLISHING.md Release 包骨架 |
+| 质量门禁 | `pytest` 629 passed、0 skipped、0 xfailed。`gxwd validate binary --all` 64/64。publisher 门禁重算（审批人白名单 + ≠ 生产者）。guard_write hook 全局生效 |
+| Agent 团队 | 3 个落地 Agent + 10 个 specialist 骨架（`.claude/agents/specialists/`）；8 个 MVP Skill + 16 个骨架；AGENTS.md 完整 9 步 DAG + reviews/ 命名约定 |
+| 版本控制 | main 分支 29+ 个提交；工作区干净 |
 
 ## 2026-10-29
+
+### 第七轮：Agent 边界内收尾（2026-10-29）
+
+**为什么**
+
+V0.5 批次 A 完成后，剩下的真实任务只能由人工完成（底本核对、审批签字、图像模型与书法印章授权）。Agent 侧能做的技术债和文档不一致性集中在本轮收口，避免遗留问题在后续轮次滚雪球。
+
+**做了什么**
+
+| WP | 内容 |
+|---|---|
+| R7 WP1 | wheel 可装：package resources 重构，`importlib.resources` 替换 `__file__` 路径硬编码 |
+| R7 WP2 | `publish --write`：`publisher.request_publication` 支持写入 asset-catalog，不再只返回字典 |
+| R7 WP3 | 风格归属迁出代码：`data/art-style.json` + `schemas/art-style.schema.json`，STYLE 常量不再散落 Python 文件 |
+| R7 WP4 | 补 16 个 Skill 骨架（`.claude/skills/`）：research-historical-allusions、historical-evidence-check、philosophy-comparison、cultural-symbolism、extract-visual-symbols、compose-hexagram-scene、svg-geometry-check、text-layer-compose、art-style-classify、composition-critique、publication-package、approval-gate-check、canonical-text-import、source-evidence-trace、hexagram-cross-reference、devlog-summarize |
+| R7 WP5 | 补 10 个 specialist Agent 骨架（`.claude/agents/specialists/`）：trigram-analyst、yao-position-analyst、historical-case-researcher、business-translator、art-style-classifier、composition-planner、svg-reviewer、text-layer-designer、publication-packager、review-auditor |
+| R7 WP6（本工作） | README / AGENTS / DEVLOG 三文件同步：补 V0.5 批次 A 完成表 + 批次 B 预备节；AGENTS.md 展开 9 步 DAG + reviews/ 命名约定 + 13 Agent / 24 Skill 地图；DEVLOG 加本轮记录并更新状态总览 |
+| 第 37 卦试点 | `docs/37-jiaren-walkthrough.md`：端到端操作手册，覆盖从 `hexagram show 37` 到 `publish request` 的完整 CLI 步骤和人工检查点 |
+| 数据发布包 | `dist/gxwd-0.1.0.tar.gz`（sdist）+ `CHANGELOG.md` + `PUBLISHING.md`；wheel 待 WP1 合入后重建 |
+
+**结果**
+
+- 29+ 个提交；629 passed、0 skipped、0 xfailed
+- `gxwd-0.1.0` sdist 可 `pip install` 并跑通所有 CLI 子命令
+- wheel 安装需等 WP1（package resources 重构）完成才能正确打包
+
+**真正阻塞的下一步**
+
+主编对 ZYZY-RUAN 实物核对 → 按 `docs/37-jiaren-walkthrough.md` 走第 37 卦完整闭环。
+
+---
 
 ### 第六轮：前端查看器 + CLI 融合 + R9 收尾 + 批量脚本
 

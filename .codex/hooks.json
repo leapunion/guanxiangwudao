@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/cavinfu/Desktop/devs/guanxiang-wudao/.codex/hooks/guard_write.py'"
+          }
+        ]
+      }
+    ]
+  }
+}

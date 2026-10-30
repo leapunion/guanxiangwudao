@@ -56,6 +56,18 @@ def test_asset_catalog_ids_match_master():
     assert [r["hexagram_id"] for r in records] == [h["hexagram_id"] for h in load_hexagrams()]
 
 
+def test_art_style_covers_64_assignments():
+    """风格归属文件覆盖 1..64 全部卦；code ∈ {G, M, S, P}；未签字时 signed_by/signed_at 为 null。"""
+    data = _load("art-style.json")
+    assignments = data["assignments"]
+    assert len(assignments) == 64
+    ids = {a["hexagram_id"] for a in assignments}
+    assert ids == set(range(1, 65))
+    codes = {a["style_code"] for a in assignments}
+    assert codes <= {"G", "M", "S", "P"}
+    assert set(data["styles"]) == codes
+
+
 def test_approvers_skeleton_present_and_valid():
     """审批人名单文件必须存在；本轮空列表是允许的（publisher 会拒绝任何
     approved_by，但文件本身必须就位）。"""

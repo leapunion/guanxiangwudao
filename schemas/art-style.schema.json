@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guanxiang-wudao.local/schemas/art-style.schema.json",
+  "title": "ArtStyleAssignment",
+  "description": "64 卦国画风格归属。code ∈ {G, M, S, P}；assignments 必须覆盖 1..64。",
+  "type": "object",
+  "required": ["version", "styles", "assignments"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": "string"
+    },
+    "styles": {
+      "type": "object",
+      "description": "风格 code → 中文名称 + 色号",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[GMSP]$": {
+          "type": "object",
+          "required": ["label", "color"],
+          "additionalProperties": false,
+          "properties": {
+            "label": {"type": "string", "minLength": 1},
+            "color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+            "note": {"type": "string"}
+          }
+        }
+      }
+    },
+    "assignments": {
+      "type": "array",
+      "minItems": 64,
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": ["hexagram_id", "style_code"],
+        "additionalProperties": false,
+        "properties": {
+          "hexagram_id": {"type": "integer", "minimum": 1, "maximum": 64},
+          "style_code": {"type": "string", "enum": ["G", "M", "S", "P"]},
+          "theme_note": {"type": "string"},
+          "signed_by": {"type": ["string", "null"]},
+          "signed_at": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

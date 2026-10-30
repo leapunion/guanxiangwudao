@@ -1,0 +1,476 @@
+{
+  "version": "1",
+  "notes": "64 卦国画风格候选归属。code 四类：G 工写青绿 / M 文人水墨 / S 苍润山水 / P 人物故事。本文件待艺术主编逐卦签字。signed_by 填真实姓名、signed_at 填 ISO8601 日期；未签字时都为 null。",
+  "styles": {
+    "G": {
+      "label": "工写青绿",
+      "color": "#547A83",
+      "note": "开阔、向上；青绿设色"
+    },
+    "M": {
+      "label": "文人水墨",
+      "color": "#273F52",
+      "note": "静观修身；淡墨为主"
+    },
+    "S": {
+      "label": "苍润山水",
+      "color": "#B58C69",
+      "note": "险境叙事；苍润笔墨"
+    },
+    "P": {
+      "label": "人物故事",
+      "color": "#A74439",
+      "note": "国学叙事；人物与场景"
+    }
+  },
+  "assignments": [
+    {
+      "hexagram_id": 1,
+      "style_code": "G",
+      "theme_note": "乾健开天，云龙象征",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 2,
+      "style_code": "G",
+      "theme_note": "坤厚载物，大地田畴",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 3,
+      "style_code": "S",
+      "theme_note": "屯：万事开头难，雷雨初生",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 4,
+      "style_code": "P",
+      "theme_note": "蒙：启蒙教育，师徒书院",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 5,
+      "style_code": "M",
+      "theme_note": "需：静待时机，云上于天",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 6,
+      "style_code": "P",
+      "theme_note": "讼：人事争议，天与水违",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 7,
+      "style_code": "P",
+      "theme_note": "师：出师行军，历史叙事",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 8,
+      "style_code": "P",
+      "theme_note": "比：亲比合作，人事关系",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 9,
+      "style_code": "M",
+      "theme_note": "小畜：小有积蓄，密云不雨",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 10,
+      "style_code": "P",
+      "theme_note": "履：履礼行慎，君臣相处",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 11,
+      "style_code": "G",
+      "theme_note": "泰：天地交泰，通达开阔",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 12,
+      "style_code": "S",
+      "theme_note": "否：天地不交，闭塞断裂",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 13,
+      "style_code": "P",
+      "theme_note": "同人：同人于野，人事团结",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 14,
+      "style_code": "G",
+      "theme_note": "大有：大有光明，火在天上",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 15,
+      "style_code": "M",
+      "theme_note": "谦：谦卑持守，地中有山",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 16,
+      "style_code": "G",
+      "theme_note": "豫：豫顺奋起，雷出地上",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 17,
+      "style_code": "P",
+      "theme_note": "随：随顺因势，人事相从",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 18,
+      "style_code": "P",
+      "theme_note": "蛊：振蛊治乱，父子事业",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 19,
+      "style_code": "P",
+      "theme_note": "临：临下监临，君民相望",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 20,
+      "style_code": "M",
+      "theme_note": "观：静观大化，风行地上",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 21,
+      "style_code": "P",
+      "theme_note": "噬嗑：决狱断刑，人事法度",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 22,
+      "style_code": "M",
+      "theme_note": "贲：文饰装点，山火相映",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 23,
+      "style_code": "S",
+      "theme_note": "剥：山石剥落，阴长阳消",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 24,
+      "style_code": "G",
+      "theme_note": "复：一阳来复，地雷生机",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 25,
+      "style_code": "M",
+      "theme_note": "无妄：无妄之道，天雷相合",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 26,
+      "style_code": "M",
+      "theme_note": "大畜：德积而厚，山天藏养",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 27,
+      "style_code": "M",
+      "theme_note": "颐：颐养正道，山雷相动",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 28,
+      "style_code": "S",
+      "theme_note": "大过：栋梁将挠，泽灭木险",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 29,
+      "style_code": "S",
+      "theme_note": "坎：重险叠水，水洊至",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 30,
+      "style_code": "G",
+      "theme_note": "离：离明在上，日月相继",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 31,
+      "style_code": "P",
+      "theme_note": "咸：男女相感，人事情通",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 32,
+      "style_code": "M",
+      "theme_note": "恒：恒久不易，雷风相与",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 33,
+      "style_code": "M",
+      "theme_note": "遁：君子远引，天山退隐",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 34,
+      "style_code": "G",
+      "theme_note": "大壮：雷在天上，刚强向前",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 35,
+      "style_code": "G",
+      "theme_note": "晋：日出地上，光明盛进",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 36,
+      "style_code": "S",
+      "theme_note": "明夷：明入地中，艰贞晦藏",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 37,
+      "style_code": "P",
+      "theme_note": "家人：家庭伦理，内外各正",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 38,
+      "style_code": "P",
+      "theme_note": "睽：乖离分异，人事转折",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 39,
+      "style_code": "S",
+      "theme_note": "蹇：山上有水，行止艰难",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 40,
+      "style_code": "P",
+      "theme_note": "解：雷雨解厄，君子释囚",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 41,
+      "style_code": "P",
+      "theme_note": "损：损下益上，人事权衡",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 42,
+      "style_code": "G",
+      "theme_note": "益：风雷益动，损上益下",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 43,
+      "style_code": "P",
+      "theme_note": "夬：泽上于天，果决除弊",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 44,
+      "style_code": "P",
+      "theme_note": "姤：天下有风，不期相遇",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 45,
+      "style_code": "P",
+      "theme_note": "萃：泽上于地，众人聚集",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 46,
+      "style_code": "G",
+      "theme_note": "升：地中生木，柔以时升",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 47,
+      "style_code": "S",
+      "theme_note": "困：泽无水，君子困而不失",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 48,
+      "style_code": "M",
+      "theme_note": "井：木上有水，井养不穷",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 49,
+      "style_code": "P",
+      "theme_note": "革：泽火相息，革故鼎新",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 50,
+      "style_code": "P",
+      "theme_note": "鼎：烹饪礼器，革后立新",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 51,
+      "style_code": "S",
+      "theme_note": "震：洊雷连作，惊而后省",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 52,
+      "style_code": "M",
+      "theme_note": "艮：止其所止，兼山静默",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 53,
+      "style_code": "M",
+      "theme_note": "渐：鸿渐于木，循序而进",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 54,
+      "style_code": "P",
+      "theme_note": "归妹：少女归男，婚嫁人事",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 55,
+      "style_code": "G",
+      "theme_note": "丰：日中为丰，雷电皆至",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 56,
+      "style_code": "P",
+      "theme_note": "旅：旅人在外，火山旅居",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 57,
+      "style_code": "M",
+      "theme_note": "巽：随风入物，谦顺渐进",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 58,
+      "style_code": "P",
+      "theme_note": "兑：两泽相丽，朋友讲习",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 59,
+      "style_code": "M",
+      "theme_note": "涣：风行水上，涣散纷离",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 60,
+      "style_code": "M",
+      "theme_note": "节：泽上有水，制度有节",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 61,
+      "style_code": "M",
+      "theme_note": "中孚：泽上有风，内诚外化",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 62,
+      "style_code": "S",
+      "theme_note": "小过：山上有雷，小者过越",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 63,
+      "style_code": "M",
+      "theme_note": "既济：水火相济，终将初乱",
+      "signed_by": null,
+      "signed_at": null
+    },
+    {
+      "hexagram_id": 64,
+      "style_code": "S",
+      "theme_note": "未济：火水未济，刚柔未定",
+      "signed_by": null,
+      "signed_at": null
+    }
+  ]
+}

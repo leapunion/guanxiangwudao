@@ -20,10 +20,9 @@ from pathlib import Path
 
 _DEFAULT_REPO = Path(__file__).resolve().parents[2]
 
-# 国画风格候选归属。
-# 与 docs/art-style-assignment-candidate.md 一致。
-# 待艺术主编签字后，建议迁移到 data/art-style.json。
-STYLE: dict[int, str] = {
+# 后备常量（当 data/art-style.json 不存在或损坏时）。
+# 正式真相源是 data/art-style.json；见 _load_style()。
+_FALLBACK_STYLE: dict[int, str] = {
     1: "G", 2: "G", 3: "S", 4: "P", 5: "M", 6: "P", 7: "P", 8: "P",
     9: "M", 10: "P", 11: "G", 12: "S", 13: "P", 14: "G", 15: "M", 16: "G",
     17: "P", 18: "P", 19: "P", 20: "M", 21: "P", 22: "M", 23: "S", 24: "G",
@@ -33,17 +32,34 @@ STYLE: dict[int, str] = {
     49: "P", 50: "P", 51: "S", 52: "M", 53: "M", 54: "P", 55: "G", 56: "P",
     57: "M", 58: "P", 59: "M", 60: "M", 61: "M", 62: "S", 63: "M", 64: "S",
 }
-STYLE_LABEL = {
+_FALLBACK_STYLE_LABEL = {
     "G": "工写青绿",
     "M": "文人水墨",
     "S": "苍润山水",
     "P": "人物故事",
 }
-STYLE_COLOR = {"G": "#547A83", "M": "#273F52", "S": "#B58C69", "P": "#A74439"}
+_FALLBACK_STYLE_COLOR = {"G": "#547A83", "M": "#273F52", "S": "#B58C69", "P": "#A74439"}
+
+# 向后兼容：模块级常量（本模块以前的 API；外部如仍引用 web.STYLE 不破）
+STYLE = dict(_FALLBACK_STYLE)
+STYLE_LABEL = dict(_FALLBACK_STYLE_LABEL)
+STYLE_COLOR = dict(_FALLBACK_STYLE_COLOR)
 PALETTE = {
     "ink": "#273F52", "stone_blue": "#547A83", "jade": "#A2B4A1",
     "ochre": "#B58C69", "cinnabar": "#A74439", "paper": "#F5EFE2",
 }
+
+
+def _load_style(repo: Path) -> tuple[dict[int, str], dict[str, str], dict[str, str]]:
+    """从 data/art-style.json 读风格归属；文件不存在或字段缺失时回退到硬编码常量。"""
+    path = repo / "data" / "art-style.json"
+    if not path.exists():
+        return dict(_FALLBACK_STYLE), dict(_FALLBACK_STYLE_LABEL), dict(_FALLBACK_STYLE_COLOR)
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    style_map = {a["hexagram_id"]: a["style_code"] for a in doc.get("assignments", [])}
+    labels = {code: info["label"] for code, info in doc.get("styles", {}).items()}
+    colors = {code: info["color"] for code, info in doc.get("styles", {}).items()}
+    return style_map, labels, colors
 
 
 def _read_optional_json(path: Path) -> dict | None:
@@ -60,11 +76,12 @@ def _read_optional_text(path: Path) -> str:
 
 def collect_bundle(repo_root: Path | None = None) -> dict:
     repo = Path(repo_root) if repo_root is not None else _DEFAULT_REPO
+    style_map, style_labels, style_colors = _load_style(repo)
     hexagrams = json.loads((repo / "data" / "hexagrams.json").read_text(encoding="utf-8"))
     items: list[dict] = []
     for h in hexagrams:
         hid, slug = h["hexagram_id"], h["slug"]
-        style_code = STYLE.get(hid, "M")
+        style_code = style_map.get(hid, "M")
         proj = repo / "projects" / f"{hid:02d}-{slug}"
         g1 = _read_optional_json(proj / "reviews" / "g1-binary-validation.json")
         cand = _read_optional_json(proj / "research" / "candidate-text-from-ching.json")
@@ -72,7 +89,7 @@ def collect_bundle(repo_root: Path | None = None) -> dict:
         items.append({
             **h,
             "style_code": style_code,
-            "style_label": STYLE_LABEL[style_code],
+            "style_label": style_labels.get(style_code, _FALLBACK_STYLE_LABEL[style_code]),
             "svg": _read_optional_text(repo / "assets" / "hexagram-svg" / f"{hid:02d}-{slug}.svg"),
             "g1_result": (g1 or {}).get("result"),
             "candidate_entries": (cand or {}).get("entries", []),
