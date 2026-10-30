@@ -1,0 +1,72 @@
+name: ⚖️ 治理版本提案（Governance V3+）
+description: 提议修改 CLAUDE.md / .claude/rules/ / publisher 门禁等治理条款
+title: "[governance] "
+labels: ["governance"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **治理条款变更不是普通代码改动，必须走正式流程。** 参考 `docs/GOVERNANCE.md`
+        的 V2 条目格式。
+
+        治理 V2 是项目所有者 cavin 在 2026-10-29 对话中授权。任何
+        V3+ 的提案必须由项目所有者签字接受代价才能合入。
+
+  - type: input
+    id: version_number
+    attributes:
+      label: 提议的治理版本号
+      placeholder: "V3 / V2.1 / ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 为什么需要变更
+      description: 当前治理条款哪里不足？场景？
+    validations:
+      required: true
+
+  - type: textarea
+    id: changes
+    attributes:
+      label: 具体要修改的条款（照 docs/GOVERNANCE.md V2 的表格格式）
+      value: |
+        | # | 位置 | 原文 | 修订为 | 性质 |
+        |---|---|---|---|---|
+        | 1 | CLAUDE.md ... | ... | ... | ... |
+    validations:
+      required: true
+
+  - type: textarea
+    id: preserved
+    attributes:
+      label: 哪些红线保留（不降级）
+      placeholder: 诚实度 / 技术门禁 / hook / ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: cost
+    attributes:
+      label: 学术 / 工程 / 合规层面的代价
+      description: 这条变更会让项目失去什么？
+    validations:
+      required: true
+
+  - type: textarea
+    id: rollback
+    attributes:
+      label: 如何回滚
+      placeholder: git revert / 清理某类产出 / provenance 字段过滤 / ...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: approvals
+    attributes:
+      label: 签字要求
+      options:
+        - label: 已和项目所有者沟通并取得初步同意
+        - label: 本提案一旦合入会写入 docs/GOVERNANCE.md 作为永久记录

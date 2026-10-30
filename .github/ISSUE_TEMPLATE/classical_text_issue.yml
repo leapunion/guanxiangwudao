@@ -1,0 +1,81 @@
+name: 📜 经文 / 底本问题
+description: 对 L0 原文、底本来源、页码、异文的异议或修订建议
+title: "[classical-text] "
+labels: ["classical-text"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **本项目当前治理 V2 下的 L0 经文都是 Agent 从 Ching 项目第 67 轮
+        通解审校稿转入，provenance.signed_by_agent=true，接受学术权威性降级。**
+
+        如果你发现经文有误、底本标注不准、异文漏记，请在此 issue 中详述。
+        修订会触发对应卦的 catalog 版本修订（release_version=v2, v3, ...）。
+
+  - type: input
+    id: hexagram_id
+    attributes:
+      label: 卦序 (1-64)
+      placeholder: "37"
+    validations:
+      required: true
+
+  - type: input
+    id: text_id
+    attributes:
+      label: text_id
+      description: 从 data/canonical-texts.json 查，如 H37-yao_ci-L3
+      placeholder: "H37-gua_ci / H37-yao_ci-L3 / H01-yong-用九"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: 当前文本（照搬 canonical-texts.json 对应 entry 的 original_text 字段）
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed
+    attributes:
+      label: 建议文本
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: 异议依据 / 来源
+      description: 哪一个底本 / 校勘记 / 学术文献支持你的建议？
+      placeholder: |
+        - 阮元刻《十三经注疏》本《周易正义》卷 X 第 Y 页上栏
+        - 朱熹《周易本义》
+        - 李鼎祚《周易集解》
+        - 中华书局 1980 年影印本 ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 问题类型
+      options:
+        - 文字错误（Ching 转入时串字 / 繁简转换问题）
+        - 异体字（如 嗃 vs 嘀 / 攸 vs 所）
+        - 异文（底本之间不同，当前未记入 variant_readings）
+        - 标点
+        - 遗漏（当前 entry 缺字）
+        - 虚假 provenance（当前 page 字段"Ching commentary round 67"不符合该条实际来源）
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: handling
+    attributes:
+      label: 希望如何处理
+      options:
+        - label: 修正 original_text 字段（会触发对应卦的 release_version 升级）
+        - label: 加到 variant_readings（保留当前 original_text 作主文、异文作记录）
+        - label: 替换为真人签字（signed_by_agent=false），需要人工对底本实物核对

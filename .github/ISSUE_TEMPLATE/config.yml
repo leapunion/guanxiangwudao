@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 治理条款与版本（V1 真人 / V2 Agent approver）
+    url: https://github.com/leapunion/guanxiangwudao/blob/main/docs/GOVERNANCE.md
+    about: 了解治理 V1 / V2 的区别、signed_by_agent 的含义、如何回滚
+  - name: Agentic 工作流使用手册
+    url: https://github.com/leapunion/guanxiangwudao/blob/main/docs/HOW-TO-RUN-AGENTS.md
+    about: 三类执行者 × 单卦 DAG × 操作步骤
+  - name: autopilot 用法与硬检查
+    url: https://github.com/leapunion/guanxiangwudao/blob/main/docs/AUTOPILOT.md
+    about: 治理 V2 下 Agent 独立出版的 5 步 pipeline
+  - name: 项目最终交付清单
+    url: https://github.com/leapunion/guanxiangwudao/blob/main/FINAL-DELIVERABLES.md
+    about: 7 层交付清单、验收标准、延展方向

@@ -1,0 +1,68 @@
+name: 🐞 Bug report
+description: 代码 / CLI / 测试 / 工作流出错
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        在提交前请先确认：
+        - 跑过 `.venv/bin/python -m pytest -q`，看是否可复现
+        - 看过 `docs/DEVLOG.md` 最新几轮，是否已经讨论过
+        - 看过 `docs/GOVERNANCE.md`，确认不是治理 V2 行为误判为 bug
+
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: pyproject.toml 的 version，或 `gxwd --version`，或 git commit sha
+      placeholder: "v0.2.0 / commit bd51b9d"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 一步步敲什么命令、看到什么
+      placeholder: |
+        1. `.venv/bin/gxwd ...`
+        2. ...
+        3. 看到报错 ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为（含完整错误输出 / stack trace）
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: env
+    attributes:
+      label: 环境
+      description: Python 版本、OS、是否 wheel 安装 / 源码运行
+      placeholder: |
+        Python: 3.12.x
+        OS: macOS 15 / Linux
+        安装方式: pip install dist/gxwd-*.whl 或 pip install -e .
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: 影响范围
+      options:
+        - label: 不影响 PUBLISHED 作品（纯工具层问题）
+        - label: 影响已 PUBLISHED 作品的 provenance 或 approval 字段
+        - label: 影响治理门禁（publisher.request_publication 的硬检查）
+        - label: 影响数据层（trigrams/hexagrams/canonical-texts）

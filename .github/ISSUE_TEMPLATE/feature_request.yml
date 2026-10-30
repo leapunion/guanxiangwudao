@@ -1,0 +1,63 @@
+name: ✨ Feature request
+description: 新功能 / 新 Skill / 新 Agent / 新 CLI 子命令 / 延展方向
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        延展方向参考 `FINAL-DELIVERABLES.md` 第六节的 A / B / C / D / E 五大类：
+        - A 同构国学数字化（论语 / 道德经 / 庄子 / 坛经 …）
+        - B 国画艺术生成（山海经 / 节气 / 唐诗 …）
+        - C 治理 V2 作模板
+        - D Agentic 工作流可信门禁开源
+        - E PRD §23 长期产品（国画馆 / 研习系统 / 企业平台 / 出版工厂）
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: 想解决什么问题 / 想达到什么目标
+      description: 不要写"做个 X 功能"，先说为什么要做
+    validations:
+      required: true
+
+  - type: dropdown
+    id: direction
+    attributes:
+      label: 延展方向（照 FINAL-DELIVERABLES §六）
+      options:
+        - A 同构国学数字化
+        - B 国画艺术生成
+        - C 治理 V2 作模板
+        - D Agentic 工作流可信门禁开源
+        - E PRD §23 长期产品
+        - 不属于以上，是本项目核心功能的改进
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 具体方案
+      description: 新文件 / 修改哪些现有模块 / 新 schema 字段 / 新 CLI 子命令
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact_on_published
+    attributes:
+      label: 对已 PUBLISHED 作品的影响
+      description: 会不会让当前 64 卦的 approval / provenance / release_version 需要重新计算或回滚？
+      placeholder: 无影响 / 需要触发版本修订 / 需要回滚 ...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: redline
+    attributes:
+      label: 红线检查
+      options:
+        - label: 不触碰诚实度条款（不编造经文/书名/ISBN/页码）
+        - label: 不绕过 publisher 的硬检查（validate / verified / review hashes / approver 白名单 / id 分离）
+        - label: 不改 hook 的全局禁写（inputs/human/**）
+        - label: 如果涉及治理条款变更，会先走治理 V3 提案流程（不直接改 CLAUDE.md / rules/）
