@@ -333,10 +333,11 @@ def _cmd_compose(args: argparse.Namespace) -> int:
 
 
 def _cmd_publish_request(args: argparse.Namespace) -> int:
-    from gxwd import domain, publisher
+    from gxwd import catalog, domain, publisher
 
+    data_dir = _data_dir()
     try:
-        domain.get_hexagram(args.id, _data_dir())
+        domain.get_hexagram(args.id, data_dir)
     except KeyError:
         _err(f"卦不存在: {args.id}")
         return 1
@@ -346,13 +347,22 @@ def _cmd_publish_request(args: argparse.Namespace) -> int:
             args.id,
             approved_by=args.approved_by,
             approved_at=args.approved_at,
-            data_dir=_data_dir(),
+            data_dir=data_dir,
             reviews_dir=reviews_dir,
         )
     except publisher.PublicationError as exc:
         _err(f"出版拒绝: {exc}")
         return 1
     print(json.dumps(record, ensure_ascii=False, indent=2))
+    if args.write:
+        catalog_path = data_dir / "asset-catalog.json"
+        cat = catalog.load_catalog(catalog_path)
+        for i, r in enumerate(cat["records"]):
+            if r.get("hexagram_id") == args.id:
+                cat["records"][i] = record
+                break
+        catalog.save_catalog(cat, catalog_path)
+        print(f"已回填: {catalog_path}", file=sys.stderr)
     return 0
 
 
@@ -449,6 +459,7 @@ def build_parser() -> argparse.ArgumentParser:
     request.add_argument("--approved-by", required=True, help="data/approvers.json 中的 id")
     request.add_argument("--approved-at", required=True, help="ISO8601 时间")
     request.add_argument("--reviews-dir", default=None, help="默认 projects/<id:02d>-<slug>/reviews")
+    request.add_argument("--write", action="store_true", help="成功时把 PUBLISHED record 回填进 data/asset-catalog.json")
     request.set_defaults(func=_cmd_publish_request)
 
     _add_stubs(sub)

@@ -71,7 +71,32 @@ pip install --index-url https://test.pypi.org/simple/ \
 2. `CHANGELOG.md` 新加一节
 3. `git tag v0.1.0 && git push --tags`
 
-## 六、0.1.0 的已知限制：wheel 不含数据
+## 发布流程（含数据嵌入）
+
+0.1.0 起 wheel **包含完整数据**（R7-WP1 package resources 重构）。
+发布前跑 prepack 让 data/schemas/assets/templates 以 `src/gxwd/_bundled/`
+形式打进 wheel：
+
+```bash
+./scripts/prepack.sh        # 复制 data→_bundled（约 532 KB）
+.venv/bin/python -m build   # 产出含数据的 wheel + sdist
+rm -rf src/gxwd/_bundled    # 清理（.gitignore 已排除，不入库）
+```
+
+验证装到 site-packages 后 CLI 能跑：
+
+```bash
+uv venv --python 3.12 /tmp/t
+uv pip install --python /tmp/t/bin/python dist/gxwd-0.1.0-py3-none-any.whl
+/tmp/t/bin/gxwd validate binary --all   # 64/64 通过
+/tmp/t/bin/gxwd hexagram show 37
+```
+
+`domain.get_data_dir()` 的查找顺序：env `GXWD_DATA_DIR` → 仓库根 data/
+→ package 内 `_bundled/data/`。开发环境优先走仓库 data/，装到
+site-packages 时自动 fallback 到 bundled 数据。
+
+## 六、旧版注记：wheel 不含数据（已过期）
 
 当前构建产生两件东西：
 

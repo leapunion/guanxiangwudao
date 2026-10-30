@@ -13,11 +13,21 @@ _ENV_DATA_DIR = "GXWD_DATA_DIR"
 
 
 def get_data_dir() -> Path:
-    """返回当前环境下的 data 目录。GXWD_DATA_DIR 环境变量优先。"""
+    """返回当前环境下的 data 目录。查找顺序：
+    1. 环境变量 GXWD_DATA_DIR
+    2. 仓库根下 ``data/``（开发环境）
+    3. ``src/gxwd/_bundled/data/``（wheel 装到 site-packages 时由 prepack 复制）
+    """
     override = os.environ.get(_ENV_DATA_DIR)
     if override:
         return Path(override)
-    return Path(__file__).resolve().parents[2] / "data"
+    repo_data = Path(__file__).resolve().parents[2] / "data"
+    if repo_data.exists():
+        return repo_data
+    bundled = Path(__file__).resolve().parent / "_bundled" / "data"
+    if bundled.exists():
+        return bundled
+    return repo_data  # 返回仓库路径作为错误提示（下游读文件时会报 FileNotFoundError）
 
 
 # 向后兼容：首次导入时的默认 data 目录。应使用 get_data_dir() 获取最新值。

@@ -47,7 +47,13 @@ build-backend = "setuptools.build_meta"
 where = ["src"]
 
 [tool.setuptools.package-data]
-gxwd = ["py.typed"]
+gxwd = [
+    "py.typed",
+    "_bundled/data/*.json",
+    "_bundled/schemas/*.json",
+    "_bundled/assets/hexagram-svg/*.svg",
+    "_bundled/templates/card/*",
+]
 
 [tool.setuptools.data-files]
 "share/gxwd/data" = [

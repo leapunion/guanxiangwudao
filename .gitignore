@@ -9,3 +9,4 @@ web/*.html
 dist/
 build/
 *.egg-info/
+src/gxwd/_bundled/
