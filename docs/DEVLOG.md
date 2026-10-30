@@ -2,17 +2,70 @@
 
 > 按时间倒序记录：每条写做了什么、为什么、结果和遗留问题。实施方案、正式审定意见和 V0.5 工作包见 `docs/IMPLEMENTATION_PLAN.md`，需求原文见 `docs/《观象悟道》易经六十四卦国学与国画大师 Agent Team.docx`。
 
-## 当前状态总览（2026-10-29）
+## 当前状态总览（2026-10-30）
 
 | 维度 | 现状 |
 |---|---|
-| 版本 | V0.1 可信底座完成；V0.5 批次 A 完成；V0.5 批次 B 预备全部就位；R7（第七轮）Agent 边界内收尾完成（WP1–WP6）；真正的 L0 原文录入必须由主编按实物签字走 inputs/human/ |
-| 数据 | 64 卦主数据经双盲交叉校验 64/64 一致；384 爻结构，另含用九、用六；`data/sources.json` 选定 `ZYZY-RUAN`，publisher/isbn/page_system **故意缺省**，由主编对实物补填；`data/canonical-texts.json` 本轮仍空；`data/art-style.json` 骨架已建；`data/approvers.json` 已登记 cavin（总主编） |
-| 工程 | Python 3.12 包 `gxwd`：domain、validator、renderer、yao、workflow、catalog、cli、texts、publisher、composer、web。JSON Schema 10 份。CLI 11 个子命令。`dist/gxwd-0.1.0.tar.gz` sdist 可装可跑；wheel 等 WP1 完成后可用 |
-| 资产 | 64 SVG 卦符；64 CSV 预填稿（`output/canonical-input-prefilled/`）；64 份候选经文 JSON；64 份 g1 报告；`docs/37-jiaren-walkthrough.md` 试点 walkthrough；`docs/art-style-assignment-candidate.md` 风格候选表（G12/M18/S11/P23）；LICENSE + CHANGELOG + PUBLISHING.md Release 包骨架 |
-| 质量门禁 | `pytest` 629 passed、0 skipped、0 xfailed。`gxwd validate binary --all` 64/64。publisher 门禁重算（审批人白名单 + ≠ 生产者）。guard_write hook 全局生效 |
-| Agent 团队 | 3 个落地 Agent + 10 个 specialist 骨架（`.claude/agents/specialists/`）；8 个 MVP Skill + 16 个骨架；AGENTS.md 完整 9 步 DAG + reviews/ 命名约定 |
-| 版本控制 | main 分支 29+ 个提交；工作区干净 |
+| 版本 | **v0.3.0** released（tag + GitHub Release + wheel/sdist 产物已上传）。v0.2.0 治理 V2 + 64/64 PUBLISHED 已入主；v0.3.0 把项目从「调通」切到「运作」 |
+| 可见性 | 仓库 **public**（`leapunion/guanxiangwudao`）；GH Pages 在线 `https://leapunion.github.io/guanxiangwudao/`；10 个 PR 全 merged；1 个 Issue 闭环验证 |
+| 数据 | 64 卦主数据 + 964 条 L0 经文（`canonical-texts.json` 从 Ching 第 67 轮转入，provenance 诚实标注 "Ching commentary round 67 · Agent 转入时未查原书影印页码"）；`data/sources.json` 待真人选底本；`asset-catalog.json` 64 条全部 `state=PUBLISHED, release_version=v1, signed_by_agent=true` |
+| 工程 | pytest **631 passed**；`gxwd validate binary --all` 64/64；wheel 0.3.0 装到干净 venv CLI 全部可跑；5 条 workflow（CI / Pages / Release / Periodic / Dependabot）全部 Node 24 v7 系 action |
+| 门禁 | `required_status_checks = [pytest, build wheel + install smoke]` + `require_code_owner_reviews=true` + `dismiss_stale_reviews=true` + `required_conversation_resolution=true` + 禁 force-push 禁 delete |
+| 消费者入口 | GH Pages viewer（读者端）+ GitHub Releases（wheel 下载）+ `pip install gxwd`（等 PYPI_API_TOKEN） |
+| 反馈入口 | 4 类 Issue YAML form（bug / feature / governance / classical-text）+ viewer 每卦卡两个 pre-filled Issue 按钮 |
+| 治理 | V2（2026-10-29 cavin 授权），记录在 `docs/GOVERNANCE.md`；Agent approver `autopilot` 和真人 `cavin` 两档并存；所有 Agent 产出带 `signed_by_agent=true` |
+| 文档 | README 重写含徽章 + 诚实状态表；CONTRIBUTING + SECURITY + OPERATIONS + GOVERNANCE + AUTOPILOT + HOW-TO-RUN-AGENTS + FINAL-DELIVERABLES 齐 |
+| 版本控制 | main 分支 50+ 个提交；工作区干净 |
+
+## 2026-10-30
+
+### v0.3.0 「项目激活『运作』」
+
+**为什么**
+
+v0.2.0 把工程调通（64/64 PUBLISHED），但仓库 private、Viewer 只能本地看、无读者反馈入口、消费者看不见——"调好的车挂着空挡"。本轮目标：挂挡、打开大门、让它真的在动。
+
+**做了什么（本次 session 10 个 PR）**
+
+| PR | 内容 |
+|---|---|
+| #1 #2 #3 | Dependabot 自动开的 action bump（upload-artifact / checkout / setup-python 到 v7，Node 24） |
+| #4 | GH Pages 自动部署 + 读者评注入口（viewer 每卦卡两按钮）+ periodic 健康检查 + OPERATIONS.md |
+| #5 → #6 | **闭环测试**：Issue「README 停留 V0.1 状态」→ PR 重写 README → CI → merge → Issue 自动关闭。全程约 3 分钟，证明读者反馈链路真的通 |
+| #7 | PyPI 自动发布 step（conditional on PYPI_API_TOKEN）+ pages fork 友好（enablement: true） |
+| #8 | v0.3.0 版本登记（pyproject + CHANGELOG）→ tag + release |
+| #9 | CONTRIBUTING.md + SECURITY.md（符合 GH 识别的 security policy 格式） |
+| #10 | 把剩余 workflow（pages/release/periodic）的 action 跟进 v7 |
+
+**运作激活的四个物证**
+
+1. 仓库 PUBLIC：`gh repo view` 显示 `visibility: PUBLIC`
+2. GH Pages 在线：`curl -sI https://leapunion.github.io/guanxiangwudao/` 返回 HTTP 200，页面含 4 处 `feedback-btn`
+3. 周度健康检查已验证可跑：`gh workflow run periodic.yml` 16 秒跑完，`pytest + validate + status` 全绿，`Open issue on regression` step 按预期 skip
+4. Dependabot 周一 02:34 UTC 自己开 3 个 bump PR，验证定时触发在跑
+
+**保留的红线（治理 V2 下不降级）**
+
+- 诚实度：禁止凭记忆写入经文；禁止编造 ISBN / 页码
+- publisher 的 5 道硬检查：validate、经文 verified、reviews pass、哈希核对、approver 白名单、生产者/验证者 id 分离——全部保留
+- hook：`inputs/human/**` 全局禁写
+
+**遗留**
+
+| 事 | 工作量 | 阻塞点 |
+|---|---|---|
+| 加 PYPI_API_TOKEN Secret | ~2 min | 需真人去 PyPI 生成 token + 加到 repo Secrets |
+| 真人签字一卦（human_signed 0 → 1） | ~半天 | 需真人选底本 + 对实物核对 + CLI `gxwd publish request --approved-by cavin` |
+| 图像模型选型 → 实画 64 卦 | 周级 | 需真人决策 art-style.md 的"本轮未选定图像模型"红线解禁 |
+| 延展方向 A（论语/道德经等） | 月级 | 需真人启动 |
+
+**本轮不做的事（刻意保留）**
+
+- 不自动跑 autopilot 批量重出（会污染 release_version 追溯链；见 OPERATIONS.md §六）
+- 不代替真人加 PyPI Secret（跨平台敏感操作）
+- 不代替真人选底本（学术决策，Agent 不越位）
+
+---
 
 ## 2026-10-29
 
