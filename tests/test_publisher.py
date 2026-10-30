@@ -138,8 +138,13 @@ def pub_env(tmp_path: Path):
     )
 
     # --- catalog（REVIEW_REQUIRED 状态，history actor = PRODUCER_ID）---
+    # 不复用 repo 的 asset-catalog.json —— 它可能已被 autopilot 推到 PUBLISHED，
+    # fixture 需要从 build_catalog 构造全新的 DRAFT 状态 catalog。
+    from gxwd import catalog as catalog_mod
+    from gxwd import domain as domain_mod
     catalog_path = data_dir / "asset-catalog.json"
-    catalog = json.loads((repo_root / "data" / "asset-catalog.json").read_text("utf-8"))
+    hexagrams = domain_mod.load_hexagrams(data_dir)
+    catalog = catalog_mod.build_catalog(hexagrams)
     # 把第 37 卦推进到 REVIEW_REQUIRED
     for i, rec in enumerate(catalog["records"]):
         if rec["hexagram_id"] == HEXAGRAM_ID:
@@ -493,8 +498,11 @@ def test_qian_requires_yong(tmp_path):
     approvers_path = data_dir / "approvers.json"
     _write_json(approvers_path, {"approvers": [{"id": APPROVER_ID, "name": "总编", "role": "chief"}]})
 
-    # 构造 catalog
-    full_catalog = json.loads((repo_root / "data" / "asset-catalog.json").read_text("utf-8"))
+    # 构造 catalog（从头 build，不复用 repo data/——它可能已被 autopilot 推到 PUBLISHED）
+    from gxwd import catalog as catalog_mod
+    from gxwd import domain as domain_mod
+    hexagrams = domain_mod.load_hexagrams(data_dir)
+    full_catalog = catalog_mod.build_catalog(hexagrams)
     for i, rec in enumerate(full_catalog["records"]):
         if rec["hexagram_id"] == qian_id:
             for s in ["RESEARCHED", "TEXT_VERIFIED", "ART_DRAFT", "ART_APPROVED", "LAYOUT_READY", "REVIEW_REQUIRED"]:
