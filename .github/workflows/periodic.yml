@@ -1,0 +1,81 @@
+name: Weekly health check
+
+on:
+  schedule:
+    # 周一 UTC 01:00 = 周一 Asia/Shanghai 09:00
+    - cron: "0 1 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    name: pytest + validate + status
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install project
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run pytest
+        id: pytest
+        continue-on-error: true
+        run: pytest -q
+
+      - name: Validate binary encoding
+        id: validate
+        continue-on-error: true
+        run: gxwd validate binary --all
+
+      - name: Collect status
+        id: status
+        continue-on-error: true
+        run: |
+          STATUS_JSON="$(gxwd status --json)"
+          echo "$STATUS_JSON" > /tmp/status.json
+          echo "---"
+          cat /tmp/status.json | python -m json.tool
+          PUBLISHED=$(echo "$STATUS_JSON" | python -c "import sys, json; print(json.load(sys.stdin).get('published', 0))")
+          AGENT_SIGNED=$(echo "$STATUS_JSON" | python -c "import sys, json; print(json.load(sys.stdin).get('agent_signed', 0))")
+          HUMAN_SIGNED=$(echo "$STATUS_JSON" | python -c "import sys, json; print(json.load(sys.stdin).get('human_signed', 0))")
+          echo "published=$PUBLISHED" >> "$GITHUB_OUTPUT"
+          echo "agent_signed=$AGENT_SIGNED" >> "$GITHUB_OUTPUT"
+          echo "human_signed=$HUMAN_SIGNED" >> "$GITHUB_OUTPUT"
+
+      - name: Open issue on regression
+        if: steps.pytest.outcome != 'success' || steps.validate.outcome != 'success' || steps.status.outputs.published != '64'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          TITLE="[health-check] weekly regression $DATE"
+          BODY=$(cat <<EOF
+          周度健康检查发现回退（${DATE}）：
+
+          - pytest: ${{ steps.pytest.outcome }}
+          - validate: ${{ steps.validate.outcome }}
+          - PUBLISHED: ${{ steps.status.outputs.published }}/64
+          - signed_by_agent: ${{ steps.status.outputs.agent_signed }}
+          - signed_by_human: ${{ steps.status.outputs.human_signed }}
+
+          详见 workflow run：
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          该 Issue 由 .github/workflows/periodic.yml 自动开，不代表读者意见。
+          EOF
+          )
+          gh issue create \
+            --repo "${{ github.repository }}" \
+            --title "$TITLE" \
+            --label "health-check" \
+            --body "$BODY"

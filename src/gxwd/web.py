@@ -16,6 +16,7 @@ scripts/build-web.py 是薄壳 shim，保留历史命令兼容。
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 def _resolve_default_repo() -> Path:
@@ -137,6 +138,7 @@ def collect_bundle(repo_root: Path | None = None) -> dict:
         "style_labels": STYLE_LABEL,
         "style_colors": STYLE_COLOR,
         "art_style_guide_md": _read_optional_text(repo / "docs" / "art-style-guide.md"),
+        "repo_slug": os.environ.get("GITHUB_REPOSITORY", "leapunion/guanxiangwudao"),
     }
 
 
@@ -207,6 +209,21 @@ nav.filters {
   border-color: var(--ink);
 }
 .filter-label { font-size: 12px; color: var(--stone-blue); margin-right: 4px; }
+.feedback-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid var(--divider);
+  background: var(--paper-shade);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.feedback-btn:hover { background: var(--ochre); color: var(--paper); border-color: var(--ochre); }
+.feedback-correct { border-left: 3px solid var(--cinnabar); }
+.feedback-feature { border-left: 3px solid var(--jade); }
 main {
   display: grid;
   grid-template-columns: 1fr 480px;
@@ -542,6 +559,18 @@ function renderDetail(h) {
         <span class="badge" style="background:${DATA.style_colors[h.style_code]}">${h.style_code} ${h.style_label}</span>
         ${g1Badge}
         ${publishBadge}
+      </div>
+      <div style="margin: 10px 0; display: flex; gap: 8px; flex-wrap: wrap;">
+        <a class="feedback-btn feedback-correct"
+           target="_blank" rel="noopener"
+           href="https://github.com/${DATA.repo_slug || "leapunion/guanxiangwudao"}/issues/new?template=classical_text_issue.yml&title=${encodeURIComponent("[classical-text] 第 " + h.hexagram_id + " 卦 " + h.name)}&hexagram_id=${h.hexagram_id}">
+          📝 指正此卡（经文 / 底本异议）
+        </a>
+        <a class="feedback-btn feedback-feature"
+           target="_blank" rel="noopener"
+           href="https://github.com/${DATA.repo_slug || "leapunion/guanxiangwudao"}/issues/new?template=feature_request.yml&title=${encodeURIComponent("[feat] 第 " + h.hexagram_id + " 卦 " + h.name + " · ")}">
+          ✨ 建议改进
+        </a>
       </div>
       <div class="section-title">候选经文（来自 Ching · 通行本）</div>
       <div class="candidate-note">
