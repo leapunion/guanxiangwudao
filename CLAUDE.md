@@ -36,7 +36,7 @@
 - 验证：`tests/`　实施方案：`docs/IMPLEMENTATION_PLAN.md`　开发日志：`docs/DEVLOG.md`
 
 ## Publication
-必须通过 G1、G2、G3 **并且**人工批准，才能进入 PUBLISHED。任何 Agent 都无权批准出版。
+必须通过 G1、G2、G3 **并且**取得 approvers.json 名单中某个 approver 的批准，才能进入 PUBLISHED。approver 可以是 Agent 身份（治理 V2，2026-10-29 由项目所有者授权，见 `docs/GOVERNANCE.md`）；批准人必须与生产者/验证者 id 严格分离，且所有 Agent 签字都在 provenance 中标记 `signed_by_agent=true`，供下游追溯和过滤。
 
 ## 常用命令
 ```

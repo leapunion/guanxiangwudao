@@ -275,6 +275,19 @@ def request_publication(
 
     # ── 步骤 6：组装 approval ────────────────────────────────────────────
     release_version = _next_release_version(record)
+    # 治理 V2（见 docs/GOVERNANCE.md）：approver 可以是 Agent 身份；
+    # Agent approver 在 approval 中带 signed_by_agent=true 的 provenance 标记。
+    approver_entry = next(
+        (a for a in approvers_data.get("approvers", [])
+         if isinstance(a, dict) and a.get("id") == approved_by),
+        {},
+    )
+    approver_notes = approver_entry.get("notes", "")
+    signed_by_agent = (
+        "autopilot" in approved_by.lower()
+        or "agent" in approver_notes.lower()
+        or "signed_by_agent=true" in approver_notes
+    )
     approval: dict[str, Any] = {
         "approved_by": approved_by,
         "approved_at": approved_at,
@@ -283,6 +296,8 @@ def request_publication(
         "review_hashes": review_hashes,
         "canonical_text_version": canonical_text_hash,
         "release_version": release_version,
+        "signed_by_agent": signed_by_agent,
+        "governance_version": "V2",
     }
 
     # ── 步骤 7：迁移状态 ─────────────────────────────────────────────────
