@@ -2,6 +2,50 @@
 
 本项目的所有显著变化在此记录。遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.3.0] — 2026-10-30 · 项目激活「运作」· 公开 + PyPI 自动发布
+
+### 运作激活
+- 仓库从 private 转为 **public**：`https://github.com/leapunion/guanxiangwudao`
+- **GH Pages 自动托管查看器**：`https://leapunion.github.io/guanxiangwudao/`，每次 push 到 main（含 `data/`、`assets/`、`projects/`、`web.py` 相关路径）自动重建
+- **闭环已走通**：读者 Issue → 修订 PR → CI 门禁 → review → merge → Pages 刷新 → Issue 自动关闭（证据：Issue #5 → PR #6 → closed，总耗时约 3 分钟）
+
+### 新增
+- `.github/workflows/ci.yml`：PR 和 push 到 main 自动跑 pytest + build wheel + install smoke；两个 job 已入 `required_status_checks`，不绿不能 merge
+- `.github/workflows/pages.yml`：push 到 main 自动构建 viewer 并部署到 GH Pages；本次顺手加 `enablement: true`，fork 本仓库的人首次 push 不再卡在 "Pages site not enabled"
+- `.github/workflows/release.yml`：push `v*` tag 自动构建 wheel + sdist + 从 CHANGELOG 抽取对应节作为 release notes；本次新增 **PyPI 自动发布 step**（`pypa/gh-action-pypi-publish@release/v1`，conditional on `secrets.PYPI_API_TOKEN`，没 token 时静默跳过）
+- `.github/workflows/periodic.yml`：每周一 09:00 Asia/Shanghai 跑 pytest + validate + status；回退自动开 `[health-check]` Issue
+- `.github/dependabot.yml`：pip + github-actions 两个 ecosystem，minor+patch 分组降噪
+- `.github/CODEOWNERS`：9 组分级（CLAUDE.md、rules、publisher、hooks、approvers、data、schemas、workflows、Agent/Skill 骨架），所有 PR 自动 request review 到 `@keevingfu`
+- `.github/ISSUE_TEMPLATE/`：4 类 YAML form 模板（bug / feature / governance / classical-text）+ config 禁 blank issue + 4 条外链
+- `.github/pull_request_template.md`：PR 自检单（影响面 6 类 + 对 PUBLISHED 影响 4 档 + 验收 6 条 + 红线 4 条）
+- **读者反馈入口**（`src/gxwd/web.py`）：viewer 每张卦卡详情面板加 "📝 指正此卡" 和 "✨ 建议改进" 按钮，点击打开 pre-filled Issue，参数带 `hexagram_id` + 卦名；`repo_slug` 从 `GITHUB_REPOSITORY` 环境变量读
+- `docs/OPERATIONS.md`：运营手册（5 角色 · 4 入口 · 1 周期示意图 · 3 条修订路径 · PyPI 激活指引）
+
+### 变更
+- **README.md 重写**：加 CI/Pages/Release/PyPI/License 五枚徽章；三路入口（读者 / 开发者 / 运作参与者）；诚实状态表（显式写出 agent_signed=64 / human=0，接受学术权威性降级）
+- **Branch protection** 升级：`required_status_checks = [pytest, build wheel + install smoke]`、`require_code_owner_reviews = true`、`dismiss_stale_reviews = true`、`required_conversation_resolution = true`、禁 force push、禁 delete
+- `release.yml` CHANGELOG 提取 step：heredoc 从 `<<PY` 改成 `<<'PY'`（禁用 shell 展开，修 `$(.*?)` 被解析为命令替换的 bug）
+
+### 保留的红线（治理 V2 下不降级）
+- **诚实度**：禁止凭记忆写入经文；禁止编造具体 ISBN / 数字页码
+- **publisher 技术门禁**：validate、经文 verified、reviews pass、哈希核对、approver 白名单、与生产者/验证者 id 分离——全部保留
+- **hook**：`inputs/human/**` 全局禁写
+
+### 质量门禁
+- `pytest` 631 passed、0 skipped、0 xfailed
+- `gxwd validate binary --all` 64/64 通过
+- CI 作为 required status check，PR 不绿不能 merge
+
+### 激活 PyPI 自动发布（可选，用户操作）
+1. 到 https://pypi.org/manage/account/token/ 生成 token
+2. 到 Settings → Secrets and variables → Actions 添加 `PYPI_API_TOKEN`
+3. 下次打 `v*` tag 自动 upload 到 PyPI；见 `docs/OPERATIONS.md` §九
+
+### 回滚
+- 本版本无数据层改动。要回退运作激活：先撤回 Pages 配置、本仓库转 private、分支保护降级即可，不影响 64 卦 PUBLISHED 状态
+
+---
+
 ## [0.2.0] — 2026-10-30 · 治理 V2 + autopilot + 64/64 PUBLISHED
 
 ### 实证
