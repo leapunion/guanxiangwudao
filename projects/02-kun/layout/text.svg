@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  观象悟道 · 文字层模板
+  占位符语法：{{var_name}}
+  合成器读取此模板并替换所有 {{…}} 占位符后写出 text.svg。
+  颜色与字号遵循 docs/art-style-guide.md §3。
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 800"
+     width="600" height="800"
+     font-family="serif"
+     role="img">
+
+  <title>坤 文字层</title>
+
+  <!-- 卦名与全名 -->
+  <text x="300" y="60"
+        font-size="32" fill="#273F52"
+        text-anchor="middle" font-weight="bold">坤</text>
+
+  <text x="300" y="100"
+        font-size="18" fill="#547A83"
+        text-anchor="middle">坤为地</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="115" x2="560" y2="115"
+        stroke="#273F52" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- 卦辞 -->
+  <text x="40" y="150"
+        font-size="13" fill="#547A83">卦辞</text>
+  <text x="40" y="175"
+        font-size="15" fill="#273F52">坤：元，亨，利牝马之贞。君子有攸往，先迷；后得主，利。西南得朋，东北丧朋。安贞吉。</text>
+
+  <!-- 彖传 -->
+  <text x="40" y="215"
+        font-size="13" fill="#547A83">彖传</text>
+  <text x="40" y="240"
+        font-size="15" fill="#273F52">至哉坤元，万物资生，乃顺承天。坤厚载物，德合无疆。含弘光大，品物咸亨。牝马地类，行地无疆，柔顺利贞。君子攸行，先迷失道，后顺得常。西南得朋，乃与类行。东北丧朋，乃终有庆。安贞之吉，应地无疆。</text>
+
+  <!-- 大象 -->
+  <text x="40" y="280"
+        font-size="13" fill="#547A83">大象</text>
+  <text x="40" y="305"
+        font-size="15" fill="#273F52">地势坤。君子以厚德载物。</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="320" x2="560" y2="320"
+        stroke="#273F52" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- 爻辞（六爻）-->
+  <text x="40" y="345"
+        font-size="13" fill="#547A83">爻辞</text>
+
+  <text x="40"  y="370" font-size="13" fill="#B58C69">初爻</text>
+  <text x="100" y="370" font-size="13" fill="#273F52">履霜，坚冰至。</text>
+
+  <text x="40"  y="395" font-size="13" fill="#B58C69">二爻</text>
+  <text x="100" y="395" font-size="13" fill="#273F52">直方大，不习，无不利。</text>
+
+  <text x="40"  y="420" font-size="13" fill="#B58C69">三爻</text>
+  <text x="100" y="420" font-size="13" fill="#273F52">含章，可贞，或从王事，无成有终。</text>
+
+  <text x="40"  y="445" font-size="13" fill="#B58C69">四爻</text>
+  <text x="100" y="445" font-size="13" fill="#273F52">括囊，无咎无誉。</text>
+
+  <text x="40"  y="470" font-size="13" fill="#B58C69">五爻</text>
+  <text x="100" y="470" font-size="13" fill="#273F52">黄裳，元吉。</text>
+
+  <text x="40"  y="495" font-size="13" fill="#B58C69">上爻</text>
+  <text x="100" y="495" font-size="13" fill="#273F52">龙战于野，其血玄黄。</text>
+
+  <!-- 小象（六爻）-->
+  <text x="40" y="530"
+        font-size="13" fill="#547A83">小象</text>
+
+  <text x="40"  y="555" font-size="13" fill="#A2B4A1">初</text>
+  <text x="100" y="555" font-size="13" fill="#273F52">“履霜坚冰”，阴始凝也，驯致其道，至坚冰也。</text>
+
+  <text x="40"  y="575" font-size="13" fill="#A2B4A1">二</text>
+  <text x="100" y="575" font-size="13" fill="#273F52">六二之动，直以方也。“不习，无不利”，地道光也。</text>
+
+  <text x="40"  y="595" font-size="13" fill="#A2B4A1">三</text>
+  <text x="100" y="595" font-size="13" fill="#273F52">“含章可贞”，以时发也。“或从王事”，知光大也。</text>
+
+  <text x="40"  y="615" font-size="13" fill="#A2B4A1">四</text>
+  <text x="100" y="615" font-size="13" fill="#273F52">“括囊无咎”，慎不害也。</text>
+
+  <text x="40"  y="635" font-size="13" fill="#A2B4A1">五</text>
+  <text x="100" y="635" font-size="13" fill="#273F52">“黄裳元吉”，文在中也。</text>
+
+  <text x="40"  y="655" font-size="13" fill="#A2B4A1">上</text>
+  <text x="100" y="655" font-size="13" fill="#273F52">“龙战于野”，其道穷也。</text>
+
+  <!-- 底部印章占位 -->
+  <rect x="480" y="720" width="80" height="60"
+        fill="none" stroke="#A74439" stroke-width="1" rx="2"/>
+  <text x="520" y="758"
+        font-size="10" fill="#A74439"
+        text-anchor="middle">印章</text>
+
+</svg>

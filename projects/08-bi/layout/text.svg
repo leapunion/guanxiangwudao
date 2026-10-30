@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  观象悟道 · 文字层模板
+  占位符语法：{{var_name}}
+  合成器读取此模板并替换所有 {{…}} 占位符后写出 text.svg。
+  颜色与字号遵循 docs/art-style-guide.md §3。
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 800"
+     width="600" height="800"
+     font-family="serif"
+     role="img">
+
+  <title>比 文字层</title>
+
+  <!-- 卦名与全名 -->
+  <text x="300" y="60"
+        font-size="32" fill="#273F52"
+        text-anchor="middle" font-weight="bold">比</text>
+
+  <text x="300" y="100"
+        font-size="18" fill="#547A83"
+        text-anchor="middle">水地比</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="115" x2="560" y2="115"
+        stroke="#273F52" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- 卦辞 -->
+  <text x="40" y="150"
+        font-size="13" fill="#547A83">卦辞</text>
+  <text x="40" y="175"
+        font-size="15" fill="#273F52">比：吉。原筮，元永贞，无咎。不宁方来，后夫凶。</text>
+
+  <!-- 彖传 -->
+  <text x="40" y="215"
+        font-size="13" fill="#547A83">彖传</text>
+  <text x="40" y="240"
+        font-size="15" fill="#273F52">比，吉也；比，辅也，下顺从也。原筮元永贞，无咎，以刚中也。不宁方来，上下应也；后夫凶，其道穷也。</text>
+
+  <!-- 大象 -->
+  <text x="40" y="280"
+        font-size="13" fill="#547A83">大象</text>
+  <text x="40" y="305"
+        font-size="15" fill="#273F52">地上有水，比。先王以建万国，亲诸侯。</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="320" x2="560" y2="320"
+        stroke="#273F52" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- 爻辞（六爻）-->
+  <text x="40" y="345"
+        font-size="13" fill="#547A83">爻辞</text>
+
+  <text x="40"  y="370" font-size="13" fill="#B58C69">初爻</text>
+  <text x="100" y="370" font-size="13" fill="#273F52">有孚比之，无咎。有孚盈缶，终来有它吉。</text>
+
+  <text x="40"  y="395" font-size="13" fill="#B58C69">二爻</text>
+  <text x="100" y="395" font-size="13" fill="#273F52">比之自内，贞吉。</text>
+
+  <text x="40"  y="420" font-size="13" fill="#B58C69">三爻</text>
+  <text x="100" y="420" font-size="13" fill="#273F52">比之匪人。</text>
+
+  <text x="40"  y="445" font-size="13" fill="#B58C69">四爻</text>
+  <text x="100" y="445" font-size="13" fill="#273F52">外比之，贞吉。</text>
+
+  <text x="40"  y="470" font-size="13" fill="#B58C69">五爻</text>
+  <text x="100" y="470" font-size="13" fill="#273F52">显比。王用三驱，失前禽，邑人不诫，吉。</text>
+
+  <text x="40"  y="495" font-size="13" fill="#B58C69">上爻</text>
+  <text x="100" y="495" font-size="13" fill="#273F52">比之无首，凶。</text>
+
+  <!-- 小象（六爻）-->
+  <text x="40" y="530"
+        font-size="13" fill="#547A83">小象</text>
+
+  <text x="40"  y="555" font-size="13" fill="#A2B4A1">初</text>
+  <text x="100" y="555" font-size="13" fill="#273F52">比之初六，有它吉也。</text>
+
+  <text x="40"  y="575" font-size="13" fill="#A2B4A1">二</text>
+  <text x="100" y="575" font-size="13" fill="#273F52">比之自内，不自失也。</text>
+
+  <text x="40"  y="595" font-size="13" fill="#A2B4A1">三</text>
+  <text x="100" y="595" font-size="13" fill="#273F52">比之匪人，不亦伤乎。</text>
+
+  <text x="40"  y="615" font-size="13" fill="#A2B4A1">四</text>
+  <text x="100" y="615" font-size="13" fill="#273F52">外比于贤，以从上也。</text>
+
+  <text x="40"  y="635" font-size="13" fill="#A2B4A1">五</text>
+  <text x="100" y="635" font-size="13" fill="#273F52">显比之吉，位正中也；舍逆取顺，失前禽也；邑人不诫，上使中也。</text>
+
+  <text x="40"  y="655" font-size="13" fill="#A2B4A1">上</text>
+  <text x="100" y="655" font-size="13" fill="#273F52">比之无首，无所终也。</text>
+
+  <!-- 底部印章占位 -->
+  <rect x="480" y="720" width="80" height="60"
+        fill="none" stroke="#A74439" stroke-width="1" rx="2"/>
+  <text x="520" y="758"
+        font-size="10" fill="#A74439"
+        text-anchor="middle">印章</text>
+
+</svg>

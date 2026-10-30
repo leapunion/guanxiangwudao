@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  观象悟道 · 文字层模板
+  占位符语法：{{var_name}}
+  合成器读取此模板并替换所有 {{…}} 占位符后写出 text.svg。
+  颜色与字号遵循 docs/art-style-guide.md §3。
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 800"
+     width="600" height="800"
+     font-family="serif"
+     role="img">
+
+  <title>睽 文字层</title>
+
+  <!-- 卦名与全名 -->
+  <text x="300" y="60"
+        font-size="32" fill="#273F52"
+        text-anchor="middle" font-weight="bold">睽</text>
+
+  <text x="300" y="100"
+        font-size="18" fill="#547A83"
+        text-anchor="middle">火泽睽</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="115" x2="560" y2="115"
+        stroke="#273F52" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- 卦辞 -->
+  <text x="40" y="150"
+        font-size="13" fill="#547A83">卦辞</text>
+  <text x="40" y="175"
+        font-size="15" fill="#273F52">睽：小事吉。</text>
+
+  <!-- 彖传 -->
+  <text x="40" y="215"
+        font-size="13" fill="#547A83">彖传</text>
+  <text x="40" y="240"
+        font-size="15" fill="#273F52">睽，火动而上，泽动而下。二女同居，其志不同行。说而丽乎明，柔进而上行，得中而应乎刚，是以小事吉。天地睽而其事同也，男女睽而其志通也，万物睽而其事类也。睽之时用大矣哉！</text>
+
+  <!-- 大象 -->
+  <text x="40" y="280"
+        font-size="13" fill="#547A83">大象</text>
+  <text x="40" y="305"
+        font-size="15" fill="#273F52">上火下泽，睽。君子以同而异。</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="320" x2="560" y2="320"
+        stroke="#273F52" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- 爻辞（六爻）-->
+  <text x="40" y="345"
+        font-size="13" fill="#547A83">爻辞</text>
+
+  <text x="40"  y="370" font-size="13" fill="#B58C69">初爻</text>
+  <text x="100" y="370" font-size="13" fill="#273F52">悔亡。丧马勿逐，自复。见恶人，无咎。</text>
+
+  <text x="40"  y="395" font-size="13" fill="#B58C69">二爻</text>
+  <text x="100" y="395" font-size="13" fill="#273F52">遇主于巷，无咎。</text>
+
+  <text x="40"  y="420" font-size="13" fill="#B58C69">三爻</text>
+  <text x="100" y="420" font-size="13" fill="#273F52">见舆曳，其牛掣，其人天且劓，无初有终。</text>
+
+  <text x="40"  y="445" font-size="13" fill="#B58C69">四爻</text>
+  <text x="100" y="445" font-size="13" fill="#273F52">睽孤，遇元夫，交孚，厉无咎。</text>
+
+  <text x="40"  y="470" font-size="13" fill="#B58C69">五爻</text>
+  <text x="100" y="470" font-size="13" fill="#273F52">悔亡。厥宗噬肤，往何咎？</text>
+
+  <text x="40"  y="495" font-size="13" fill="#B58C69">上爻</text>
+  <text x="100" y="495" font-size="13" fill="#273F52">睽孤，见豕负涂，载鬼一车，先张之弧，后说之弧。匪寇婚媾，往遇雨则吉。</text>
+
+  <!-- 小象（六爻）-->
+  <text x="40" y="530"
+        font-size="13" fill="#547A83">小象</text>
+
+  <text x="40"  y="555" font-size="13" fill="#A2B4A1">初</text>
+  <text x="100" y="555" font-size="13" fill="#273F52">见恶人，以辟咎也。</text>
+
+  <text x="40"  y="575" font-size="13" fill="#A2B4A1">二</text>
+  <text x="100" y="575" font-size="13" fill="#273F52">“遇主于巷”，未失道也。</text>
+
+  <text x="40"  y="595" font-size="13" fill="#A2B4A1">三</text>
+  <text x="100" y="595" font-size="13" fill="#273F52">“见舆曳”，位不当也；“无初有终”，遇刚也。</text>
+
+  <text x="40"  y="615" font-size="13" fill="#A2B4A1">四</text>
+  <text x="100" y="615" font-size="13" fill="#273F52">交孚无咎，志行也。</text>
+
+  <text x="40"  y="635" font-size="13" fill="#A2B4A1">五</text>
+  <text x="100" y="635" font-size="13" fill="#273F52">“厥宗噬肤”，往有庆也。</text>
+
+  <text x="40"  y="655" font-size="13" fill="#A2B4A1">上</text>
+  <text x="100" y="655" font-size="13" fill="#273F52">“遇雨”之吉，群疑亡也。</text>
+
+  <!-- 底部印章占位 -->
+  <rect x="480" y="720" width="80" height="60"
+        fill="none" stroke="#A74439" stroke-width="1" rx="2"/>
+  <text x="520" y="758"
+        font-size="10" fill="#A74439"
+        text-anchor="middle">印章</text>
+
+</svg>

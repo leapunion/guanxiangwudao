@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  观象悟道 · 文字层模板
+  占位符语法：{{var_name}}
+  合成器读取此模板并替换所有 {{…}} 占位符后写出 text.svg。
+  颜色与字号遵循 docs/art-style-guide.md §3。
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 800"
+     width="600" height="800"
+     font-family="serif"
+     role="img">
+
+  <title>大过 文字层</title>
+
+  <!-- 卦名与全名 -->
+  <text x="300" y="60"
+        font-size="32" fill="#273F52"
+        text-anchor="middle" font-weight="bold">大过</text>
+
+  <text x="300" y="100"
+        font-size="18" fill="#547A83"
+        text-anchor="middle">泽风大过</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="115" x2="560" y2="115"
+        stroke="#273F52" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- 卦辞 -->
+  <text x="40" y="150"
+        font-size="13" fill="#547A83">卦辞</text>
+  <text x="40" y="175"
+        font-size="15" fill="#273F52">大过：栋桡。利有攸往，亨。</text>
+
+  <!-- 彖传 -->
+  <text x="40" y="215"
+        font-size="13" fill="#547A83">彖传</text>
+  <text x="40" y="240"
+        font-size="15" fill="#273F52">大过，大者过也。栋桡，本末弱也。刚过而中，巽而说行，利有攸往，乃亨。大过之时大矣哉！</text>
+
+  <!-- 大象 -->
+  <text x="40" y="280"
+        font-size="13" fill="#547A83">大象</text>
+  <text x="40" y="305"
+        font-size="15" fill="#273F52">泽灭木，大过。君子以独立不惧，遁世无闷。</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="320" x2="560" y2="320"
+        stroke="#273F52" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- 爻辞（六爻）-->
+  <text x="40" y="345"
+        font-size="13" fill="#547A83">爻辞</text>
+
+  <text x="40"  y="370" font-size="13" fill="#B58C69">初爻</text>
+  <text x="100" y="370" font-size="13" fill="#273F52">藉用白茅，无咎。</text>
+
+  <text x="40"  y="395" font-size="13" fill="#B58C69">二爻</text>
+  <text x="100" y="395" font-size="13" fill="#273F52">枯杨生稊，老夫得其女妻，无不利。</text>
+
+  <text x="40"  y="420" font-size="13" fill="#B58C69">三爻</text>
+  <text x="100" y="420" font-size="13" fill="#273F52">栋桡，凶。</text>
+
+  <text x="40"  y="445" font-size="13" fill="#B58C69">四爻</text>
+  <text x="100" y="445" font-size="13" fill="#273F52">栋隆，吉。有它吝。</text>
+
+  <text x="40"  y="470" font-size="13" fill="#B58C69">五爻</text>
+  <text x="100" y="470" font-size="13" fill="#273F52">枯杨生华，老妇得其士夫，无咎无誉。</text>
+
+  <text x="40"  y="495" font-size="13" fill="#B58C69">上爻</text>
+  <text x="100" y="495" font-size="13" fill="#273F52">过涉灭顶，凶，无咎。</text>
+
+  <!-- 小象（六爻）-->
+  <text x="40" y="530"
+        font-size="13" fill="#547A83">小象</text>
+
+  <text x="40"  y="555" font-size="13" fill="#A2B4A1">初</text>
+  <text x="100" y="555" font-size="13" fill="#273F52">藉用白茅，柔在下也。</text>
+
+  <text x="40"  y="575" font-size="13" fill="#A2B4A1">二</text>
+  <text x="100" y="575" font-size="13" fill="#273F52">老夫女妻，过以相与也。</text>
+
+  <text x="40"  y="595" font-size="13" fill="#A2B4A1">三</text>
+  <text x="100" y="595" font-size="13" fill="#273F52">栋桡之凶，不可以有辅也。</text>
+
+  <text x="40"  y="615" font-size="13" fill="#A2B4A1">四</text>
+  <text x="100" y="615" font-size="13" fill="#273F52">栋隆之吉，不桡乎下也。</text>
+
+  <text x="40"  y="635" font-size="13" fill="#A2B4A1">五</text>
+  <text x="100" y="635" font-size="13" fill="#273F52">枯杨生华，何可久也？老妇士夫，亦可丑也。</text>
+
+  <text x="40"  y="655" font-size="13" fill="#A2B4A1">上</text>
+  <text x="100" y="655" font-size="13" fill="#273F52">过涉之凶，不可咎也。</text>
+
+  <!-- 底部印章占位 -->
+  <rect x="480" y="720" width="80" height="60"
+        fill="none" stroke="#A74439" stroke-width="1" rx="2"/>
+  <text x="520" y="758"
+        font-size="10" fill="#A74439"
+        text-anchor="middle">印章</text>
+
+</svg>

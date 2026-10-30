@@ -1,0 +1,17 @@
+{
+  "report_id": "interpretation-036-1",
+  "gate": "interpretation",
+  "hexagram_id": 36,
+  "verifier": {
+    "id": "agent-verifier",
+    "name": "Agent Verifier",
+    "role": "independent-verifier"
+  },
+  "checked_at": "2026-10-30T02:54:30Z",
+  "result": "pass",
+  "findings": [],
+  "attachments": [],
+  "producer_ids": [
+    "agent-researcher"
+  ]
+}

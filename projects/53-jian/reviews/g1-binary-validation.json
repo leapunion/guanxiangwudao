@@ -4,5 +4,13 @@
   "result": "pass",
   "valid": true,
   "checked": 1,
-  "errors": []
+  "errors": [],
+  "verifier": {
+    "id": "agent-verifier",
+    "name": "Agent Verifier",
+    "role": "independent-verifier"
+  },
+  "producer_ids": [
+    "agent-researcher"
+  ]
 }
