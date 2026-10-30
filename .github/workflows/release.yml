@@ -72,14 +72,18 @@ jobs:
 
       - name: Extract CHANGELOG section for this version
         id: changelog
+        env:
+          TAG_NAME: ${{ steps.tag.outputs.name }}
         run: |
-          TAG="${{ steps.tag.outputs.name }}"
-          VERSION="${TAG#v}"
+          export VERSION="${TAG_NAME#v}"
           BODY_FILE="$(mktemp)"
-          python <<PY > "$BODY_FILE"
-          import pathlib, re, sys
-          text = pathlib.Path("CHANGELOG.md").read_text(encoding="utf-8") if pathlib.Path("CHANGELOG.md").exists() else ""
-          m = re.search(r"^## \[?${VERSION}\]?.*?$(.*?)(?=^## |\Z)".replace("${VERSION}", "$VERSION"), text, re.MULTILINE | re.DOTALL)
+          python - <<'PY' > "$BODY_FILE"
+          import os, pathlib, re
+          version = os.environ["VERSION"]
+          path = pathlib.Path("CHANGELOG.md")
+          text = path.read_text(encoding="utf-8") if path.exists() else ""
+          pattern = rf"^## \[?{re.escape(version)}\]?.*?$(.*?)(?=^## |\Z)"
+          m = re.search(pattern, text, re.MULTILINE | re.DOTALL)
           print(m.group(1).strip() if m else "")
           PY
           if [ -s "$BODY_FILE" ]; then
