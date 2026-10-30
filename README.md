@@ -6,6 +6,7 @@
 [![CI](https://github.com/leapunion/guanxiangwudao/actions/workflows/ci.yml/badge.svg)](https://github.com/leapunion/guanxiangwudao/actions/workflows/ci.yml)
 [![Deploy GH Pages](https://github.com/leapunion/guanxiangwudao/actions/workflows/pages.yml/badge.svg)](https://github.com/leapunion/guanxiangwudao/actions/workflows/pages.yml)
 [![Release](https://img.shields.io/github/v/release/leapunion/guanxiangwudao)](https://github.com/leapunion/guanxiangwudao/releases)
+[![PyPI](https://img.shields.io/pypi/v/gxwd?label=PyPI&color=547A83)](https://pypi.org/project/gxwd/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-A2B4A1.svg)](LICENSE)
 
 **🌏 公开查看器：https://leapunion.github.io/guanxiangwudao/**
@@ -23,21 +24,28 @@
 
 ### 🛠 我是开发者，想用
 
+**从 PyPI 装**（最简单，等 PYPI_API_TOKEN Secret 配好后自动发布）：
+
 ```bash
-# 装
+pip install gxwd
+gxwd --help
+```
+
+**从源码跑**：
+
+```bash
 git clone https://github.com/leapunion/guanxiangwudao.git
 cd guanxiangwudao
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -e ".[dev]"
 
-# 跑
 .venv/bin/python -m pytest -q        # 631 passed
 .venv/bin/gxwd validate binary --all # 64/64
 .venv/bin/gxwd status                # PUBLISHED=64
 .venv/bin/gxwd web serve             # 本地查看器
 ```
 
-或下载 [最新 release](https://github.com/leapunion/guanxiangwudao/releases/latest) 的 wheel 直接 `pip install`。
+或下载 [最新 release](https://github.com/leapunion/guanxiangwudao/releases/latest) 的 wheel 直接 `pip install path/to/gxwd-*.whl`。
 
 ### 🧭 我想参与运作 / 修订 / 治理
 
