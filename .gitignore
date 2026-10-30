@@ -10,3 +10,9 @@ dist/
 build/
 *.egg-info/
 src/gxwd/_bundled/
+
+# AGENTS.md / Codex 生态的 skill 镜像（内容与 .claude/skills/ 相同）。
+# 本项目当前不正式接入 Codex 工作流，.agents/ 由外部 skill 自动生成，
+# 不入主以保持 .claude/skills/ 为单一真相源。
+# 以后若决定支持 Codex，再去掉这条规则 + 配 claude-md-agents-mirror-sync。
+.agents/
