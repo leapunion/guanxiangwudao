@@ -1,0 +1,32 @@
+# 默认：所有变更默认 request review 到项目所有者
+*                               @keevingfu
+
+# ─── 治理与红线（最高敏感度）─────────────────────────────────
+CLAUDE.md                       @keevingfu
+.claude/rules/**                @keevingfu
+docs/GOVERNANCE.md              @keevingfu
+docs/HOW-TO-RUN-AGENTS.md       @keevingfu
+docs/AUTOPILOT.md               @keevingfu
+
+# ─── 发布门禁与 hook（硬检查层）────────────────────────────
+src/gxwd/publisher.py           @keevingfu
+.claude/hooks/**                @keevingfu
+data/approvers.json             @keevingfu
+
+# ─── 经典数据层（真相源）─────────────────────────────────
+data/trigrams.json              @keevingfu
+data/hexagrams.json             @keevingfu
+data/canonical-texts.json       @keevingfu
+data/yao-texts.json             @keevingfu
+data/sources.json               @keevingfu
+schemas/**                      @keevingfu
+
+# ─── Agent / Skill 骨架 ─────────────────────────────────
+.claude/agents/**               @keevingfu
+.claude/skills/**               @keevingfu
+
+# ─── CI / 发包流程 ────────────────────────────────────
+.github/workflows/**            @keevingfu
+scripts/autopilot.py            @keevingfu
+scripts/prepack.sh              @keevingfu
+pyproject.toml                  @keevingfu

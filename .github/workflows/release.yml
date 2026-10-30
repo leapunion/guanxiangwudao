@@ -1,0 +1,121 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "已存在的 tag 名（如 v0.2.1）；留空则按本次 workflow_dispatch 当前 ref 走"
+        required: false
+        default: ""
+
+jobs:
+  build-and-release:
+    name: build wheel + GitHub release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install build + runtime deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install build
+          pip install -e ".[dev]"
+
+      - name: Smoke test (pytest + validate)
+        run: |
+          pytest -q
+          gxwd validate binary --all
+
+      - name: Prepack bundled data
+        run: ./scripts/prepack.sh
+
+      - name: Build wheel + sdist
+        run: python -m build
+
+      - name: Verify dist contents
+        run: |
+          ls -lh dist/
+          python -c "
+          import zipfile, sys
+          for whl in __import__('pathlib').Path('dist').glob('*.whl'):
+              with zipfile.ZipFile(whl) as z:
+                  names = z.namelist()
+                  assert any('_bundled/data/hexagrams.json' in n for n in names), 'wheel 缺少 bundled hexagrams.json'
+                  assert any('_bundled/data/canonical-texts.json' in n for n in names), 'wheel 缺少 bundled canonical-texts.json'
+                  svgs = [n for n in names if '_bundled/assets/hexagram-svg/' in n and n.endswith('.svg')]
+                  assert len(svgs) == 64, f'wheel 缺少 64 卦符 SVG，实际 {len(svgs)}'
+                  print(f'{whl.name}: OK（bundled data + {len(svgs)} SVG）')
+          "
+
+      - name: Determine tag name
+        id: tag
+        env:
+          INPUT_TAG: ${{ github.event.inputs.tag }}
+        run: |
+          if [ -n "$INPUT_TAG" ]; then
+            echo "name=$INPUT_TAG" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Extract CHANGELOG section for this version
+        id: changelog
+        run: |
+          TAG="${{ steps.tag.outputs.name }}"
+          VERSION="${TAG#v}"
+          BODY_FILE="$(mktemp)"
+          python <<PY > "$BODY_FILE"
+          import pathlib, re, sys
+          text = pathlib.Path("CHANGELOG.md").read_text(encoding="utf-8") if pathlib.Path("CHANGELOG.md").exists() else ""
+          m = re.search(r"^## \[?${VERSION}\]?.*?$(.*?)(?=^## |\Z)".replace("${VERSION}", "$VERSION"), text, re.MULTILINE | re.DOTALL)
+          print(m.group(1).strip() if m else "")
+          PY
+          if [ -s "$BODY_FILE" ]; then
+            echo "has_body=true" >> "$GITHUB_OUTPUT"
+            echo "body_file=$BODY_FILE" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_body=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ steps.tag.outputs.name }}"
+          if gh release view "$TAG" --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            echo "Release $TAG 已存在，上传产物到现有 release"
+            gh release upload "$TAG" dist/*.whl dist/*.tar.gz --clobber --repo "${{ github.repository }}"
+          else
+            if [ "${{ steps.changelog.outputs.has_body }}" = "true" ]; then
+              gh release create "$TAG" \
+                --repo "${{ github.repository }}" \
+                --title "$TAG" \
+                --notes-file "${{ steps.changelog.outputs.body_file }}" \
+                dist/*.whl dist/*.tar.gz
+            else
+              gh release create "$TAG" \
+                --repo "${{ github.repository }}" \
+                --title "$TAG" \
+                --generate-notes \
+                dist/*.whl dist/*.tar.gz
+            fi
+          fi
+
+      - name: Upload dist artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: gxwd-release-${{ steps.tag.outputs.name }}
+          path: dist/
+          retention-days: 90
