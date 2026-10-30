@@ -1,6 +1,6 @@
 [project]
 name = "gxwd"
-version = "0.2.0"
+version = "0.3.0"
 description = "观象悟道 — 易经六十四卦结构化主数据、SVG 卦符与 CLI 工具"
 readme = "README.md"
 requires-python = ">=3.12"
