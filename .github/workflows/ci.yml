@@ -83,7 +83,7 @@ jobs:
           ls -lh /tmp/smoke-web.html
 
       - name: Upload dist artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: gxwd-dist-${{ github.sha }}
           path: dist/
