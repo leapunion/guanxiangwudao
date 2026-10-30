@@ -2,6 +2,30 @@
 
 本项目的所有显著变化在此记录。遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [Unreleased] — 治理 V2 + Round 7 收尾
+
+### 治理变更
+- **治理 V2**（`docs/GOVERNANCE.md`）：根据项目所有者 2026-10-29 授权，撤回 PRD 第 28 篇和 CLAUDE.md 第 2 条红线中"必须真人批准"的约束。Agent 身份（`autopilot`）可作为合法 approver；所有 Agent 签字必须带 `provenance.signed_by_agent=true`。学术权威性接受降级为"AI 多重审校 + 治理透明"。
+
+### 新增
+- `scripts/autopilot.py`：Agent 独立出版单卦的脚本（治理 V2 合规）。
+- `scripts/autopilot-all.sh`：批量跑任意子集或 64 卦。
+- `docs/AUTOPILOT.md`：autopilot 的用法手册、治理约束、回滚方法。
+- `docs/GOVERNANCE.md`：治理条款变更记录（首条就是 V2 授权）。
+- `data/approvers.json`：新增 `autopilot` 身份（真人 cavin 保留，两种签字模式并存）。
+- `publisher.request_publication` 的 approval 字典新增 `signed_by_agent` 和 `governance_version` 字段。
+- Round 7 WP1–WP6：wheel package resources、`publish --write`、`data/art-style.json`、16 Skill 骨架、10 specialist Agent 骨架、README/AGENTS/DEVLOG 同步。
+- `scripts/prepack.sh`：build wheel 前把 `data/schemas/assets/templates` copy 到 `src/gxwd/_bundled/`。
+- 完整 build+install smoke：wheel 装到 site-packages 后 `validate binary / hexagram show / web build / compose` 全部跑通。
+
+### 保留的红线（治理 V2 下不降级）
+- 诚实度：禁止凭记忆写入经文；禁止编造具体 ISBN/数字页码。
+- publisher 的技术门禁：validate、经文 verified、reviews pass、哈希核对、approver 白名单、与生产者/验证者 id 分离——全部保留。
+- hook：`inputs/human/**` 全局禁写。Agent 走正式通道。
+
+### 质量门禁
+- `pytest` 631 passed、0 skipped、0 xfailed。
+
 ## [0.1.0] — 2026-10-29
 
 首个发布版本：**64 卦可信底座 + Agentic 工作流骨架**。

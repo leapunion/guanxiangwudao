@@ -61,10 +61,21 @@ def _write_json(path: Path, doc: dict) -> None:
     path.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def run(hex_id: int, slug: str) -> int:
+def run(hex_id: int, slug: str, dry_run: bool = False) -> int:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     proj = REPO / "projects" / f"{hex_id:02d}-{slug}"
     hexagram = domain.get_hexagram(hex_id, DATA)
+
+    if dry_run:
+        banner("dry-run", f"模拟执行：第 {hex_id} 卦 {hexagram['name']}（slug={slug}）")
+        candidate = proj / "research" / "candidate-text-from-ching.json"
+        print(f"  候选经文稿: {'✓' if candidate.exists() else '✗'} {candidate}")
+        print(f"  当前状态: {catalog.load_catalog(DATA / 'asset-catalog.json')['records'][hex_id - 1].get('state')}")
+        print(f"  approvers.autopilot: {'✓' if 'autopilot' in [a['id'] for a in json.loads((DATA / 'approvers.json').read_text(encoding='utf-8'))['approvers']] else '✗'}")
+        print(f"  canonical-texts.json 存在: {'✓' if (DATA / 'canonical-texts.json').exists() else '否（将首次创建）'}")
+        print(f"  Agent 身份：researcher={AGENT_RESEARCHER['id']} / verifier={AGENT_VERIFIER['id']} / approver={AUTOPILOT_ID}")
+        print(f"  治理版本：V2（见 docs/GOVERNANCE.md）")
+        return 0
 
     # ── 1. L0 经文从 Ching 候选稿转进 data/canonical-texts.json ───────────
     banner("1", f"L0 L0 文字从 Ching 通解审校稿转入（provenance.signed_by_agent=true）")
@@ -198,8 +209,10 @@ def run(hex_id: int, slug: str) -> int:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("用法: python scripts/autopilot.py <hexagram_id> <slug>", file=sys.stderr)
-        print("例:   python scripts/autopilot.py 37 jiaren", file=sys.stderr)
-        sys.exit(2)
-    sys.exit(run(int(sys.argv[1]), sys.argv[2]))
+    import argparse
+    p = argparse.ArgumentParser(description="Agent 独立出版单卦（治理 V2）")
+    p.add_argument("hexagram_id", type=int)
+    p.add_argument("slug", type=str)
+    p.add_argument("--dry-run", action="store_true", help="只模拟，不改任何文件")
+    args = p.parse_args()
+    sys.exit(run(args.hexagram_id, args.slug, dry_run=args.dry_run))
