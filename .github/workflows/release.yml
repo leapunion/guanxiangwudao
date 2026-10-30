@@ -117,6 +117,29 @@ jobs:
             fi
           fi
 
+      - name: Check PyPI token presence
+        id: pypi_check
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          if [ -n "$PYPI_TOKEN" ]; then
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+            echo "PYPI_API_TOKEN 存在，将执行 PyPI 发布"
+          else
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+            echo "未设置 PYPI_API_TOKEN，跳过 PyPI 发布"
+            echo "启用方式：Settings → Secrets and variables → Actions → New secret"
+            echo "名称: PYPI_API_TOKEN，值: pypi-... （在 https://pypi.org/manage/account/token/ 生成）"
+          fi
+
+      - name: Publish to PyPI
+        if: steps.pypi_check.outputs.has_token == 'true'
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          skip-existing: true
+          verbose: true
+
       - name: Upload dist artifacts
         uses: actions/upload-artifact@v4
         with:

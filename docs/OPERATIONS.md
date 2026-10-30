@@ -173,7 +173,29 @@ gh issue list --repo leapunion/guanxiangwudao --json title,labels | \
 
 ---
 
-## 九、扩展方向落地建议
+## 九、激活 PyPI 自动发布（可选）
+
+`release.yml` 已经写好 PyPI 发布 step，但默认 skip（没 token 时静默跳过）。
+启用步骤：
+
+1. 到 https://pypi.org/manage/account/token/ 生成 token
+   - Scope 建议选 "Project: gxwd"（第一次发包前只能选全局 scope，发包后可以收紧）
+2. 到 https://github.com/leapunion/guanxiangwudao/settings/secrets/actions 添加 Secret
+   - Name: `PYPI_API_TOKEN`
+   - Value: `pypi-...` 粘贴 token
+3. 下次打 tag `v0.2.1` 并 push 时，release.yml 自动 twine upload 到 PyPI
+
+**首次发包前请先核对**：
+- `pyproject.toml` 的 `name = "gxwd"` 在 PyPI 上没被占用（搜 https://pypi.org/project/gxwd/ 404 为佳）
+- 已有 `v0.2.0` 的 release 不会被重复上传（action 设置了 `skip-existing: true`）
+
+**撤回选项**：
+- 删 Secret 即可停用，不影响其他 release 流程
+- 已发布的 PyPI 版本一旦上传不可删（PyPI 政策），只能 yank（标记为不推荐）
+
+---
+
+## 十、扩展方向落地建议
 
 见 `FINAL-DELIVERABLES.md` §六 的 A/B/C/D/E。落地到 Issue：
 - 用 `feature_request.yml` 模板的 "延展方向" 下拉选择 A-E
