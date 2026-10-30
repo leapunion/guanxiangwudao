@@ -90,7 +90,7 @@ def _cmd_init(args: argparse.Namespace) -> int:
     return 0
 
 
-def _cmd_status(_: argparse.Namespace) -> int:
+def _cmd_status(args: argparse.Namespace) -> int:
     from gxwd.catalog import load_catalog, summarize, validate_catalog
 
     path = _data_dir() / "asset-catalog.json"
@@ -100,13 +100,31 @@ def _cmd_status(_: argparse.Namespace) -> int:
     catalog = load_catalog(path)
     errors = validate_catalog(catalog)
     if errors:
-        for e in errors:
-            _err(f"卦 {e['hexagram_id']} [{e['rule']}] {e['detail']}")
+        if getattr(args, "json", False):
+            print(json.dumps({"valid": False, "errors": errors}, ensure_ascii=False, indent=2))
+        else:
+            for e in errors:
+                _err(f"卦 {e['hexagram_id']} [{e['rule']}] {e['detail']}")
         return 1
     counts = summarize(catalog)
+    agent_signed = sum(
+        1 for r in catalog["records"]
+        if (r.get("approval") or {}).get("signed_by_agent")
+    )
+    human_signed = counts["PUBLISHED"] - agent_signed
+    if getattr(args, "json", False):
+        print(json.dumps({
+            "valid": True,
+            "counts": counts,
+            "published": counts["PUBLISHED"],
+            "agent_signed": agent_signed,
+            "human_signed": human_signed,
+            "total": 64,
+        }, ensure_ascii=False, indent=2))
+        return 0
     for state, count in counts.items():
         print(f"{state}: {count}")
-    print(f"已发布 {counts['PUBLISHED']}/64")
+    print(f"已发布 {counts['PUBLISHED']}/64（真人 {human_signed} / Agent {agent_signed}）")
     return 0
 
 
@@ -393,7 +411,9 @@ def build_parser() -> argparse.ArgumentParser:
     init.add_argument("--force", action="store_true", help="覆盖已存在文件")
     init.set_defaults(func=_cmd_init)
 
-    sub.add_parser("status", help="登记册状态汇总").set_defaults(func=_cmd_status)
+    status = sub.add_parser("status", help="登记册状态汇总")
+    status.add_argument("--json", action="store_true", help="输出结构化 JSON（含 Agent/真人签字区分）")
+    status.set_defaults(func=_cmd_status)
 
     hexagram = sub.add_parser("hexagram", help="卦主数据")
     show = hexagram.add_subparsers(dest="hexagram_cmd", required=True).add_parser(

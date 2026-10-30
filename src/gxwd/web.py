@@ -91,6 +91,20 @@ def collect_bundle(repo_root: Path | None = None) -> dict:
     repo = Path(repo_root) if repo_root is not None else _DEFAULT_REPO
     style_map, style_labels, style_colors = _load_style(repo)
     hexagrams = json.loads((repo / "data" / "hexagrams.json").read_text(encoding="utf-8"))
+    # 读 catalog 的 PUBLISHED 状态 + Agent 签字标记（治理 V2）
+    cat_path = repo / "data" / "asset-catalog.json"
+    publish_info: dict[int, dict] = {}
+    if cat_path.exists():
+        cat = json.loads(cat_path.read_text(encoding="utf-8"))
+        for r in cat.get("records", []):
+            approval = r.get("approval") or {}
+            publish_info[r["hexagram_id"]] = {
+                "state": r.get("state"),
+                "signed_by_agent": approval.get("signed_by_agent", False),
+                "approver_id": approval.get("approved_by"),
+                "release_version": r.get("release_version"),
+                "governance_version": approval.get("governance_version"),
+            }
     items: list[dict] = []
     for h in hexagrams:
         hid, slug = h["hexagram_id"], h["slug"]
@@ -104,6 +118,10 @@ def collect_bundle(repo_root: Path | None = None) -> dict:
             "style_code": style_code,
             "style_label": style_labels.get(style_code, _FALLBACK_STYLE_LABEL[style_code]),
             "svg": _read_optional_text(repo / "assets" / "hexagram-svg" / f"{hid:02d}-{slug}.svg"),
+            "publish_state": publish_info.get(hid, {}).get("state", "DRAFT"),
+            "signed_by_agent": publish_info.get(hid, {}).get("signed_by_agent", False),
+            "approver_id": publish_info.get(hid, {}).get("approver_id"),
+            "release_version": publish_info.get(hid, {}).get("release_version"),
             "g1_result": (g1 or {}).get("result"),
             "candidate_entries": (cand or {}).get("entries", []),
             "candidate_source": ((cand or {}).get("provenance") or {}).get("source_file"),
@@ -503,6 +521,11 @@ function renderDetail(h) {
     : h.g1_result === "fail"
     ? `<span class="badge cinnabar">G1 fail</span>`
     : `<span class="badge ochre">G1 —</span>`;
+  const publishBadge = h.publish_state === "PUBLISHED"
+    ? (h.signed_by_agent
+        ? `<span class="badge ochre" title="治理 V2 · Agent approver=${escapeHtml(h.approver_id || "")}">PUBLISHED · Agent-signed · ${escapeHtml(h.release_version || "")}</span>`
+        : `<span class="badge" title="真人 approver=${escapeHtml(h.approver_id || "")}">PUBLISHED · 真人签字 · ${escapeHtml(h.release_version || "")}</span>`)
+    : `<span class="badge ochre" style="opacity:0.5">${escapeHtml(h.publish_state || "DRAFT")}</span>`;
 
   detail.innerHTML = `
     <div class="detail">
@@ -518,6 +541,7 @@ function renderDetail(h) {
       <div style="margin: 10px 0;">
         <span class="badge" style="background:${DATA.style_colors[h.style_code]}">${h.style_code} ${h.style_label}</span>
         ${g1Badge}
+        ${publishBadge}
       </div>
       <div class="section-title">候选经文（来自 Ching · 通行本）</div>
       <div class="candidate-note">
@@ -571,7 +595,10 @@ function renderFooter() {
   const total = DATA.hexagrams.length;
   const g1pass = DATA.hexagrams.filter(h => h.g1_result === "pass").length;
   const candidates = DATA.hexagrams.filter(h => h.candidate_entries.length > 0).length;
-  footer.innerHTML = `${total} 卦 · G1 通过 ${g1pass}/${total} · 候选经文 ${candidates}/${total} · 本页面为只读查看器，不修改任何数据`;
+  const published = DATA.hexagrams.filter(h => h.publish_state === "PUBLISHED").length;
+  const agentSigned = DATA.hexagrams.filter(h => h.signed_by_agent).length;
+  const humanSigned = published - agentSigned;
+  footer.innerHTML = `${total} 卦 · G1 通过 ${g1pass}/${total} · 候选经文 ${candidates}/${total} · 已发布 ${published}/${total}（真人 ${humanSigned} / Agent ${agentSigned}）· 本页面为只读查看器，不修改任何数据`;
 }
 
 renderFilters();
