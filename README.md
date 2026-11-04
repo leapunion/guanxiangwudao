@@ -24,12 +24,18 @@
 
 ### 🛠 我是开发者，想用
 
-**从 Release 下 wheel 装**（当前方式，PyPI 发布待激活——见 [OPERATIONS.md §九](docs/OPERATIONS.md#九激活-pypi-自动发布可选)）：
+**三种安装方式**（PyPI 发布待激活——见 [OPERATIONS.md §九](docs/OPERATIONS.md#九激活-pypi-自动发布可选)）：
 
 ```bash
-# 从最新 release 下载 wheel 并装到当前环境
-gh release download v0.3.0 --repo leapunion/guanxiangwudao --pattern '*.whl'
-pip install gxwd-*.whl
+# 方式 A · 直接 pip install wheel URL（零额外工具，最简单）
+pip install https://github.com/leapunion/guanxiangwudao/releases/download/v0.3.0/gxwd-0.3.0-py3-none-any.whl
+
+# 方式 B · 走项目自建的 PEP 503 兼容索引（和 pip install gxwd 体验最接近）
+pip install --index-url https://leapunion.github.io/guanxiangwudao/simple/ gxwd
+
+# 方式 C · 从 git tag 装（会本地源码构建，稍慢）
+pip install git+https://github.com/leapunion/guanxiangwudao.git@v0.3.0
+
 gxwd --help
 ```
 
