@@ -2,6 +2,60 @@
 
 本项目的所有显著变化在此记录。遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.4.0] — 2026-11-04 · H37 真人签字 pilot · human_signed 从 0 变 1
+
+### 里程碑
+- **治理 V2 下真人路径的首次端到端实证**：cavin 以真人身份审阅 H37
+  家人的 15 条 L0 经文并签字，`gxwd status --json` 的 `human_signed`
+  从 0 变 1。H37 `release_version` 从 v1 升到 v2，`approval.signed_by_agent=false`
+
+### 新增
+- `data/approvers.json` schema 新增 required 字段 `type`（enum: human/agent）；
+  cavin.type=human, autopilot.type=agent
+- `docs/OPERATIONS.md` §五 新增"路径 4 · 换 approver 重签"（不改经文
+  或艺术的 re-publish 场景，支持 Agent↔真人身份切换）
+- `src/gxwd/workflow.py` `TRANSITIONS` 加一条新 edge：`PUBLISHED →
+  REVIEW_REQUIRED`，支持已发布作品要求重审（不限于修订）
+
+### 变更
+- **publisher.py 判定 signed_by_agent 的方式**：从脆弱的 notes 子串匹配
+  （`"agent" in approver_notes.lower()` 会误把 cavin 的 notes 里的
+  "signed_by_agent=false" 子串命中）改成读 approvers.json 的 `type`
+  字段。缺 type 字段直接抛 PublicationError
+
+### 修复
+- 修复 cavin 作为 approver 时被错误标为 agent 的 bug（pilot 过程中发现）
+
+### Breaking Change · 升级指引
+- `data/approvers.json` 必须给每个 approver 加 `type: "human"` 或
+  `type: "agent"` 字段；本仓库已同步更新。Fork 本项目的人升级 v0.4.0
+  时务必先改自己的 approvers.json，否则 publisher 会抛错
+
+### 诚实边界（H37 pilot 的 L0 层）
+- 本次 pilot 的 15 条 L0 经文**未做独立外部核对**（ctext.org 对 bot 返
+  403，没有阮刻影印 PDF）
+- canonical-texts.json 的 15 条 page 字段加 cavin 审阅痕迹 + 显式标注
+  "Ching R67 文本，无独立外部对比"
+- approval 层面是真人审阅 + 签字（PR review 模式），**不是** L0 逐字
+  实物核对；未来获得阮刻实物后另升 release v3
+
+### 保留的红线
+- 诚实度：禁止凭记忆写入经文；禁止编造 ISBN / 页码
+- publisher 5 道硬检查保留，本版本加强（从 notes 子串升级到 type 字段）
+- hook `inputs/human/**` 全局禁写保留
+
+### 质量门禁
+- `pytest` 631 passed
+- `gxwd validate binary --all` 64/64
+- `gxwd status --json`: valid=true, PUBLISHED=64, agent_signed=63, human_signed=1
+
+### 回滚
+- 本版本回滚需要：H37 catalog state 回 v1（autopilot 签字）、approvers.json
+  删 type 字段、publisher.py 恢复 notes 匹配。但从诚实度看不建议回滚
+  （结构化 type 字段比 notes 匹配更可维护）
+
+---
+
 ## [0.3.0] — 2026-10-30 · 项目激活「运作」· 公开 + PyPI 自动发布
 
 ### 运作激活
