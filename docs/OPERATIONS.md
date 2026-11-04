@@ -144,7 +144,7 @@ NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 ```
 
 **pilot 证据**：H37 家人 2026-11-03 走过一次这个路径，`release_version`
-从 v1 升到 v2，`human_signed` 从 0 变 1。见 PR #16 和 CHANGELOG `[0.3.1]`。
+从 v1 升到 v2，`human_signed` 从 0 变 1。见 PR #16 和 CHANGELOG `[0.4.0]`。
 
 > **技术约束**：workflow 从 v0.3.1 起允许 `PUBLISHED → REVIEW_REQUIRED`
 > 这条 transition edge，`REVIEW_REQUIRED → PUBLISHED` 一直合法。所以
