@@ -11,7 +11,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "role"],
+        "required": ["id", "name", "role", "type"],
         "additionalProperties": false,
         "properties": {
           "id": {
@@ -29,6 +29,11 @@
             "type": "string",
             "enum": ["国学主编", "艺术主编", "出版主编", "总主编"],
             "description": "审批角色；对应 PRD 第 28 篇的三层终审"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["human", "agent"],
+            "description": "审批人身份类型。决定 publisher 签字时 approval.signed_by_agent 字段的值：human → false，agent → true。取代之前基于 notes 字符串子串匹配的脆弱判定。"
           },
           "email": {
             "type": "string",
