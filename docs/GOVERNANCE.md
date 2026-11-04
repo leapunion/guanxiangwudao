@@ -2,6 +2,42 @@
 
 > 本文件专门记录项目**治理红线**的变更。所有修改都要带授权来源、日期和影响范围。
 
+## 2026-11-04 · 治理 V3：选定图像模型 FLUX.1 schnell（art-style.md 第 10 条红线解禁）
+
+**授权来源**：项目所有者 cavin 在 [Issue #20](https://github.com/leapunion/guanxiangwudao/issues/20) 中明确回复 "approve V3"（2026-11-04）。
+
+**依据**：[RFC #001 图像模型选型](rfc/001-art-model-selection.md)。12 候选对比后选 FLUX.1 schnell via MFLUX，核心理由——唯一同时满足 (a) Apache 2.0 无限制商用 (b) Mac Apple Silicon 本地可跑 (c) 零 API 成本 (d) shuimo 风格可用 四条硬约束。
+
+### 变更
+
+| # | 位置 | 原文 | 修订为 | 性质 |
+|---|---|---|---|---|
+| 1 | `.claude/rules/art-style.md` 第 12 行 | 本轮未选定图像模型 | 本轮选定 **FLUX.1 schnell via MFLUX**（Apache 2.0，可商用；依据 RFC #001）。生成参数必须记入 `projects/*/art/provenance.json`。对外必须诚实标注"AI 生成艺术" | 解禁 + 补 provenance 要求 |
+
+### 保留的红线（V3 下不降级）
+
+- `art-style.md` 第 8 行"图像模型不得绘制汉字、卦符或印章" **保留**。三层合成器的 Layer 2 卦符 SVG + Layer 3 文字印章继续由程序生成，不走图像模型
+- `classics.md` 全部红线 **保留**（经文诚实度）
+- `publication.md` 全部红线 **保留**（publisher 硬检查）
+- `art-style.md` 五色 palette + 留白 35-45% + 卦象结构精确 **保留**
+- 治理 V2 下 Agent 签字条款 **保留**（agent_signed 作品继续合规）
+
+### cavin 接受的代价
+
+- **图像来源权威性**：生成图是 AI 艺术，不是传统名家真迹。对外文案必须诚实标注，不可冒充
+- **汉字幻觉风险**：FLUX 家族对汉字有生成幻觉（RFC §9 已记录）。缓解：prompt 加 `no text / no characters / no seals` + composer 的 Layer 2/3 叠加自然遮盖
+- **艺术水准**：schnell 对 shuimo 的 native 理解有限。首轮 POC 质量可能粗糙；cavin 对 POC 满意后才铺开 64 卦
+- **可复现性要求**：所有 provenance 必须记 (model, prompt, seed, steps, quantization)；同 seed 应产出同图
+
+### 回滚方法
+
+- 删 `projects/*/art/master.png` 替换为 1×1 占位 PNG（保留文件路径，只改内容）
+- `art-style.md` 第 12 条还原为"本轮未选定图像模型"
+- 本文件不删 V3 条目（保追溯），追加一条 "YYYY-MM-DD · 治理 V3 回滚：原因 XXX"
+- 已 PUBLISHED 作品 `release_version` 升级到 vN+1，approval 的 canonical_text_version 和 review_hashes 不变（只是画作换占位）
+
+---
+
 ## 2026-10-29 · 治理 V2：Agent 可独立完成出版（学术权威性接受降级）
 
 **授权来源**：项目所有者 cavin（git author）在对话中明确表述：
