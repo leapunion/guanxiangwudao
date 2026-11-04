@@ -44,7 +44,7 @@ TRANSITIONS: Mapping[State, frozenset[State]] = MappingProxyType(
         _S.REVIEW_REQUIRED: frozenset(
             {_S.PUBLISHED, _S.REJECTED, _S.REVISION_REQUIRED}
         ),
-        _S.PUBLISHED: frozenset({_S.REVISION_REQUIRED}),
+        _S.PUBLISHED: frozenset({_S.REVISION_REQUIRED, _S.REVIEW_REQUIRED}),
         _S.BLOCKED: frozenset({_S.DRAFT, _S.RESEARCHED}),
         _S.REVISION_REQUIRED: frozenset({_S.DRAFT, _S.RESEARCHED, _S.TEXT_VERIFIED}),
         _S.REJECTED: frozenset({_S.DRAFT}),

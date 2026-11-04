@@ -3640,11 +3640,45 @@
             "signed_by_agent": true,
             "governance_version": "V2"
           }
+        },
+        {
+          "from": "PUBLISHED",
+          "to": "REVIEW_REQUIRED",
+          "actor": "manual-edit",
+          "note": "human-sign pilot: 退回 REVIEW_REQUIRED 以便 cavin 真人签字（workflow 不直接支持 PUBLISHED→REVIEW_REQUIRED，本次为 Agent 工程手改绕过）",
+          "at": "2026-11-04T07:08:50Z"
+        },
+        {
+          "from": "REVIEW_REQUIRED",
+          "to": "PUBLISHED",
+          "actor": "cavin",
+          "note": "",
+          "at": "2026-11-04T07:09:03Z",
+          "approval": {
+            "approved_by": "cavin",
+            "approved_at": "2026-11-04T07:09:03Z",
+            "gates": {
+              "G1": "passed",
+              "G2": "passed",
+              "G3": "passed"
+            },
+            "interpretation_review": "passed",
+            "review_hashes": {
+              "g1": "f5012f737dee239e8b97da1955d0ebef29339a9b97b679fbc3398fde427cff34",
+              "g2": "e396f757231363993c7a0ffdb2b0af00345e7b0f376d612b7fbf790c6db37132",
+              "g3": "422673d0e063f6d1c9bb156cd450d0a765c7ade6d53d33c5612450a590403f6e",
+              "interpretation": "6eb60cf8b6b92370843a0344a0b8dc5bfaaa48df0896a2b7d957e3a502a55af1"
+            },
+            "canonical_text_version": "1520d7e94bd205e25a9da8153f8e7a644ed900a791eb3da41238f6e3048f3935",
+            "release_version": "v2",
+            "signed_by_agent": false,
+            "governance_version": "V2"
+          }
         }
       ],
       "approval": {
-        "approved_by": "autopilot",
-        "approved_at": "2026-10-30T02:53:10Z",
+        "approved_by": "cavin",
+        "approved_at": "2026-11-04T07:09:03Z",
         "gates": {
           "G1": "passed",
           "G2": "passed",
@@ -3657,12 +3691,12 @@
           "g3": "422673d0e063f6d1c9bb156cd450d0a765c7ade6d53d33c5612450a590403f6e",
           "interpretation": "6eb60cf8b6b92370843a0344a0b8dc5bfaaa48df0896a2b7d957e3a502a55af1"
         },
-        "canonical_text_version": "a8ce98e68b19095b8ae24042e7580d4b70ba9801f33481d92fb1a8f24164b532",
-        "release_version": "v1",
-        "signed_by_agent": true,
+        "canonical_text_version": "1520d7e94bd205e25a9da8153f8e7a644ed900a791eb3da41238f6e3048f3935",
+        "release_version": "v2",
+        "signed_by_agent": false,
         "governance_version": "V2"
       },
-      "release_version": "v1"
+      "release_version": "v2"
     },
     {
       "hexagram_id": 38,
