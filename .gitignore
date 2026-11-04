@@ -16,3 +16,7 @@ src/gxwd/_bundled/
 # 不入主以保持 .claude/skills/ 为单一真相源。
 # 以后若决定支持 Codex，再去掉这条规则 + 配 claude-md-agents-mirror-sync。
 .agents/
+
+# 临时工作区（校勘清单、POC 生成的图、hello world 等）
+# 不入 git：图可能大、清单是中间草稿、POC 输出要先过 Governance V3 批准才能正式入 projects/
+scratchpad/
