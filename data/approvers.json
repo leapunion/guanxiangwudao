@@ -6,7 +6,7 @@
       "role": "总主编",
       "email": "cavinfu007@gmail.com",
       "added_at": "2026-10-29",
-      "notes": "项目所有者（git author）。真人 approver。签字的作品 provenance.signed_by_agent=false。"
+      "notes": "项目所有者（git author）。真人审批人。本人签字的作品 provenance 相应字段为 false（即非 AI 签字）。"
     },
     {
       "id": "autopilot",
