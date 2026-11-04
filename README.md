@@ -31,7 +31,9 @@
 pip install https://github.com/leapunion/guanxiangwudao/releases/download/v0.3.0/gxwd-0.3.0-py3-none-any.whl
 
 # 方式 B · 走项目自建的 PEP 503 兼容索引（和 pip install gxwd 体验最接近）
-pip install --index-url https://leapunion.github.io/guanxiangwudao/simple/ gxwd
+# 注意是 --extra-index-url，不是 --index-url；本索引只有 gxwd，
+# 依赖 jsonschema 等还要从 PyPI 装。
+pip install --extra-index-url https://leapunion.github.io/guanxiangwudao/simple/ gxwd
 
 # 方式 C · 从 git tag 装（会本地源码构建，稍慢）
 pip install git+https://github.com/leapunion/guanxiangwudao.git@v0.3.0
