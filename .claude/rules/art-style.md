@@ -9,6 +9,6 @@
 - 不得颠倒上下卦关系却仍宣称为原卦象；自然景物可艺术化，卦符结构必须精确。
 - 避免现代物品、错误的历史服饰、建筑、器物与场景。
 - 艺术 Agent 不得修改经文、卦序和编码，且只读已审定的卦义。
-- 主图须保存模型、prompt、参数、版本；本轮未选定图像模型。
+- 主图须保存模型、prompt、参数、版本；**本轮选定 FLUX.1 schnell via MFLUX**（Apache 2.0，可商用；治理 V3 决议，依据 [RFC #001](../../docs/rfc/001-art-model-selection.md)）。生成参数（model / steps / seed / quantization / prompt）必须完整记入 `projects/<id>-<slug>/art/provenance.json`。对外必须诚实标注"AI 生成艺术"，不冒充真人画家作品。
 - 印文须原创且经人工确认；字体与书法授权须确认。
 - 画面评分再高，卦象错误也须退回；卦象再准，构图呆板也不得出版。
