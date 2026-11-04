@@ -6,7 +6,7 @@
 [![CI](https://github.com/leapunion/guanxiangwudao/actions/workflows/ci.yml/badge.svg)](https://github.com/leapunion/guanxiangwudao/actions/workflows/ci.yml)
 [![Deploy GH Pages](https://github.com/leapunion/guanxiangwudao/actions/workflows/pages.yml/badge.svg)](https://github.com/leapunion/guanxiangwudao/actions/workflows/pages.yml)
 [![Release](https://img.shields.io/github/v/release/leapunion/guanxiangwudao)](https://github.com/leapunion/guanxiangwudao/releases)
-[![PyPI](https://img.shields.io/pypi/v/gxwd?label=PyPI&color=547A83)](https://pypi.org/project/gxwd/)
+[![PyPI](https://img.shields.io/badge/PyPI-pending-B58C69)](docs/OPERATIONS.md#九激活-pypi-自动发布可选)
 [![License: MIT](https://img.shields.io/badge/License-MIT-A2B4A1.svg)](LICENSE)
 
 **🌏 公开查看器：https://leapunion.github.io/guanxiangwudao/**
@@ -24,10 +24,12 @@
 
 ### 🛠 我是开发者，想用
 
-**从 PyPI 装**（最简单，等 PYPI_API_TOKEN Secret 配好后自动发布）：
+**从 Release 下 wheel 装**（当前方式，PyPI 发布待激活——见 [OPERATIONS.md §九](docs/OPERATIONS.md#九激活-pypi-自动发布可选)）：
 
 ```bash
-pip install gxwd
+# 从最新 release 下载 wheel 并装到当前环境
+gh release download v0.3.0 --repo leapunion/guanxiangwudao --pattern '*.whl'
+pip install gxwd-*.whl
 gxwd --help
 ```
 
