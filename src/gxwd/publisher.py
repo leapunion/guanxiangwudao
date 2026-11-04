@@ -277,17 +277,19 @@ def request_publication(
     release_version = _next_release_version(record)
     # 治理 V2（见 docs/GOVERNANCE.md）：approver 可以是 Agent 身份；
     # Agent approver 在 approval 中带 signed_by_agent=true 的 provenance 标记。
+    # 判定依据 approvers.json 的 type 字段（human/agent），不再做 notes 子串匹配。
     approver_entry = next(
         (a for a in approvers_data.get("approvers", [])
          if isinstance(a, dict) and a.get("id") == approved_by),
         {},
     )
-    approver_notes = approver_entry.get("notes", "")
-    signed_by_agent = (
-        "autopilot" in approved_by.lower()
-        or "agent" in approver_notes.lower()
-        or "signed_by_agent=true" in approver_notes
-    )
+    approver_type = approver_entry.get("type")
+    if approver_type not in ("human", "agent"):
+        raise PublicationError(
+            f"approvers.json 中 id={approved_by!r} 缺少 type 字段"
+            f"（必须是 'human' 或 'agent'），实际: {approver_type!r}"
+        )
+    signed_by_agent = approver_type == "agent"
     approval: dict[str, Any] = {
         "approved_by": approved_by,
         "approved_at": approved_at,

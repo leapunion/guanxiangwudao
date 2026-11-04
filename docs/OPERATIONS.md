@@ -117,6 +117,40 @@ NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 读者的异议并不否定当前文本，只是提供另一个底本的异读：加到
 `variant_readings` 不替换 original_text，`release_version` 不升。
 
+**路径 4 — 换 approver 重签（不改经文也不改画）**
+
+场景：一卦当前是 Agent 签字（`signed_by_agent=true`），想升级为真人
+签字（例如 pilot 要让 `human_signed` 从 0 变 1）；或反之，真人签字作品
+在 approver 出走后要降级为 Agent 签字（治理 V2 下合规）。两种都不涉及
+L0 经文或艺术作品改动，只是换 approver 身份重新 publish 一次，
+`release_version` 从 vN 升到 vN+1。
+
+```bash
+# cavin 在本地：
+# 1. 手改 data/asset-catalog.json 该卦条目：
+#    - state: PUBLISHED → REVIEW_REQUIRED
+#    - history 加一条 {from: PUBLISHED, to: REVIEW_REQUIRED, actor: "manual-edit",
+#      note: "重签 pilot: 换 approver 身份", at: <iso8601>}
+# 2. 可选：在 data/canonical-texts.json 对应卦的 15 条 page 字段加一句
+#    "+ YYYY-MM-DD <approver> 审阅接受"，留下操作痕迹
+# 3. 跑 publisher 以新 approver 身份签字
+NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+.venv/bin/gxwd publish request <id> \
+  --approved-by cavin \
+  --approved-at "$NOW" \
+  --write
+# → approval.signed_by_agent 由 approvers.json 的 type 字段自动决定
+#   （cavin 是 human → false；autopilot 是 agent → true）
+```
+
+**pilot 证据**：H37 家人 2026-11-03 走过一次这个路径，`release_version`
+从 v1 升到 v2，`human_signed` 从 0 变 1。见 PR #16 和 CHANGELOG `[0.3.1]`。
+
+> **技术约束**：workflow 从 v0.3.1 起允许 `PUBLISHED → REVIEW_REQUIRED`
+> 这条 transition edge，`REVIEW_REQUIRED → PUBLISHED` 一直合法。所以
+> workflow 校验能通过，但没有 CLI 一键完成——手改 catalog state 是
+> 刻意设计的"人类操作痕迹"（和路径 2 的理由一致）。
+
 ---
 
 ## 六、生产节奏（谁触发新一轮）
@@ -133,7 +167,7 @@ autopilot 批量重出）。原因：
 
 | 事件 | 触发什么 |
 |---|---|
-| 读者提交 `classical-text` Issue | cavin 评估后走路径 1/2/3 |
+| 读者提交 `classical-text` Issue | cavin 评估后走路径 1/2/3/4 |
 | cavin 选定了底本 | 走路径 2，重出全部 64 卦 |
 | 艺术模型选定（art-style.md 解禁） | 全集 L3 重跑，1×1 占位 PNG 换成真实画作 |
 | 延展到论语/道德经等（方向 A） | 新建 `../guanxiang-wudao-lunyu/` 或新 top-level 目录 |

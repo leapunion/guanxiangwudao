@@ -132,7 +132,7 @@ def pub_env(tmp_path: Path):
         approvers_path,
         {
             "approvers": [
-                {"id": APPROVER_ID, "name": "总主编", "role": "chief_editor"},
+                {"id": APPROVER_ID, "name": "总主编", "role": "chief_editor", "type": "human"},
             ]
         },
     )
@@ -272,7 +272,7 @@ def test_approved_by_equals_verifier_raises(pub_env):
     # 把审批人加入 approvers，并让 verifier 也是该人
     approvers_data = json.loads(pub_env["approvers_path"].read_text("utf-8"))
     approvers_data["approvers"].append(
-        {"id": VERIFIER_ID, "name": "兼任主编", "role": "verifier"}
+        {"id": VERIFIER_ID, "name": "兼任主编", "role": "verifier", "type": "human"}
     )
     _write_json(pub_env["approvers_path"], approvers_data)
 
@@ -293,7 +293,7 @@ def test_approved_by_equals_producer_raises(pub_env):
     # 把 PRODUCER_ID 加入 approvers
     approvers_data = json.loads(pub_env["approvers_path"].read_text("utf-8"))
     approvers_data["approvers"].append(
-        {"id": PRODUCER_ID, "name": "研究员兼任", "role": "researcher"}
+        {"id": PRODUCER_ID, "name": "研究员兼任", "role": "researcher", "type": "human"}
     )
     _write_json(pub_env["approvers_path"], approvers_data)
 
